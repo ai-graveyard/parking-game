@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+
+# Local agent instructions and downloaded platform references
+.claude/
+.codex/
