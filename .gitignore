@@ -1,6 +1,26 @@
+# macOS / Windows
 .DS_Store
-*.log
+Thumbs.db
 
-# Local agent instructions and downloaded platform references
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local agent instructions and browser automation state
+.agents/
 .claude/
 .codex/
+.playwright-cli/
+
+# Generated output
+dist/
+node_modules/
+*.zip
+*.log
+
+# Local environment files
+.env
+.env.*
+!.env.example
