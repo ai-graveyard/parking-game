@@ -22,8 +22,12 @@
   const startStamp = document.querySelector("#startStamp");
   const startButtonLabel = document.querySelector("#startButtonLabel");
   const startRecord = document.querySelector("#startRecord");
+  const posterCard = document.querySelector(".poster-card");
+  const howTo = document.querySelector("#howTo");
+  const recordGrid = document.querySelector("#recordGrid");
   const modeButtons = [...document.querySelectorAll(".mode-option")];
   const difficultyButtons = [...document.querySelectorAll(".difficulty-option")];
+  const timerLabel = document.querySelector("#timerLabel");
   const resultOverlay = document.querySelector("#resultOverlay");
   const resultCard = document.querySelector("#resultCard");
   const resultKicker = document.querySelector("#resultKicker");
@@ -39,6 +43,10 @@
   const nextLevelTitle = document.querySelector("#nextLevelTitle");
   const nextLevelCopy = document.querySelector("#nextLevelCopy");
   const nextDifficultyButton = document.querySelector("#nextDifficultyButton");
+  const resultStarRule = document.querySelector("#resultStarRule");
+  const graduation = document.querySelector("#graduation");
+  const graduationTitle = document.querySelector("#graduationTitle");
+  const graduationCopy = document.querySelector("#graduationCopy");
   const startButton = document.querySelector("#startButton");
   const restartButton = document.querySelector("#restartButton");
   const restartButtonLabel = document.querySelector("#restartButtonLabel");
@@ -50,14 +58,17 @@
   const pauseRestartButton = document.querySelector("#pauseRestartButton");
   const pauseExitButton = document.querySelector("#pauseExitButton");
   const soundToggle = document.querySelector("#soundToggle");
-  const shareButton = document.querySelector("#shareButton");
-  const shareOverlay = document.querySelector("#shareOverlay");
-  const shareTitle = document.querySelector("#shareTitle");
-  const shareFrame = document.querySelector(".share-frame");
-  const shareImage = document.querySelector("#shareImage");
-  const shareCopyButton = document.querySelector("#shareCopyButton");
-  const shareCloseButton = document.querySelector("#shareCloseButton");
+  const shareXhsButton = document.querySelector("#shareXhsButton");
+  const shareXhsLabel = document.querySelector("#shareXhsLabel");
+  let lastShareDataUrl = "";
+  let shareBusy = false;
   const rotateOverlay = document.querySelector("#rotateOverlay");
+  const guideTip = document.querySelector("#guideTip");
+  const guideStepBadge = document.querySelector("#guideStepBadge");
+  const guideText = document.querySelector("#guideText");
+  const guideSkip = document.querySelector("#guideSkip");
+  const guideFinger = document.querySelector("#guideFinger");
+  const resultBeat = document.querySelector("#resultBeat");
 
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const lerp = (a, b, t) => a + (b - a) * t;
@@ -71,6 +82,9 @@
   const ALIGN_TOLERANCE = 0.24;
   const IMPACT_PENALTY = 2;
   const STORE_KEY = "parking-game.records.v1";
+  const SOUND_KEY = "parking-game.sound.v1";
+  const INTRO_KEY = "parking-game.intro.v1";
+  const DIFF_ORDER = ["easy", "hard", "hell"];
 
   const MODES = {
     reverse: {
@@ -97,20 +111,8 @@
         hell: { length: 1.6, width: 1.7 },
       },
     },
-    angled: {
-      key: "angled",
-      label: "斜列车位",
-      short: "斜列",
-      summary: "斜向切进去",
-      hint: "沿斜线切进车位，再停稳",
-      slots: {
-        easy: { length: 1.95, width: 2.4 },
-        hard: { length: 1.74, width: 2.06 },
-        hell: { length: 1.54, width: 1.84 },
-      },
-    },
   };
-  const MODE_ORDER = ["reverse", "parallel", "angled"];
+  const MODE_ORDER = ["reverse", "parallel"];
 
   const DIFFICULTIES = {
     easy: { key: "easy", label: "简单", time: 100, obstacles: 1, neighbors: 0, next: "hard", summary: "大车位 · 少路障" },
@@ -124,7 +126,7 @@
   let lastFrame = performance.now();
   let toastTimer = 0;
   let audioCtx = null;
-  let soundEnabled = true;
+  let soundEnabled = readSoundPref();
   let engineOsc = null;
   let engineGain = null;
   let tankOsc = null;
@@ -145,7 +147,13 @@
     steerPointer: null,
     steerPointerAngle: null,
     steerDragDegrees: 0,
+    steerReturnRate: 0,
   };
+
+  // 松手回正：角速度先加速爬升，进入 EASE_SPAN 后按 sqrt 收敛，做到匀减速停在中位
+  const STEER_RETURN_MAX_RATE = 1.3;
+  const STEER_RETURN_ACCEL = 3;
+  const STEER_RETURN_EASE_SPAN = 0.3;
 
   const game = {
     state: "ready",
@@ -171,6 +179,8 @@
     driveDirection: -1,
     park: { inside: false, aligned: false, stopped: false },
     lastRun: null,
+    guide: { active: false, step: 0, holdTimer: 0 },
+    successFx: 0,
   };
 
   /* ---------------- 随机数与几何 ---------------- */
@@ -320,25 +330,40 @@
     layout.travelLane = makeObb(W / 2, controlTop - carWidth * 0.95, W + 40, carWidth * 1.7, 0);
 
     const side = rng() < 0.5 ? -1 : 1;
-    const tilt = rng() < 0.5 ? -1 : 1;
     const spot = rng();
 
     layout.target = buildTarget(map.mode, layout, {
       side,
-      tilt,
       spot,
       slotLength: carLength * slotSpec.length,
       slotWidth: carWidth * slotSpec.width,
     });
     layout.parkedCars = buildNeighbors(map.mode, layout, { extra: level.neighbors, rng });
+    // 标线先于路障生成，随机路障才能避开这些画了线的格子
+    layout.decorBays = buildDecorBays(layout);
     layout.obstacles = buildObstacles(level.obstacles, layout, rng);
     layout.spawn = pickSpawn(layout, rng);
     layout.signX = layout.target.cx < W / 2 ? W * 0.86 : W * 0.14;
-    // 只给停着车的邻位画标线：空标线会让人以为能开进去，其实路肩是墙
-    layout.decorBays = layout.parkedCars
-      .filter((car) => car.inBay)
-      .map((car) => ({ cx: car.x, cy: car.y }));
+    finishCurb(layout);
     return layout;
+  }
+
+  // 跨过路肩线的车位（倒车入库的目标位和邻位）在路沿上留出真实开口：
+  // 碰撞放行、绘制画成下沉坡道，保证"看到豁口就能上、看到条纹就是墙"。
+  function finishCurb(layout) {
+    const curbY = layout.roadTop - 3;
+    layout.curbBays = [layout.target, ...layout.decorBays]
+      .filter((bay) => bay.cy - bay.hy < curbY);
+    const spans = layout.curbBays
+      .map((bay) => ({ x0: bay.cx - bay.hx, x1: bay.cx + bay.hx }))
+      .sort((a, b) => a.x0 - b.x0);
+    const merged = [];
+    for (const span of spans) {
+      const last = merged[merged.length - 1];
+      if (last && span.x0 <= last.x1 + 4) last.x1 = Math.max(last.x1, span.x1);
+      else merged.push(span);
+    }
+    layout.curbOpenings = merged;
   }
 
   function finishTarget(target) {
@@ -363,12 +388,13 @@
 
   function buildTarget(mode, layout, opts) {
     const { roadTop, playTop, controlTop, carLength, carWidth } = layout;
-    const { side, tilt, spot, slotLength, slotWidth } = opts;
+    const { side, spot, slotLength, slotWidth } = opts;
     const halfLength = slotLength / 2;
     const halfWidth = slotWidth / 2;
 
     if (mode === "parallel") {
-      const margin = halfLength + carLength * 0.8 + 10;
+      // 左右各留一整格邻位车位，三格标线都要完整画在屏幕里
+      const margin = halfLength * 3 + 6;
       const cx = pickLateral(margin, W - margin, side, spot);
       const cy = clamp(
         roadTop + 8 + halfWidth,
@@ -378,10 +404,11 @@
       return finishTarget({ cx, cy, halfLength, halfWidth, angle: 0 });
     }
 
-    const angle = mode === "angled" ? Math.PI / 2 + tilt * 0.7 : Math.PI / 2;
+    const angle = Math.PI / 2;
     const probe = finishTarget({ cx: 0, cy: 0, halfLength, halfWidth, angle });
     const cx = pickLateral(probe.hx + 8, W - probe.hx - 8, side, spot);
-    let cy = roadTop + (mode === "angled" ? 10 : 6) - probe.hy;
+    // 车位整体在路肩上方，底边和草坪、路面的交界齐平，不伸进马路
+    let cy = roadTop - probe.hy;
     const topEdge = cy - probe.hy;
     if (topEdge < playTop + 8) cy += playTop + 8 - topEdge;
     return finishTarget({ cx, cy, halfLength, halfWidth, angle });
@@ -411,16 +438,13 @@
     };
 
     if (mode === "parallel") {
-      const gap = target.halfLength + carLength * 0.58;
-      push(target.cx - gap, target.cy, 0);
-      push(target.cx + gap, target.cy, 0);
-    } else if (mode === "angled") {
-      const spacing = (target.halfWidth * 2) / Math.max(0.5, Math.abs(target.fy));
-      const dir = target.cx < W / 2 ? 1 : -1;
-      push(target.cx + spacing * dir, target.cy, target.angle, true);
-      if (extra >= 1) push(target.cx + spacing * dir * 2, target.cy, target.angle, true);
+      // 邻位间距取整格车位长，三个车位同尺寸、共用边线，邻车停在格子正中
+      const gap = target.halfLength * 2;
+      push(target.cx - gap, target.cy, 0, true);
+      push(target.cx + gap, target.cy, 0, true);
     } else {
-      const gap = target.halfWidth + carWidth * 0.72;
+      // 邻位间距取整格车位宽，标线才能像真实停车场一格挨一格、共用一条线
+      const gap = target.halfWidth * 2;
       const dir = target.cx < W / 2 ? 1 : -1;
       push(target.cx + gap * dir, target.cy, target.angle, true);
       if (extra >= 1) push(target.cx - gap * dir, target.cy, target.angle, true);
@@ -438,6 +462,20 @@
       }
     }
     return cars;
+  }
+
+  function buildDecorBays(layout) {
+    const { target } = layout;
+    return layout.parkedCars
+      .filter((car) => car.inBay)
+      .map((car) => finishTarget({
+        cx: car.x,
+        cy: car.y,
+        // 邻位和目标车位同尺寸，一格挨一格共用边线
+        halfLength: target.halfLength,
+        halfWidth: target.halfWidth,
+        angle: target.angle,
+      }));
   }
 
   // 车位正前方留出一条走廊，保证随机出来的场地一定能开进去
@@ -460,6 +498,8 @@
     ];
     const corridor = approachCorridor(layout);
     const slotZone = targetObb(target, 1.2);
+    // 邻位格子比停着的车大，路障也不许落进画了线的格子里
+    const bayBoxes = (layout.decorBays || []).map((bay) => targetObb(bay, 1.05));
     const carBoxes = parkedCars.map((car) => makeObb(car.x, car.y, carLength * 1.16, carWidth * 1.3, car.angle));
     const minY = roadTop + carWidth * 0.6;
     const maxY = controlTop - carWidth * 0.6;
@@ -481,12 +521,41 @@
       if (obbOverlap(probe, slotZone)) continue;
       if (obbOverlap(probe, layout.travelLane)) continue;
       let blocked = false;
+      for (let i = 0; i < bayBoxes.length && !blocked; i += 1) blocked = obbOverlap(probe, bayBoxes[i]);
       for (let i = 0; i < carBoxes.length && !blocked; i += 1) blocked = obbOverlap(probe, carBoxes[i]);
       if (blocked) continue;
       for (let i = 0; i < items.length && !blocked; i += 1) {
         const item = items[i];
         const distance = Math.hypot(item.x - x, item.y - y);
         blocked = distance < (Math.max(item.w, item.h) + Math.max(w, h)) * 0.85;
+      }
+      if (blocked) continue;
+      items.push({ type: spec.type, x, y, w, h, angle, scale });
+    }
+
+    // 第一轮放不满就放宽间距再补，避免地狱局静默少障
+    let extra = (count - items.length) * 100;
+    while (items.length < count && extra > 0) {
+      extra -= 1;
+      const spec = specs[Math.floor(rng() * specs.length)];
+      const scale = lerp(spec.minScale, spec.maxScale, rng());
+      const w = spec.w * scale;
+      const h = spec.h * scale;
+      const angle = spec.type === "barrier" ? (rng() - 0.5) * 0.55 : 0;
+      const x = lerp(W * 0.08, W * 0.92, rng());
+      const y = lerp(minY, maxY, rng());
+      const probe = makeObb(x, y, w * 1.15, h * 1.2, angle);
+      if (obbOverlap(probe, corridor)) continue;
+      if (obbOverlap(probe, slotZone)) continue;
+      if (obbOverlap(probe, layout.travelLane)) continue;
+      let blocked = false;
+      for (let i = 0; i < bayBoxes.length && !blocked; i += 1) blocked = obbOverlap(probe, bayBoxes[i]);
+      for (let i = 0; i < carBoxes.length && !blocked; i += 1) blocked = obbOverlap(probe, carBoxes[i]);
+      if (blocked) continue;
+      for (let i = 0; i < items.length && !blocked; i += 1) {
+        const item = items[i];
+        const distance = Math.hypot(item.x - x, item.y - y);
+        blocked = distance < (Math.max(item.w, item.h) + Math.max(w, h)) * 0.52;
       }
       if (blocked) continue;
       items.push({ type: spec.type, x, y, w, h, angle, scale });
@@ -535,14 +604,21 @@
 
   /* ---------------- 碰撞 ---------------- */
 
+  function pointInCurbBays(bays, px, py) {
+    for (let i = 0; i < bays.length; i += 1) {
+      if (pointInTarget(bays[i], px, py, 4)) return true;
+    }
+    return false;
+  }
+
   function obbHitsScene(box) {
-    const { carLength, carWidth, parkedCars, obstacles, controlTop, roadTop, target } = game.layout;
+    const { carLength, carWidth, parkedCars, obstacles, controlTop, roadTop, curbBays } = game.layout;
     const curb = roadTop - 3;
     for (let i = 0; i < 4; i += 1) {
       const point = box.points[i];
       if (point.x < 5 || point.x > W - 5 || point.y > controlTop + 4) return true;
-      // 路肩以上只有车位内部可以进，草坪当墙处理
-      if (point.y < curb && !pointInTarget(target, point.x, point.y, 4)) return true;
+      // 路肩以上只有开了口的车位内部可以进，其余草坪当墙处理
+      if (point.y < curb && !pointInCurbBays(curbBays, point.x, point.y)) return true;
     }
     for (let i = 0; i < parkedCars.length; i += 1) {
       const parked = parkedCars[i];
@@ -559,7 +635,7 @@
 
   function carFits(x, y, angle) {
     const { carLength, carWidth } = game.layout;
-    writeObb(probeCar, x, y, carLength * 0.91, carWidth * 0.88, angle);
+    writeObb(probeCar, x, y, carLength * 0.96, carWidth * 0.94, angle);
     return !obbHitsScene(probeCar);
   }
 
@@ -682,13 +758,62 @@
 
   /* ---------------- 本地记录 ---------------- */
 
+  function readSoundPref() {
+    try {
+      const raw = window.localStorage.getItem(SOUND_KEY);
+      if (raw === "0") return false;
+      if (raw === "1") return true;
+    } catch (_) {
+      /* 读不到就用默认开 */
+    }
+    return true;
+  }
+
+  function writeSoundPref() {
+    try {
+      window.localStorage.setItem(SOUND_KEY, soundEnabled ? "1" : "0");
+    } catch (_) {
+      /* 无痕模式写不了，忽略即可 */
+    }
+  }
+
+  function syncSoundToggle() {
+    soundToggle.classList.toggle("is-muted", !soundEnabled);
+    soundToggle.setAttribute("aria-pressed", soundEnabled ? "true" : "false");
+    soundToggle.setAttribute("aria-label", soundEnabled ? "关闭声音" : "打开声音");
+    soundToggle.setAttribute("title", soundEnabled ? "声音开" : "声音关");
+  }
+
+  function introSeen() {
+    try {
+      return window.localStorage.getItem(INTRO_KEY) === "1";
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function markIntroSeen() {
+    try {
+      window.localStorage.setItem(INTRO_KEY, "1");
+    } catch (_) {
+      /* 记不住就下次再教一遍 */
+    }
+  }
+
   let records = readRecords();
 
   function readRecords() {
     try {
       const raw = window.localStorage.getItem(STORE_KEY);
       const parsed = raw ? JSON.parse(raw) : null;
-      return parsed && typeof parsed === "object" ? parsed : {};
+      if (!parsed || typeof parsed !== "object") return {};
+      // 老版本存过已下线科目的成绩，留着会把总局数和毕业进度算错
+      const cleaned = {};
+      Object.keys(parsed).forEach((key) => {
+        const [mode, difficulty] = key.split(":");
+        if (MODE_ORDER.includes(mode) && DIFF_ORDER.includes(difficulty)) cleaned[key] = parsed[key];
+      });
+      return cleaned;
     } catch (_) {
       return {};
     }
@@ -704,6 +829,41 @@
 
   function recordFor(mode, difficulty) {
     return records[`${mode}:${difficulty}`] || null;
+  }
+
+  function totalPlays() {
+    return Object.keys(records).reduce((sum, key) => sum + (records[key].plays || 0), 0);
+  }
+
+  function clearedCount() {
+    let count = 0;
+    MODE_ORDER.forEach((mode) => {
+      DIFF_ORDER.forEach((difficulty) => {
+        const entry = recordFor(mode, difficulty);
+        if (entry && entry.clears > 0) count += 1;
+      });
+    });
+    return count;
+  }
+
+  function totalBestStars() {
+    let stars = 0;
+    MODE_ORDER.forEach((mode) => {
+      DIFF_ORDER.forEach((difficulty) => {
+        const entry = recordFor(mode, difficulty);
+        stars += entry ? entry.bestStars || 0 : 0;
+      });
+    });
+    return stars;
+  }
+
+  function allCleared() {
+    return clearedCount() >= MODE_ORDER.length * DIFF_ORDER.length;
+  }
+
+  function formatStarTime(limit) {
+    const value = limit * 0.42;
+    return Number.isInteger(value) ? String(value) : value.toFixed(1);
   }
 
   function commitRun(run) {
@@ -746,14 +906,67 @@
     startRecord.append(value, tail);
   }
 
+  function renderRecordGrid() {
+    recordGrid.textContent = "";
+    const head = document.createElement("div");
+    head.className = "record-grid-row is-head";
+    head.setAttribute("role", "row");
+    ["", "简单", "困难", "地狱"].forEach((label) => {
+      const cell = document.createElement("span");
+      cell.textContent = label;
+      head.appendChild(cell);
+    });
+    recordGrid.appendChild(head);
+
+    MODE_ORDER.forEach((mode) => {
+      const row = document.createElement("div");
+      row.className = "record-grid-row";
+      row.setAttribute("role", "row");
+      const name = document.createElement("span");
+      name.className = "record-grid-mode";
+      name.textContent = MODES[mode].short;
+      row.appendChild(name);
+      DIFF_ORDER.forEach((difficulty) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "record-cell";
+        button.dataset.mode = mode;
+        button.dataset.difficulty = difficulty;
+        const entry = recordFor(mode, difficulty);
+        const selected = game.mode === mode && game.difficulty === difficulty;
+        if (selected) button.classList.add("is-selected");
+        if (entry && entry.clears) {
+          button.classList.add(entry.bestStars >= 3 ? "is-perfect" : "is-cleared");
+          button.textContent = "★".repeat(entry.bestStars) + "☆".repeat(3 - entry.bestStars);
+        } else if (entry && entry.plays) {
+          button.classList.add("is-tried");
+          button.textContent = "未过";
+        } else {
+          button.textContent = "·";
+        }
+        button.setAttribute("aria-label", `${MODES[mode].label} ${DIFFICULTIES[difficulty].label}`);
+        row.appendChild(button);
+      });
+      recordGrid.appendChild(row);
+    });
+  }
+
   /* ---------------- 流程 ---------------- */
 
   function syncSetupUi() {
     const mode = MODES[game.mode];
     const level = DIFFICULTIES[game.difficulty];
+    const played = totalPlays() > 0;
     difficultyBadge.textContent = `${mode.label} · ${level.label} · ${level.time} 秒`;
-    startStamp.textContent = `⚠ 坦克还有 ${level.time} 秒`;
-    startButtonLabel.textContent = `开始${mode.label} · ${level.label}`;
+    if (!introSeen()) {
+      startStamp.textContent = "首局带 10 秒教学";
+      startButtonLabel.textContent = `开始${mode.label}`;
+    } else {
+      startStamp.textContent = `⚠ 坦克还有 ${level.time} 秒`;
+      startButtonLabel.textContent = `开始${mode.label} · ${level.label}`;
+    }
+    posterCard.classList.toggle("has-played", played);
+    howTo.hidden = played;
     modeButtons.forEach((button) => {
       const selected = button.dataset.mode === game.mode;
       button.classList.toggle("is-selected", selected);
@@ -764,6 +977,7 @@
       button.classList.toggle("is-selected", selected);
       button.setAttribute("aria-checked", String(selected));
     });
+    renderRecordGrid();
     renderStartRecord();
   }
 
@@ -792,6 +1006,11 @@
     game.penaltyGrace = 0;
     game.flash = 0;
     game.driveDirection = -1;
+    game.successFx = 0;
+    // 首次游玩的正式局前先做三步操作教学，教学期间不计时
+    game.guide.active = autostart && !introSeen();
+    game.guide.step = 0;
+    game.guide.holdTimer = 0;
     lastReverseBeepAt = 0;
     lastCountdownSecond = null;
     game.particles.length = 0;
@@ -809,17 +1028,21 @@
     input.steerPointer = null;
     input.steerPointerAngle = null;
     input.steerDragDegrees = 0;
+    input.steerReturnRate = 0;
     gasButton.classList.remove("is-pressed");
     brakeButton.classList.remove("is-pressed");
     resetCar();
     refreshParkStatus();
-    updateHud();
     pauseOverlay.classList.remove("is-visible");
     resultOverlay.classList.remove("is-visible");
-    shareOverlay.classList.remove("is-visible");
     controlsEl.classList.toggle("is-disabled", !autostart);
     pauseButton.hidden = !autostart;
+    gameEl.classList.toggle("is-live", autostart);
     gameEl.classList.remove("is-shaking");
+    hudCache.guiding = null;
+    hudCache.timerLabel = null;
+    syncGuideUi();
+    updateHud();
     syncSetupUi();
     setEngine(false);
     setTankRumble(false);
@@ -830,7 +1053,8 @@
     startOverlay.classList.remove("is-visible");
     // 沿用开始页预览的那张场地，避免点开始后场地突然变了
     resetGame(true, true);
-    showToast(MODES[game.mode].hint);
+    if (game.guide.active) showToast("先花 10 秒学会开车", 1.4);
+    else showToast(MODES[game.mode].hint);
   }
 
   function pauseGame() {
@@ -841,13 +1065,16 @@
     input.steerTarget = 0;
     input.steerPointer = null;
     input.steerPointerAngle = null;
+    input.steerDragDegrees = input.steer * 360;
+    input.steerReturnRate = 0;
     gasButton.classList.remove("is-pressed");
     brakeButton.classList.remove("is-pressed");
     controlsEl.classList.add("is-disabled");
     pauseButton.hidden = true;
     const mode = MODES[game.mode];
     const level = DIFFICULTIES[game.difficulty];
-    pauseSummary.textContent = `${mode.label} · ${level.label} · 剩余 ${game.timeLeft.toFixed(1)} 秒`;
+    if (game.guide.active) pauseSummary.textContent = `${mode.label} · 教学中 · 还没开始计时`;
+    else pauseSummary.textContent = `${mode.label} · ${level.label} · 剩余 ${game.timeLeft.toFixed(1)} 秒`;
     hideToast();
     pauseOverlay.classList.add("is-visible");
     setEngine(false);
@@ -886,11 +1113,13 @@
 
   /* ---------------- HUD ---------------- */
 
-  const hudCache = {
+    const hudCache = {
     speed: null,
     moving: null,
     timer: null,
+    timerLabel: null,
     urgent: null,
+    guiding: null,
     mission: null,
     wheel: null,
     steer: null,
@@ -913,7 +1142,17 @@
       hudCache.timer = timerText;
       timerEl.textContent = timerText;
     }
-    const urgent = game.state === "playing" && game.timeLeft <= 8;
+    const guiding = Boolean(game.guide.active);
+    const labelText = guiding ? "教学中" : "坦克到达";
+    if (hudCache.timerLabel !== labelText) {
+      hudCache.timerLabel = labelText;
+      timerLabel.textContent = labelText;
+    }
+    if (hudCache.guiding !== guiding) {
+      hudCache.guiding = guiding;
+      timerBox.classList.toggle("is-practice", guiding);
+    }
+    const urgent = game.state === "playing" && !guiding && game.timeLeft <= 8;
     if (hudCache.urgent !== urgent) {
       hudCache.urgent = urgent;
       timerBox.classList.toggle("is-urgent", urgent);
@@ -930,7 +1169,10 @@
     if (game.state === "failed") return "道路已清空，建议重考";
     if (game.state === "success") return "停车完成，路保住了";
     if (game.state === "paused") return "游戏已暂停";
-    if (game.state === "playing") return parkingHint();
+    if (game.state === "playing") {
+      if (game.guide.active) return "教学中 · 坦克还在睡觉";
+      return parkingHint();
+    }
     return MODES[game.mode].hint;
   }
 
@@ -942,6 +1184,65 @@
     if (game.car.speed < -5) return "正在倒车 · 看准车尾";
     if (game.car.speed > 5) return "前进中 · 刹车后继续长按可倒车";
     return MODES[game.mode].hint;
+  }
+
+  /* ---------------- 首局教学 ---------------- */
+
+  const GUIDE_STEPS = [
+    { text: "左手：沿圆周把方向盘转起来", check: () => Math.abs(input.steer) * 360 >= 80 },
+    { text: "右手：按住油门往前开", check: () => game.car.speed > 14 },
+    { text: "按住刹车不松手，车会倒退", check: () => game.car.speed < -6 },
+  ];
+
+  function syncGuideUi() {
+    const guide = game.guide;
+    const active = Boolean(guide.active);
+    guideTip.hidden = !active;
+    guideFinger.hidden = !(active && guide.step === 0);
+    wheelPad.classList.toggle("is-guide-target", active && guide.step === 0);
+    gasButton.classList.toggle("is-guide-target", active && guide.step === 1);
+    brakeButton.classList.toggle("is-guide-target", active && guide.step === 2);
+    if (!active) return;
+    const step = Math.min(guide.step, GUIDE_STEPS.length - 1);
+    guideStepBadge.textContent = `教学 ${step + 1}/${GUIDE_STEPS.length}`;
+    guideText.textContent = GUIDE_STEPS[step].text;
+  }
+
+  function updateGuide(dt) {
+    const guide = game.guide;
+    if (guide.holdTimer > 0) {
+      guide.holdTimer -= dt;
+      if (guide.holdTimer <= 0) {
+        guide.step += 1;
+        if (guide.step >= GUIDE_STEPS.length) finishGuide();
+        else syncGuideUi();
+      }
+      return;
+    }
+    if (GUIDE_STEPS[guide.step].check()) {
+      guide.holdTimer = 0.55;
+      playTone(660, 0.12, "sine", 0.05, 0, 880);
+      showToast("✓ 就是这样", 0.7);
+    }
+  }
+
+  function finishGuide() {
+    if (!game.guide.active) return;
+    game.guide.active = false;
+    game.guide.holdTimer = 0;
+    markIntroSeen();
+    syncGuideUi();
+    // 教学期开出去的碰撞和用时全部清零，正式局从这一刻干净起跑
+    game.elapsed = 0;
+    game.penalty = 0;
+    game.hits = 0;
+    game.scrapes = 0;
+    game.stableTime = 0;
+    game.timeLeft = game.timeLimit;
+    lastCountdownSecond = null;
+    playTone(523, 0.16, "sine", 0.05, 0, 660);
+    playTone(784, 0.2, "sine", 0.05, 0.12, 800);
+    showToast(`教学完成 · ${game.timeLimit} 秒倒计时开始！`, 1.7);
   }
 
   /* ---------------- 声音 ---------------- */
@@ -984,7 +1285,7 @@
       tankActive = false;
     } catch (_) {
       soundEnabled = false;
-      soundToggle.textContent = "声音关";
+      syncSoundToggle();
     }
   }
 
@@ -1145,6 +1446,8 @@
     input.steerPointer = null;
     input.steerPointerAngle = null;
     input.steerTarget = 0;
+    input.steerDragDegrees = input.steer * 360;
+    input.steerReturnRate = 0;
   };
   wheelPad.addEventListener("pointerup", releaseSteer);
   wheelPad.addEventListener("pointercancel", releaseSteer);
@@ -1166,6 +1469,11 @@
     },
   };
   window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      if (game.state === "playing") pauseGame();
+      else if (game.state === "paused") resumeGame();
+      return;
+    }
     if (keyMap[event.key] && game.state === "playing") {
       event.preventDefault();
       keyMap[event.key]();
@@ -1184,6 +1492,7 @@
     button.addEventListener("click", () => selectSetup(null, button.dataset.difficulty, false));
   });
   startButton.addEventListener("click", startGame);
+  guideSkip.addEventListener("click", finishGuide);
   pauseButton.addEventListener("click", pauseGame);
   continueButton.addEventListener("click", resumeGame);
   pauseRestartButton.addEventListener("click", () => resetGame(true));
@@ -1198,14 +1507,17 @@
     resetGame(false);
     startOverlay.classList.add("is-visible");
   });
-  shareButton.addEventListener("click", openShare);
-  shareCopyButton.addEventListener("click", copyShareText);
-  shareCloseButton.addEventListener("click", () => shareOverlay.classList.remove("is-visible"));
+  shareXhsButton.addEventListener("click", postShareNote);
+  recordGrid.addEventListener("click", (event) => {
+    const cell = event.target.closest("[data-mode]");
+    if (!cell) return;
+    selectSetup(cell.dataset.mode, cell.dataset.difficulty, false);
+  });
   soundToggle.addEventListener("click", () => {
     initAudio();
     soundEnabled = !soundEnabled;
-    soundToggle.textContent = soundEnabled ? "声音开" : "声音关";
-    soundToggle.setAttribute("aria-label", soundEnabled ? "关闭声音" : "打开声音");
+    writeSoundPref();
+    syncSoundToggle();
     if (!soundEnabled) {
       setEngine(false);
       setTankRumble(false);
@@ -1223,16 +1535,39 @@
 
   /* ---------------- 主循环 ---------------- */
 
+  function updateSteer(dt) {
+    if (game.state !== "playing") {
+      input.steerReturnRate = 0;
+      return;
+    }
+    if (input.steerPointer !== null) {
+      input.steerReturnRate = 0;
+      return;
+    }
+    if (input.steerTarget !== 0) {
+      input.steerReturnRate = 0;
+      input.steer = lerp(input.steer, input.steerTarget, 1 - Math.pow(0.0005, dt));
+      return;
+    }
+    const remaining = Math.abs(input.steer);
+    if (remaining < 0.0015) {
+      input.steer = 0;
+      input.steerReturnRate = 0;
+      return;
+    }
+    const rateCap = STEER_RETURN_MAX_RATE * Math.min(1, Math.sqrt(remaining / STEER_RETURN_EASE_SPAN));
+    input.steerReturnRate = Math.min(rateCap, input.steerReturnRate + STEER_RETURN_ACCEL * dt);
+    const step = Math.min(remaining, input.steerReturnRate * dt);
+    input.steer -= Math.sign(input.steer) * step;
+  }
+
   function update(dt, now) {
     toastTimer -= dt;
     if (toastTimer <= 0) toastEl.classList.remove("is-visible");
     game.flash = Math.max(0, game.flash - dt * 2.4);
     game.collisionCooldown = Math.max(0, game.collisionCooldown - dt);
 
-    const steerFollow = input.steerPointer === null && input.steerTarget === 0
-      ? 1 - Math.pow(0.04, dt)
-      : 1 - Math.pow(0.0005, dt);
-    input.steer = lerp(input.steer, input.steerTarget, steerFollow);
+    updateSteer(dt);
     const wheelDegrees = input.steer * 360;
     const wheelText = `${wheelDegrees.toFixed(1)}deg`;
     if (hudCache.wheel !== wheelText) {
@@ -1249,6 +1584,7 @@
     decaySkidMarks(dt);
     if (game.state === "playing") updatePlaying(dt);
     else refreshParkStatus();
+    if (game.state === "success") game.successFx = Math.min(1, game.successFx + dt * 1.5);
     if (game.state === "tank") updateTank(dt, now);
     updateParticles(dt);
     tickEngineTone(now);
@@ -1256,7 +1592,13 @@
   }
 
   function updatePlaying(dt) {
-    game.elapsed += dt;
+    if (game.guide.active) {
+      // 教学期不计时也不罚时，撞了只提示
+      game.penaltyGrace = Math.max(game.penaltyGrace, 0.5);
+      updateGuide(dt);
+    } else {
+      game.elapsed += dt;
+    }
     game.penaltyGrace = Math.max(0, game.penaltyGrace - dt);
     game.scrapeCooldown = Math.max(0, game.scrapeCooldown - dt);
     game.timeLeft = Math.max(0, game.timeLimit - game.elapsed - game.penalty);
@@ -1311,11 +1653,11 @@
     setEngine(Math.abs(car.speed) > 1 || input.gas || input.brake);
     updateDrivingSoundCues();
 
-    if (game.stableTime >= STABLE_TIME) {
+    if (!game.guide.active && game.stableTime >= STABLE_TIME) {
       completeSuccess();
       return;
     }
-    if (game.timeLeft <= 0) summonTank();
+    if (!game.guide.active && game.timeLeft <= 0) summonTank();
   }
 
   function registerImpact() {
@@ -1374,7 +1716,7 @@
     if (reversing && performance.now() - lastReverseBeepAt >= 720) playReverseBeep();
 
     const countdownSecond = Math.ceil(game.timeLeft);
-    if (game.timeLeft > 0 && game.timeLeft <= 10 && countdownSecond !== lastCountdownSecond) {
+    if (!game.guide.active && game.timeLeft > 0 && game.timeLeft <= 10 && countdownSecond !== lastCountdownSecond) {
       lastCountdownSecond = countdownSecond;
       playCountdownTick(countdownSecond);
     } else if (game.timeLeft > 10) {
@@ -1407,7 +1749,7 @@
     navigator.vibrate?.([40, 50, 90]);
     burst(game.car.x, game.car.y, "#f3df42", 34);
     showToast("稳稳入库！", 1.4);
-    window.setTimeout(() => showResult(true), 750);
+    window.setTimeout(() => showResult(true), 1000);
   }
 
   function getTankSize() {
@@ -1499,6 +1841,35 @@
     return nextMode ? { mode: nextMode, difficulty: "easy" } : null;
   }
 
+  // 按本局表现颁发称号和教练点评，规则从上往下第一条命中即生效
+  function runVerdict(run) {
+    if (!run.success) {
+      if (run.almostIn) return { title: "差一个刹车的事", quip: "车都进框了，就差停稳。血亏，换张图立刻再来。" };
+      if (run.hits >= 4) return { title: "碰碰车持证选手", quip: `撞了 ${run.hits} 次，你考的是拆迁资格证吧。` };
+      if (run.scrapes >= 4) return { title: "贴地飞行员", quip: `剐蹭 ${run.scrapes} 次，补漆钱比学费贵。` };
+      if (run.hits === 0 && run.scrapes === 0) return { title: "过分谨慎型学员", quip: "一下都没撞，就是也没停进去。" };
+      return { title: "本路段已由坦克接管", quip: "路没保住。收拾心情，再考一次。" };
+    }
+    const level = DIFFICULTIES[run.difficulty];
+    const ratio = run.netTime / level.time;
+    if (run.difficulty === "hell" && run.stars === 3) return { title: "库神", quip: "地狱三星。建议直接去驾校当教练。" };
+    if (run.stars === 3) return { title: "教练看了直接退休", quip: "零碰撞满分入库，这科没什么可教你的了。" };
+    if (ratio <= 0.42 && run.hits > 0) return { title: "快是快，车不要了", quip: `${run.netTime.toFixed(1)} 秒是真快，撞 ${run.hits} 下也是真撞。` };
+    if (run.scrapes >= 3) return { title: "全靠蹭进去的", quip: "挤进去也是进去，漆是不打算要了。" };
+    if (ratio >= 0.9) return { title: "压哨入库", quip: "最后几秒进的库，心脏和车同时停稳。" };
+    if (run.hits === 0 && run.scrapes === 0) return { title: "稳如老司机", quip: "干干净净，就是再快一点就三星了。" };
+    return { title: "持证上路（暂定）", quip: "停进去了。过程嘛，建议不要回看。" };
+  }
+
+  // 没有后端，百分位是按难度限时标定的本地估算曲线，图个乐
+  function estimateBeatPercent(run) {
+    if (!run.success) return 40 + (run.seed % 36);
+    const level = DIFFICULTIES[run.difficulty];
+    const ratio = run.netTime / level.time;
+    const beat = 95 - (ratio - 0.25) * 86 - run.hits * 5 - run.scrapes * 2;
+    return Math.round(clamp(beat, 3, 98));
+  }
+
   function renderStars(count) {
     resultStars.textContent = "";
     resultStars.hidden = count <= 0;
@@ -1527,24 +1898,31 @@
       hits: game.hits,
       scrapes: game.scrapes,
       stars,
+      almostIn: !success && game.park.inside,
+      seed: game.map ? game.map.seed : 0,
     };
+    markIntroSeen();
     const improved = commitRun(run);
     run.improved = improved;
     run.previousBest = previousBest;
+    const verdict = runVerdict(run);
+    run.title = verdict.title;
+    run.quip = verdict.quip;
+    run.beat = estimateBeatPercent(run);
     game.lastRun = run;
 
     resultCard.classList.toggle("is-fail", !success);
-    if (success) {
-      resultKicker.textContent = `${mode.label} · ${level.label}通关`;
-      resultTitle.textContent = game.difficulty === "hell" ? "地狱毕业！" : "停进去了！";
-      resultCopy.textContent = stars === 3
-        ? "零碰撞还这么快，不去当代驾可惜了。"
-        : "险归险，车和路都保住了。";
-    } else {
-      resultKicker.textContent = `${mode.label} · ${level.label}失败`;
-      resultTitle.textContent = "车呢？路呢？";
-      resultCopy.textContent = `${level.time} 秒到。坦克替你完成了“清库”。`;
-    }
+    resultStarRule.textContent = `三星：零碰撞且 ${formatStarTime(level.time)} 秒内`;
+    resultStarRule.hidden = !success;
+    resultKicker.textContent = success
+      ? `${mode.label} · ${level.label}通关 · 获封`
+      : `${mode.label} · ${level.label}失败 · 获封`;
+    resultTitle.textContent = run.title;
+    resultCopy.textContent = `教练点评：${run.quip}`;
+    resultBeat.textContent = success
+      ? `估算击败了全国 ${run.beat}% 的学员`
+      : `据不完全统计，${run.beat}% 的学员也倒在这一关`;
+    resultBeat.hidden = false;
     renderStars(stars);
     resultTime.textContent = success ? `${netTime.toFixed(1)} 秒` : "没停进去";
     resultPenalty.textContent = game.penalty.toFixed(1);
@@ -1567,10 +1945,21 @@
     resultRecord.hidden = !recordText;
     resultRecord.classList.toggle("is-best", isBest);
 
-    const next = success ? nextChallenge(game.mode, game.difficulty) : null;
+    const graduated = success && allCleared();
+    const next = success && !graduated ? nextChallenge(game.mode, game.difficulty) : null;
     nextLevel.hidden = !next;
-    restartButton.classList.toggle("is-secondary", Boolean(next));
-    restartButtonLabel.textContent = next ? `换张场地重玩${level.label}` : `再挑战${level.label}`;
+    graduation.hidden = !graduated;
+    if (graduated) {
+      const total = MODE_ORDER.length * DIFF_ORDER.length;
+      graduationTitle.textContent = totalBestStars() >= total * 3 ? "全科三星" : "路保住了";
+      graduationCopy.textContent = `${total} / ${total} 通关 · 累计 ${totalBestStars()} 星`;
+    }
+    restartButton.classList.toggle("is-secondary", Boolean(next || graduated));
+    restartButtonLabel.textContent = !success
+      ? "不服，再来一把"
+      : next
+        ? `换张场地重玩${level.label}`
+        : `再挑战${level.label}`;
     if (next) {
       const nextMode = MODES[next.mode];
       const nextLevelData = DIFFICULTIES[next.difficulty];
@@ -1586,6 +1975,7 @@
       nextDifficultyButton.dataset.mode = "";
       nextDifficultyButton.dataset.difficulty = "";
     }
+    resetShareActions();
     hideToast();
     resultOverlay.classList.add("is-visible");
   }
@@ -1597,11 +1987,144 @@
     if (!run) return "";
     const mode = MODES[run.mode].label;
     const level = DIFFICULTIES[run.difficulty];
+    const head = `《会停车吗你》${mode} · ${level.label}难度`;
     if (!run.success) {
-      return `《会停车吗你》${mode} · ${level.label}难度：${level.time} 秒没停进去，坦克把路清了。你来试试？`;
+      return `${head}：${level.time} 秒没停进去，获封「${run.title}」。你能保住这条路吗？`;
     }
     const stars = "★".repeat(run.stars) + "☆".repeat(3 - run.stars);
-    return `《会停车吗你》${mode} · ${level.label}难度：${run.netTime.toFixed(1)} 秒入库，${stars}，撞击 ${run.hits} 次。你能更快吗？`;
+    return `${head}：${run.netTime.toFixed(1)} 秒入库，${stars}，获封「${run.title}」。你能更快吗？`;
+  }
+
+  function clipChars(text, max) {
+    return String(text || "").slice(0, max);
+  }
+
+  function shareNoteTitle(run) {
+    if (run.title) return clipChars(`${run.title}｜会停车吗你`, 20);
+    const mode = MODES[run.mode].label;
+    const level = DIFFICULTIES[run.difficulty].label;
+    return clipChars(`${mode}${level}${run.success ? "停进去了" : "路没保住"}`, 20);
+  }
+
+  function shareNoteBody() {
+    return clipChars(`${shareSummaryText()}\n\n#会停车吗你 #停车游戏 #倒车入库`, 1000);
+  }
+
+  function xhsMiniTool() {
+    try {
+      const api = window.xhs && window.xhs.miniTool;
+      return api && typeof api === "object" ? api : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function xhsCan(name) {
+    const api = xhsMiniTool();
+    return Boolean(api && typeof api[name] === "function");
+  }
+
+  function callMiniTool(name, options, assumeOkMs) {
+    const api = xhsMiniTool();
+    if (!api || typeof api[name] !== "function") {
+      return Promise.reject(new Error("unavailable"));
+    }
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      const done = (fn) => (value) => {
+        if (settled) return;
+        settled = true;
+        fn(value);
+      };
+      try {
+        const result = api[name](Object.assign({}, options, {
+          success: done(resolve),
+          fail: done(reject),
+        }));
+        if (result && typeof result.then === "function") {
+          result.then(done(resolve), done(reject));
+        } else if (result !== undefined && result !== null) {
+          Promise.resolve().then(() => {
+            if (!settled) done(resolve)(result);
+          });
+        } else if (assumeOkMs) {
+          setTimeout(() => {
+            if (!settled) done(resolve)({});
+          }, assumeOkMs);
+        }
+      } catch (err) {
+        done(reject)(err);
+      }
+    });
+  }
+
+  function withTimeout(promise, ms) {
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error("timeout")), ms);
+      promise.then(
+        (value) => {
+          clearTimeout(timer);
+          resolve(value);
+        },
+        (err) => {
+          clearTimeout(timer);
+          reject(err);
+        }
+      );
+    });
+  }
+
+  function extractFilePath(res) {
+    if (!res) return "";
+    if (typeof res === "string") return res;
+    if (typeof res !== "object") return "";
+    const nested = res.data && typeof res.data === "object" ? res.data : null;
+    return (
+      res.filePath ||
+      res.tempFilePath ||
+      res.path ||
+      res.url ||
+      (nested && (nested.filePath || nested.tempFilePath || nested.path || nested.url)) ||
+      ""
+    );
+  }
+
+  async function writeShareTempFile(dataUrl) {
+    if (!xhsCan("writeTempFile")) return "";
+    const res = await withTimeout(callMiniTool("writeTempFile", { data: dataUrl }), 6000);
+    return extractFilePath(res);
+  }
+
+  function resetShareActions() {
+    lastShareDataUrl = "";
+    setShareBusy(false);
+  }
+
+  function setShareBusy(busy, pendingLabel) {
+    shareBusy = busy;
+    shareXhsButton.disabled = busy;
+    shareXhsLabel.textContent = busy && pendingLabel === "xhs" ? "生成中…" : "分享战绩";
+  }
+
+  // 战绩图按需生成：结束页两个按钮点了才画，省掉一次没人看的预览渲染
+  function ensureShareImage(run) {
+    if (lastShareDataUrl) return lastShareDataUrl;
+    try {
+      lastShareDataUrl = buildShareImage(run);
+    } catch (_) {
+      lastShareDataUrl = "";
+    }
+    return lastShareDataUrl;
+  }
+
+  function blitPlayfield(g, x, y, w, h) {
+    if (!game.layout || canvas.width < 2 || canvas.height < 2) return false;
+    const top = clamp(game.layout.playTop - 6, 0, H);
+    const bottom = clamp(game.layout.controlTop + 2, top + 40, H);
+    const sy = top * dpr;
+    const sh = Math.max(1, (bottom - top) * dpr);
+    g.drawImage(canvas, 0, sy, canvas.width, sh, x, y, w, h);
+    return true;
   }
 
   function buildShareImage(run) {
@@ -1615,6 +2138,10 @@
 
     const mode = MODES[run.mode];
     const level = DIFFICULTIES[run.difficulty];
+    const sceneX = 36;
+    const sceneY = 36;
+    const sceneW = width - 72;
+    const sceneH = 390;
 
     g.fillStyle = "#f5f1df";
     g.fillRect(0, 0, width, height);
@@ -1622,128 +2149,159 @@
     g.lineWidth = 14;
     g.strokeRect(7, 7, width - 14, height - 14);
 
+    // 失败图把坦克请回画面中央再截图，事故现场才有戏剧感
+    const stageTank = !run.success && game.state === "failed";
+    let stagedTankX = 0;
+    if (stageTank) {
+      stagedTankX = game.tank.x;
+      game.tank.x = W * 0.55;
+      draw();
+    }
+    g.fillStyle = "#aebba7";
+    g.fillRect(sceneX, sceneY, sceneW, sceneH);
+    blitPlayfield(g, sceneX, sceneY, sceneW, sceneH);
+    if (stageTank) {
+      game.tank.x = stagedTankX;
+      draw();
+    }
+    g.strokeStyle = "#171815";
+    g.lineWidth = 5;
+    g.strokeRect(sceneX, sceneY, sceneW, sceneH);
+
     g.fillStyle = "#171815";
-    g.fillRect(52, 74, 350, 76);
+    g.fillRect(sceneX, sceneY + sceneH + 22, 292, 52);
     g.fillStyle = "#f5f1df";
-    g.font = "900 52px 'Arial Black', 'PingFang SC', sans-serif";
+    g.font = "900 34px 'Arial Black', 'PingFang SC', sans-serif";
     g.textAlign = "left";
     g.textBaseline = "middle";
-    g.fillText("会停车吗你", 68, 114);
+    g.fillText("会停车吗你", sceneX + 14, sceneY + sceneH + 49);
 
+    const badge = `${mode.label} · ${level.label}难度`;
     g.fillStyle = run.success ? "#9ee0b0" : "#f05b32";
-    g.fillRect(52, 176, 320, 52);
+    g.fillRect(sceneX + 308, sceneY + sceneH + 22, sceneW - 308, 52);
     g.fillStyle = "#171815";
-    g.font = "900 28px 'PingFang SC', sans-serif";
-    g.fillText(`${mode.label} · ${level.label}难度`, 68, 203);
+    g.font = "900 22px 'PingFang SC', sans-serif";
+    g.fillText(badge, sceneX + 322, sceneY + sceneH + 49);
 
+    const title = run.title || (run.success ? "停进去了" : "路没保住");
     g.fillStyle = "#171815";
-    g.font = "900 104px 'Arial Black', 'PingFang SC', sans-serif";
-    g.fillText(run.success ? "停进去了" : "路没保住", 52, 320);
+    let titleSize = 68;
+    g.font = `900 ${titleSize}px 'Arial Black', 'PingFang SC', sans-serif`;
+    while (titleSize > 38 && g.measureText(title).width > sceneW) {
+      titleSize -= 4;
+      g.font = `900 ${titleSize}px 'Arial Black', 'PingFang SC', sans-serif`;
+    }
+    let cursorY = sceneY + sceneH + 128;
+    g.fillText(title, sceneX, cursorY);
 
     if (run.success) {
       g.fillStyle = "#f05b32";
-      g.font = "900 74px 'PingFang SC', sans-serif";
-      g.fillText("★".repeat(run.stars), 52, 428);
+      g.font = "900 48px 'PingFang SC', sans-serif";
+      g.fillText("★".repeat(run.stars), sceneX, cursorY + 56);
       g.fillStyle = "rgba(23, 24, 21, 0.22)";
-      g.fillText("★".repeat(3 - run.stars), 52 + run.stars * 84, 428);
+      g.fillText("★".repeat(3 - run.stars), sceneX + run.stars * 52, cursorY + 56);
+      cursorY += 56;
+    }
+
+    if (run.quip) {
+      g.fillStyle = "#4a4b45";
+      g.font = "800 22px 'PingFang SC', sans-serif";
+      g.fillText(`教练点评：${run.quip}`, sceneX, cursorY + 46, sceneW);
+    }
+
+    if (run.beat) {
+      g.fillStyle = "#f05b32";
+      g.font = "900 26px 'PingFang SC', sans-serif";
+      g.fillText(
+        run.success ? `估算击败了全国 ${run.beat}% 的学员` : `${run.beat}% 的学员也倒在这一关`,
+        sceneX,
+        height - 236
+      );
     }
 
     const rows = run.success
       ? [
           ["净用时", `${run.netTime.toFixed(1)} 秒`],
-          ["罚时", `${run.penalty.toFixed(1)} 秒`],
-          ["撞击 / 剐蹭", `${run.hits} 次 / ${run.scrapes} 次`],
+          ["撞击 / 剐蹭", `${run.hits} / ${run.scrapes}`],
         ]
       : [
           ["限时", `${level.time} 秒`],
-          ["罚时", `${run.penalty.toFixed(1)} 秒`],
-          ["撞击 / 剐蹭", `${run.hits} 次 / ${run.scrapes} 次`],
+          ["撞击 / 剐蹭", `${run.hits} / ${run.scrapes}`],
         ];
-    let rowY = 512;
+    let rowX = sceneX;
     rows.forEach(([label, value]) => {
+      const boxW = (sceneW - 12) / 2;
       g.strokeStyle = "#171815";
       g.lineWidth = 4;
-      g.setLineDash([12, 9]);
-      g.strokeRect(52, rowY, width - 104, 84);
+      g.setLineDash([10, 8]);
+      g.strokeRect(rowX, height - 210, boxW, 70);
       g.setLineDash([]);
       g.fillStyle = "#5f6059";
-      g.font = "800 26px 'PingFang SC', sans-serif";
-      g.fillText(label, 76, rowY + 44);
-      g.fillStyle = "#171815";
-      g.font = "900 40px 'Arial Black', 'PingFang SC', sans-serif";
-      g.textAlign = "right";
-      g.fillText(value, width - 76, rowY + 44);
+      g.font = "800 18px 'PingFang SC', sans-serif";
       g.textAlign = "left";
-      rowY += 100;
+      g.fillText(label, rowX + 14, height - 186);
+      g.fillStyle = "#171815";
+      g.font = "900 30px 'Arial Black', 'PingFang SC', sans-serif";
+      g.fillText(value, rowX + 14, height - 156);
+      rowX += boxW + 12;
     });
 
     g.fillStyle = "#f3df42";
-    g.fillRect(52, height - 152, width - 104, 84);
+    g.fillRect(sceneX, height - 118, sceneW, 64);
     g.strokeStyle = "#171815";
     g.lineWidth = 5;
-    g.strokeRect(52, height - 152, width - 104, 84);
+    g.strokeRect(sceneX, height - 118, sceneW, 64);
     g.fillStyle = "#171815";
-    g.font = "900 28px 'PingFang SC', sans-serif";
+    g.font = "900 22px 'PingFang SC', sans-serif";
     g.textAlign = "center";
-    g.fillText("倒车入库 · 侧方停车 · 斜列车位　你能几星？", width / 2, height - 110);
+    g.fillText(
+      "倒车入库 · 侧方停车　你能几星？",
+      width / 2,
+      height - 84
+    );
 
     return board.toDataURL("image/png");
   }
 
-  function openShare() {
+  async function postShareNote() {
+    if (shareBusy) return;
     const run = game.lastRun;
     if (!run) return;
-    let dataUrl = "";
+    setShareBusy(true, "xhs");
     try {
-      dataUrl = buildShareImage(run);
+      if (!xhsMiniTool()) {
+        showToast("在小红书里打开才能一键发布", 1.8);
+        return;
+      }
+      if (!xhsCan("postNote")) {
+        showToast("当前版本还不支持发笔记", 1.6);
+        return;
+      }
+      if (!ensureShareImage(run)) {
+        showToast("战绩图没画出来，再试一次", 1.6);
+        return;
+      }
+      let path = "";
+      try {
+        path = await writeShareTempFile(lastShareDataUrl);
+      } catch (_) {
+        path = "";
+      }
+      const url = path || lastShareDataUrl;
+      await callMiniTool("postNote", {
+        title: shareNoteTitle(run),
+        content: shareNoteBody(),
+        tags: "会停车吗你,停车游戏,倒车入库",
+        mediaInfo: {
+          image_resources: [{ url }],
+        },
+      }, 400);
+      showToast("已打开发布页", 1.4);
     } catch (_) {
-      dataUrl = "";
+      showToast("发布页没打开，再试一次", 1.6);
+    } finally {
+      setShareBusy(false);
     }
-    if (dataUrl) {
-      shareImage.src = dataUrl;
-      shareFrame.hidden = false;
-      shareTitle.textContent = "长按图片保存到相册";
-    } else {
-      shareFrame.hidden = true;
-      shareTitle.textContent = "当前环境不支持生成图片，可以直接复制文案";
-    }
-    hideToast();
-    shareOverlay.classList.add("is-visible");
-  }
-
-  function legacyCopy(text) {
-    try {
-      const area = document.createElement("textarea");
-      area.value = text;
-      area.setAttribute("readonly", "");
-      area.style.position = "fixed";
-      area.style.top = "0";
-      area.style.left = "-2000px";
-      document.body.appendChild(area);
-      area.select();
-      area.setSelectionRange(0, text.length);
-      const ok = document.execCommand("copy");
-      document.body.removeChild(area);
-      return ok;
-    } catch (_) {
-      return false;
-    }
-  }
-
-  function copyShareText() {
-    const text = shareSummaryText();
-    if (!text) return;
-    const done = () => showToast("文案已复制", 1.2);
-    const fail = () => showToast("复制失败，长按文字手动复制", 1.6);
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, () => {
-        if (legacyCopy(text)) done();
-        else fail();
-      });
-      return;
-    }
-    if (legacyCopy(text)) done();
-    else fail();
   }
 
   /* ---------------- 粒子 ---------------- */
@@ -1794,6 +2352,16 @@
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
+    // 停进去之后镜头缓缓推向车位，给成功时刻一个值得截图的特写
+    const zoomT = game.state === "success" ? game.successFx : 0;
+    const zoom = zoomT > 0 ? 1 + 0.18 * (1 - Math.pow(1 - zoomT, 3)) : 1;
+    if (zoom > 1) {
+      const focus = game.layout.target;
+      ctx.save();
+      ctx.translate(focus.cx, focus.cy);
+      ctx.scale(zoom, zoom);
+      ctx.translate(-focus.cx, -focus.cy);
+    }
     drawScene();
     drawDecorBays();
     drawSkids();
@@ -1808,6 +2376,7 @@
     drawStabilityRing();
     if (game.state === "tank" || game.state === "failed") drawTank();
     drawParticles();
+    if (zoom > 1) ctx.restore();
     if (game.flash > 0) {
       ctx.save();
       ctx.globalAlpha = game.flash * 0.38;
@@ -1822,7 +2391,8 @@
     const { carLength, carWidth, controlTop, playTop } = game.layout;
     const direction = game.driveDirection;
     const wheelbase = carLength * 0.62;
-    const steerAngle = input.steer * 0.55;
+    const speedRatio = clamp(Math.abs(car.speed) / 38, 0.72, 1);
+    const steerAngle = input.steer * 0.57 * speedRatio;
     const curvature = Math.tan(steerAngle) / wheelbase;
     const startDistance = carLength * 0.5;
     const previewDistance = carLength * 1.12;
@@ -1885,12 +2455,23 @@
     ctx.fillStyle = "#252723";
     ctx.fillRect(0, roadTop - 5, W, 7);
 
-    ctx.fillStyle = "#ded6b9";
+    // 警示路沿：黄底黑斜杠，像真实马路牙子的警示涂装
+    ctx.fillStyle = "#f3df42";
     ctx.fillRect(0, roadTop - 16, W, 12);
-    for (let x = 0; x < W + 20; x += 44) {
-      ctx.fillStyle = (x / 44) % 2 === 0 ? "#f3df42" : "#171815";
-      ctx.fillRect(x, roadTop - 16, 24, 12);
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, roadTop - 16, W, 12);
+    ctx.clip();
+    ctx.strokeStyle = "#171815";
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    for (let x = -24; x < W + 24; x += 24) {
+      ctx.moveTo(x, roadTop - 1);
+      ctx.lineTo(x + 14, roadTop - 19);
     }
+    ctx.stroke();
+    ctx.restore();
+    drawCurbOpenings(roadTop);
 
     const stripeY = roadTop + (roadBottom - roadTop) * 0.58;
     ctx.strokeStyle = "rgba(245, 241, 223, 0.55)";
@@ -1918,20 +2499,36 @@
     ctx.fillRect(0, controlTop - 2, W, 4);
   }
 
+  // 可通过的开口处不画马路牙子：草坪直接接到路面，留白就是"能上"的信号
+  function drawCurbOpenings(roadTop) {
+    const openings = game.layout.curbOpenings;
+    if (!openings || !openings.length) return;
+    for (const span of openings) {
+      const x0 = span.x0 - 2;
+      const w = span.x1 - span.x0 + 4;
+      ctx.fillStyle = "#aebba7";
+      ctx.fillRect(x0, roadTop - 16, w, 16);
+      ctx.fillStyle = "#3d403b";
+      ctx.fillRect(x0, roadTop, w, 2);
+    }
+  }
+
   function drawDecorBays() {
-    const { decorBays, target } = game.layout;
+    const { decorBays } = game.layout;
     if (!decorBays || !decorBays.length) return;
-    const length = target.halfLength * 2;
-    const width = target.halfWidth * 2;
     ctx.save();
-    ctx.strokeStyle = "rgba(245, 241, 223, 0.42)";
+    ctx.strokeStyle = "rgba(245, 241, 223, 0.5)";
     ctx.lineWidth = 3;
-    ctx.setLineDash([9, 7]);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
     for (const bay of decorBays) {
+      const halfL = bay.halfLength;
+      const halfW = bay.halfWidth;
       ctx.save();
       ctx.translate(bay.cx, bay.cy);
-      ctx.rotate(target.angle);
-      ctx.strokeRect(-length / 2, -width / 2, length, width);
+      ctx.rotate(bay.angle);
+      // 实线闭合方框，像真实车位标线；虚线黄框留给目标车位
+      ctx.strokeRect(-halfL, -halfW, halfL * 2, halfW * 2);
       ctx.restore();
     }
     ctx.restore();
@@ -1992,17 +2589,25 @@
     if (progress <= 0.02) return;
     const { target } = game.layout;
     const radius = Math.max(12, Math.min(target.halfLength, target.halfWidth) * 0.6);
+    const start = -Math.PI / 2;
+    const end = start + progress * Math.PI * 2;
     ctx.save();
     ctx.translate(target.cx, target.cy);
-    ctx.lineWidth = 5;
     ctx.lineCap = "round";
+    ctx.lineWidth = 5;
     ctx.strokeStyle = "rgba(23, 24, 21, 0.22)";
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, Math.PI * 2);
     ctx.stroke();
-    ctx.strokeStyle = "#f05b32";
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = "#f5f1df";
     ctx.beginPath();
-    ctx.arc(0, 0, radius, -Math.PI / 2, -Math.PI / 2 + progress * Math.PI * 2);
+    ctx.arc(0, 0, radius, start, end);
+    ctx.stroke();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "#2ebd54";
+    ctx.beginPath();
+    ctx.arc(0, 0, radius, start, end);
     ctx.stroke();
     ctx.restore();
   }
@@ -2375,6 +2980,8 @@
       setTankRumble(true);
     }
   });
+
+  syncSoundToggle();
 
   resize();
   resetGame(false);

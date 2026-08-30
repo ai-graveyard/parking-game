@@ -6,6 +6,8 @@
   --mint: #9ee0b0;
   --panel: rgba(247, 243, 225, 0.96);
   --shadow: 0 7px 0 var(--ink);
+  /* 让 HUD 两侧角落避开小红书内置 webview 顶部的浮层按钮 */
+  --corner-clear: 36px;
 }
 
 * {
@@ -81,6 +83,7 @@ button {
 
 .brand {
   display: grid;
+  margin-top: var(--corner-clear);
   justify-items: start;
   transform: rotate(-1deg);
 }
@@ -105,6 +108,7 @@ button {
 
 .timer {
   display: grid;
+  margin-top: var(--corner-clear);
   min-width: 76px;
   padding: 5px 8px 7px;
   border: 3px solid var(--ink);
@@ -139,10 +143,18 @@ button {
   color: white;
 }
 
+.timer.is-practice b {
+  color: var(--ink);
+}
+
+#game.is-live .brand strong {
+  display: none;
+}
+
 .mission {
   position: absolute;
   z-index: 10;
-  top: calc(env(safe-area-inset-top, 0px) + 78px);
+  top: calc(env(safe-area-inset-top, 0px) + 78px + var(--corner-clear));
   left: 50%;
   display: flex;
   width: max-content;
@@ -187,19 +199,6 @@ button {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.controls::before {
-  content: "";
-  position: absolute;
-  top: -11px;
-  left: calc(50% - 24px);
-  width: 52px;
-  height: 17px;
-  border: 3px solid var(--ink);
-  border-radius: 2px;
-  background: var(--yellow);
-  transform: translateX(-50%) rotate(-2deg);
-}
-
 .controls.is-disabled {
   opacity: 0.34;
   transform: translateY(8px);
@@ -237,10 +236,11 @@ button {
 .wheel-pad:focus-visible,
 .pedal:focus-visible,
 .primary-button:focus-visible,
-.sound-toggle:focus-visible,
-.pause-toggle:focus-visible,
+.hud-icon-button:focus-visible,
 .pause-secondary-button:focus-visible,
-.pause-exit-button:focus-visible {
+.pause-exit-button:focus-visible,
+.share-action:focus-visible,
+.record-cell:focus-visible {
   outline: 4px solid white;
   outline-offset: 3px;
 }
@@ -441,6 +441,94 @@ button {
   transform: translate(-50%, -50%) rotate(-2deg) scale(1);
 }
 
+.guide-tip {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(clamp(190px, 27dvh, 232px) + 14px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100% - 24px);
+  padding: 8px 10px;
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+  background: var(--yellow);
+  box-shadow: 3px 4px 0 var(--ink);
+  font-family: "PingFang SC", system-ui, sans-serif;
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.guide-tip[hidden] {
+  display: none;
+}
+
+.guide-step {
+  flex: 0 0 auto;
+  padding: 3px 6px;
+  background: var(--ink);
+  color: var(--yellow);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.guide-tip strong {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.guide-skip {
+  flex: 0 0 auto;
+  margin-left: 2px;
+  padding: 4px 8px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.guide-finger {
+  position: absolute;
+  z-index: 6;
+  inset: 4px;
+  pointer-events: none;
+  animation: guide-orbit 1.6s linear infinite;
+}
+
+.guide-finger[hidden] {
+  display: none;
+}
+
+.guide-finger::before {
+  content: "👆";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  font-size: 26px;
+  transform: translateX(-50%);
+  filter: drop-shadow(1px 2px 0 rgba(23, 24, 21, 0.35));
+}
+
+.is-guide-target {
+  animation: guide-pulse 0.85s ease-in-out infinite;
+}
+
+@keyframes guide-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes guide-pulse {
+  0%, 100% { outline: 4px solid rgba(243, 223, 66, 0); outline-offset: 2px; }
+  50% { outline: 4px solid var(--yellow); outline-offset: 5px; }
+}
+
 .overlay {
   position: absolute;
   z-index: 40;
@@ -563,6 +651,10 @@ button {
   margin: 0 0 11px;
 }
 
+.mode-picker {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .mode-option {
   min-width: 0;
   padding: 7px 5px 6px;
@@ -609,8 +701,76 @@ button {
   color: #2f4436;
 }
 
-.record-line {
+.record-board {
   margin: 0 0 12px;
+}
+
+.record-grid {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 6px;
+}
+
+.record-grid-row {
+  display: grid;
+  grid-template-columns: 36px repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  align-items: stretch;
+}
+
+.record-grid-row.is-head span {
+  color: #65665f;
+  font-family: "PingFang SC", system-ui, sans-serif;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.record-grid-mode {
+  display: grid;
+  align-items: center;
+  color: #4e5049;
+  font-family: "PingFang SC", system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.record-cell {
+  min-width: 0;
+  min-height: 26px;
+  padding: 3px 2px;
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+  background: white;
+  color: var(--ink);
+  font-family: "PingFang SC", system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.record-cell.is-selected {
+  box-shadow: inset 0 0 0 2px white;
+}
+
+.record-cell.is-cleared {
+  background: var(--mint);
+}
+
+.record-cell.is-perfect {
+  background: var(--yellow);
+}
+
+.record-cell.is-tried {
+  background: #ffd7ca;
+}
+
+.record-line {
+  margin: 0;
   padding: 7px 10px;
   border: 2px dashed var(--ink);
   background: white;
@@ -623,6 +783,15 @@ button {
 .record-line b {
   color: var(--orange);
   font-size: 12px;
+}
+
+.poster-card.has-played h1 {
+  font-size: clamp(36px, 11vw, 52px);
+}
+
+.poster-card.has-played .poster-copy,
+.poster-card.has-played .how-to {
+  display: none;
 }
 
 .difficulty-option {
@@ -771,6 +940,17 @@ button {
   font-weight: 700;
 }
 
+.result-beat {
+  margin: -8px 0 13px !important;
+  color: var(--orange);
+  font-size: 11px !important;
+  font-weight: 900 !important;
+}
+
+.result-beat[hidden] {
+  display: none !important;
+}
+
 .result-stars {
   margin: 0 0 11px;
   color: var(--orange);
@@ -785,6 +965,18 @@ button {
 
 .result-stars i.is-empty {
   color: rgba(23, 24, 21, 0.2);
+}
+
+.result-star-rule {
+  margin: -4px 0 11px;
+  color: #5f6059;
+  font-family: "PingFang SC", system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.result-star-rule[hidden] {
+  display: none;
 }
 
 .result-stat {
@@ -833,69 +1025,61 @@ button {
   background: var(--mint);
 }
 
-.share-button {
-  display: block;
+.share-action {
+  display: flex;
   width: 100%;
-  min-height: 42px;
-  margin-top: 10px;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 11px;
+  padding: 6px;
   border: 3px solid var(--ink);
   border-radius: 3px;
-  background: white;
-  color: var(--ink);
+  background: var(--orange);
+  color: white;
   box-shadow: 0 4px 0 var(--ink);
   font-family: "PingFang SC", system-ui, sans-serif;
-  font-size: 12px;
-  font-weight: 900;
   cursor: pointer;
 }
 
-.share-button:active {
+.share-action b {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.share-action:active {
   box-shadow: 0 1px 0 var(--ink);
   transform: translateY(3px);
 }
 
-.share-overlay {
-  z-index: 50;
+.share-action:disabled {
+  opacity: 0.55;
+  pointer-events: none;
 }
 
-.share-card {
-  width: min(100%, 340px);
-  padding: 18px 18px 16px;
-  border: 4px solid var(--ink);
-  border-radius: 5px;
-  background: var(--paper);
-  box-shadow: 9px 10px 0 var(--ink);
+.result-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 16px;
+  margin-top: 12px;
 }
 
-.share-kicker {
-  margin: 0 0 10px;
-  color: var(--orange);
+.result-foot-link {
+  padding: 4px 2px;
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  background: transparent;
+  color: #5f6059;
   font-family: "PingFang SC", system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
 }
 
-.share-frame {
-  margin-bottom: 13px;
-  border: 3px solid var(--ink);
-  background: white;
-  line-height: 0;
-}
-
-.share-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.share-copy-button {
-  min-height: 46px;
-}
-
-.share-copy-button span {
-  font-size: 15px;
+.result-foot-link[hidden] {
+  display: none !important;
 }
 
 .rotate-overlay {
@@ -942,6 +1126,11 @@ button {
 .result-card.is-fail .primary-button {
   background: var(--orange);
   color: white;
+}
+
+/* 失败卡的主按钮已经是橙色，分享按钮换墨色才分得出层级 */
+.result-card.is-fail .share-action {
+  background: var(--ink);
 }
 
 .next-level[hidden] {
@@ -995,6 +1184,10 @@ button {
   font-size: 16px;
 }
 
+.next-level.is-graduation {
+  background: var(--mint);
+}
+
 #restartButton.is-secondary {
   min-height: 44px;
   background: white;
@@ -1005,47 +1198,83 @@ button {
   font-size: 14px;
 }
 
-.change-level-button {
-  display: block;
-  margin: 11px auto 0;
-  padding: 4px 8px;
-  border: 0;
-  border-bottom: 2px solid currentColor;
-  background: transparent;
-  color: #5f6059;
-  font-family: "PingFang SC", system-ui, sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  cursor: pointer;
-}
-
 .hud-actions {
   display: flex;
   flex: 0 0 auto;
   align-items: flex-start;
-  gap: 5px;
+  gap: 6px;
   pointer-events: auto;
 }
 
-.sound-toggle,
-.pause-toggle {
+.hud-icon-button {
+  display: grid;
   flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
   margin-top: 2px;
-  padding: 4px 7px;
-  border: 2px solid var(--ink);
-  border-radius: 999px;
-  background: rgba(245, 241, 223, 0.9);
+  padding: 0;
+  place-items: center;
+  border: 3px solid var(--ink);
+  border-radius: 3px;
+  background: var(--paper);
   color: var(--ink);
-  font-family: "PingFang SC", system-ui, sans-serif;
-  font-size: 9px;
-  font-weight: 800;
   box-shadow: 2px 2px 0 var(--ink);
   cursor: pointer;
   pointer-events: auto;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.hud-icon-button:active {
+  box-shadow: 0 0 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+
+.sound-toggle {
+  transform: rotate(-2deg);
+}
+
+.sound-toggle:active {
+  transform: rotate(-2deg) translate(2px, 2px);
 }
 
 .pause-toggle {
   background: var(--yellow);
+  transform: rotate(2deg);
+}
+
+.pause-toggle:active {
+  transform: rotate(2deg) translate(2px, 2px);
+}
+
+.hud-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.hud-icon-body {
+  fill: currentColor;
+}
+
+.hud-icon-wave path,
+.hud-icon-cross path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.sound-toggle .hud-icon-cross,
+.sound-toggle.is-muted .hud-icon-wave {
+  display: none;
+}
+
+.sound-toggle.is-muted .hud-icon-cross {
+  display: block;
+}
+
+.sound-toggle.is-muted {
+  background: rgba(245, 241, 223, 0.75);
+  color: #62635c;
 }
 
 .pause-overlay {
@@ -1142,9 +1371,11 @@ button {
 }
 
 @media (max-height: 670px) {
+  :root { --corner-clear: 28px; }
   .hud { padding-top: calc(env(safe-area-inset-top, 0px) + 7px); }
-  .mission { top: calc(env(safe-area-inset-top, 0px) + 66px); }
+  .mission { top: calc(env(safe-area-inset-top, 0px) + 66px + var(--corner-clear)); }
   .controls { height: 178px; padding-top: 22px; }
+  .guide-tip { bottom: 190px; }
   .poster-card { padding: 21px 18px 15px; }
   .poster-card h1 { font-size: 43px; }
   .poster-copy { margin: 10px 0; }
@@ -1155,9 +1386,15 @@ button {
   .difficulty-option { padding: 5px 4px 4px; }
   .mode-option small,
   .difficulty-option small { display: none; }
-  .record-line { margin-bottom: 9px; }
-  .how-to { margin-bottom: 10px; }
+  .record-line { margin-bottom: 0; }
+  .record-board { margin-bottom: 9px; }
+  .record-cell { min-height: 22px; font-size: 8px; }
+  .poster-copy,
+  .how-to { display: none; }
   .sound-note { display: none; }
+  .poster-card.has-played h1 { font-size: 36px; }
+  .share-action { min-height: 42px; margin-top: 9px; }
+  .result-foot { margin-top: 10px; }
 }
 
 @media (min-width: 521px) {

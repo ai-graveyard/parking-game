@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#f3df42" />
-    <meta name="description" content="《会停车吗你》——倒车入库、侧方停车、斜列车位三科目，简单、困难、地狱三难度，随机场地。" />
+    <meta name="description" content="《会停车吗你》——倒车入库、侧方停车两科目，简单、困难、地狱三难度，随机场地。" />
     <title>会停车吗你</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./style.css" />
@@ -19,11 +19,27 @@
           <strong>会停车吗你</strong>
         </div>
         <div class="hud-actions">
-          <button class="sound-toggle" id="soundToggle" type="button" aria-label="关闭声音">声音开</button>
-          <button class="pause-toggle" id="pauseButton" type="button" aria-label="暂停游戏" hidden>暂停</button>
+          <button class="hud-icon-button sound-toggle" id="soundToggle" type="button" aria-pressed="true" aria-label="关闭声音" title="声音开">
+            <svg class="hud-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path class="hud-icon-body" d="M4 9.4h3.4L12 5.3v13.4L7.4 14.6H4z" />
+              <g class="hud-icon-wave">
+                <path d="M15.4 9.4c1.5 1.5 1.5 3.7 0 5.2" />
+                <path d="M18.2 6.9c2.8 2.8 2.8 7.4 0 10.2" />
+              </g>
+              <g class="hud-icon-cross">
+                <path d="M15.8 9.6l5 4.8" />
+                <path d="M20.8 9.6l-5 4.8" />
+              </g>
+            </svg>
+          </button>
+          <button class="hud-icon-button pause-toggle" id="pauseButton" type="button" aria-label="暂停游戏" title="暂停" hidden>
+            <svg class="hud-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path class="hud-icon-body" d="M7.6 5h3.1v14H7.6zM13.3 5h3.1v14h-3.1z" />
+            </svg>
+          </button>
         </div>
         <div class="timer" id="timerBox" aria-live="polite">
-          <span>坦克到达</span>
+          <span id="timerLabel">坦克到达</span>
           <b id="timer">100.0</b>
         </div>
       </header>
@@ -44,6 +60,7 @@
               <span class="wheel-hub">●</span>
             </div>
             <output class="steer-readout" id="steerReadout" aria-live="polite">0°</output>
+            <i class="guide-finger" id="guideFinger" hidden aria-hidden="true"></i>
           </div>
         </div>
 
@@ -66,6 +83,12 @@
 
       <div class="toast" id="toast" aria-live="assertive"></div>
 
+      <div class="guide-tip" id="guideTip" hidden aria-live="polite">
+        <span class="guide-step" id="guideStepBadge">教学 1/3</span>
+        <strong id="guideText">沿圆周转动方向盘</strong>
+        <button class="guide-skip" id="guideSkip" type="button">跳过</button>
+      </div>
+
       <section class="overlay is-visible" id="startOverlay">
         <div class="poster-card">
           <div class="poster-stamp" id="startStamp">⚠ 坦克还有 100 秒</div>
@@ -80,9 +103,6 @@
             </button>
             <button class="mode-option" type="button" role="radio" aria-checked="false" data-mode="parallel">
               <strong>侧方停车</strong><small>夹在两车之间</small>
-            </button>
-            <button class="mode-option" type="button" role="radio" aria-checked="false" data-mode="angled">
-              <strong>斜列车位</strong><small>斜向切进去</small>
             </button>
           </div>
 
@@ -99,9 +119,12 @@
             </button>
           </div>
 
-          <p class="record-line" id="startRecord">这一科还没有记录</p>
+          <div class="record-board">
+            <div class="record-grid" id="recordGrid" role="grid" aria-label="全科成绩"></div>
+            <p class="record-line" id="startRecord">这一科还没有记录</p>
+          </div>
 
-          <div class="how-to">
+          <div class="how-to" id="howTo">
             <span><b>左拇指</b> 沿圆周转方向盘</span>
             <span><b>右拇指</b> 长按刹车倒车</span>
           </div>
@@ -121,18 +144,20 @@
             <span>继续停车</span><b>→</b>
           </button>
           <button class="pause-secondary-button" id="pauseRestartButton" type="button">
-            <span>换一张场地重开</span><b>↻</b>
+            <span id="pauseRestartLabel">换一张场地重开</span><b>↻</b>
           </button>
           <button class="pause-exit-button" id="pauseExitButton" type="button">退出本局 · 返回科目选择</button>
         </div>
       </section>
 
-      <section class="overlay result-overlay" id="resultOverlay" aria-live="assertive">
+      <section class="overlay result-overlay" id="resultOverlay" aria-live="assertive" aria-modal="true" role="dialog" aria-labelledby="resultTitle">
         <div class="result-card" id="resultCard">
           <p class="result-kicker" id="resultKicker">挑战结束</p>
           <h2 id="resultTitle">停进去了！</h2>
           <p id="resultCopy">这把有点东西。</p>
+          <p class="result-beat" id="resultBeat" hidden></p>
           <div class="result-stars" id="resultStars" aria-label="本局评价"></div>
+          <p class="result-star-rule" id="resultStarRule">三星：零碰撞且 42 秒内</p>
           <div class="result-stat">
             <span>净用时</span>
             <b id="resultTime">00.0 秒</b>
@@ -151,24 +176,20 @@
               <span>直接挑战</span><b>→</b>
             </button>
           </div>
+          <div class="next-level is-graduation" id="graduation" hidden>
+            <span>全科毕业</span>
+            <strong id="graduationTitle">路保住了</strong>
+            <small id="graduationCopy">6 / 6 通关</small>
+          </div>
           <button class="primary-button" id="restartButton" type="button">
             <span id="restartButtonLabel">再停一次</span><b>↻</b>
           </button>
-          <button class="share-button" id="shareButton" type="button">生成战绩图 · 分享</button>
-          <button class="change-level-button" id="changeDifficultyButton" type="button">返回科目选择</button>
-        </div>
-      </section>
-
-      <section class="overlay share-overlay" id="shareOverlay" aria-modal="true" role="dialog" aria-labelledby="shareTitle">
-        <div class="share-card">
-          <p class="share-kicker" id="shareTitle">长按图片保存到相册</p>
-          <div class="share-frame">
-            <img id="shareImage" alt="本局战绩图" />
-          </div>
-          <button class="primary-button share-copy-button" id="shareCopyButton" type="button">
-            <span>复制战绩文案</span><b>⧉</b>
+          <button class="share-action" id="shareXhsButton" type="button">
+            <b id="shareXhsLabel">分享战绩</b>
           </button>
-          <button class="pause-exit-button" id="shareCloseButton" type="button">关闭</button>
+          <div class="result-foot">
+            <button class="result-foot-link" id="changeDifficultyButton" type="button">返回科目选择</button>
+          </div>
         </div>
       </section>
 
