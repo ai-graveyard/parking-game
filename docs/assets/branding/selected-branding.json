@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-26",
+  "tool": "built-in image_gen",
+  "selectedLogo": {
+    "variant": "C / 利落动线",
+    "source": "dynamic-refinements/C-clean-motion.png",
+    "file": "logo-final.png",
+    "dimensions": [
+      1024,
+      1024
+    ]
+  },
+  "cover": {
+    "files": [
+      "cover-3x4-v3.png",
+      "cover-3x4-v3.jpg"
+    ],
+    "dimensions": [
+      1080,
+      1440
+    ],
+    "generationRecord": "cover-three-vehicles.json",
+    "vehicles": [
+      "orange compact car",
+      "orange cab cream box delivery truck",
+      "blue cab green tarp large truck"
+    ]
+  },
+  "notes": "Final logo is a byte-identical copy of user-selected C. Cover is generated from that exact reference; proportional export with sips.",
+  "coverHistory": [
+    {
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-93ca8455-5b87-42b1-a802-964b74ccfdc7.png",
+      "files": [
+        "cover-3x4-v2.png",
+        "cover-3x4-v2.jpg"
+      ],
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "prompt": "Use case: ads-marketing / compositing.\nAsset: ONE finished vertical launch cover for the Chinese mobile parking game 《会停车吗你》, exact 3:4 portrait, target 1200×1600 pixels, full bleed opaque background.\nInput image 1: the USER-SELECTED FINAL LOGO. It is the supporting artwork and the definitive visual identity. Reuse this specific orange car, its dark teal windows, red rear lights, countersteered wheels, three compact cream smoke puffs, the clean SOLID tapered black tire arcs, and the cream parking bay. Preserve its recognizable shapes, rendering and pose; do not substitute a different vehicle or change to scratchy tire streaks.\nPrimary request: build a coherent 3:4 game cover BASED ON THIS SELECTED LOGO, with strong Chinese title typography and the dynamic car as the hero. It must feel like the same brand extended into a poster.\nStyle: energetic neo-brutalism, very thick ink-black contours, angular geometric panels, one hard offset black shadow, big typography, clean bold color blocks. Yellow #F3DF42 / bright orange #FF5A18 / warm cream #F5F1DF / near-black #171815 with existing teal car glass. Do not add photographic textures, grey asphalt, glossy 3D or soft shadows.\nComposition: upper approximately 35–38 percent for the giant title; central/lower approximately 52 percent for the full dynamic selected car and bay. The car points toward the upper right and its tail swings toward the lower left, with two clean tapered black arcs sweeping around the bottom-left. Keep the full car visible. Yellow ground unifies the whole poster. One small cream footer at the very bottom. Generous safe margins so title and car are not clipped.\nText MUST be exact, complete and legible:\nTop title, line one: “会停车吗”\nTop title, line two: “你？”\nUse massive custom condensed Chinese display letters with cream faces, thick near-black outlines and a crisp hard black offset shadow; second line can use orange/cream contrast but must remain highly legible. The title is the game name “会停车吗你？”, not a slogan. Slight playfully tilted typography without malformed Chinese strokes.\nFooter, one line only: “16关主线 · 三种车型”\nNo other text. No English. No number labels from design exploration.\nConstraints: only ONE hero car, no neighboring cars, no duplicated small icon, no question mark outside the title, no phones, no app UI, no fake buttons, no QR codes, no tanks, no weights, no people or faces, no watermark. Make the hero illustration and typography feel deliberately composed together, not a square logo pasted onto a tall blank background."
+    }
+  ]
+}

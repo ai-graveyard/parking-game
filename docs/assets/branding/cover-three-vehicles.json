@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-26",
+  "tool": "built-in image_gen",
+  "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-86716cc0-54b5-4775-81c5-94046e9b4736.png",
+  "referenceCover": "cover-3x4-v2.png",
+  "logoReference": "logo-final.png",
+  "vehicleReferences": [
+    "../../../src/assets/vehicles/seam-van.png",
+    "../../../src/assets/vehicles/mirror-truck.png"
+  ],
+  "files": [
+    "cover-3x4-v3.png",
+    "cover-3x4-v3.jpg"
+  ],
+  "dimensions": [
+    1080,
+    1440
+  ],
+  "prompt": "Use case: compositing / ads-marketing.\nAsset: ONE final 3:4 vertical cover for the Chinese parking game 《会停车吗你》, target 1200×1600 pixels.\nInput images: Image 1 is the CURRENT COVER and EDIT TARGET. Image 2 is the actual SMALL DELIVERY TRUCK reference (orange short cab plus cream closed rectangular box cargo body, four wheels). Image 3 is the actual LARGE TRUCK reference (blue short cab, long sage-green tarpaulin cargo bed, six wheels). Image 4 is the USER-SELECTED FINAL ORANGE CAR LOGO and defines its clean tire arcs, car identity and graphic style.\nUser request: add the other two vehicle types to the cover so that ALL THREE VEHICLES star together. Recompose the illustration area rather than attaching tiny supplementary icons.\nPreserve: the lively neo-brutalist brand, signal-yellow full-bleed ground, thick ink-black outlines, crisp hard offset shadows, orange/cream Chinese headline and clean sweeping solid black tire arcs. Preserve the exact orange car identity, not a different car model.\nMain change: show EXACTLY THREE distinct vehicles in a dynamic, balanced triangular group, all in compatible overhead / high three-quarter cartoon perspective:\n1. orange compact player car, hero in the lower foreground, nose turning toward upper right, visibly countersteered tires and one flowing arc;\n2. orange-cab / CREAM BOX delivery truck, at mid-left slightly behind, clearly an enclosed rectangular cargo box, not a passenger van or bus;\n3. blue-cab / LONG SAGE-GREEN TARP truck, at mid-right behind, obviously the longest vehicle, identifiable six-wheel layout and tarpaulin-covered cargo bed.\nEach vehicle must be instantly identifiable and large enough to see its cabin and cargo shape at cover-thumbnail scale. Keep all three complete body silhouettes visible and separated by yellow negative space. Small shadows or tire arcs may overlap, but no car body may hide another vehicle's cab. Do not crop the trucks or hide them behind the title/footer. Reduce the previous giant car enough to give the trucks real compositional space. Natural perspective explains the foreground car emphasis; large truck remains visibly long. Use a few cream parking corner marks and a common sweeping curve to unify this as a parking game, not a racing convoy or crash scene.\nLayout: headline in upper approximately 30–34%; a roomy group of three vehicles in central/lower approximately 56–60%; short cream footer at bottom. Avoid cramming extra decorations around the trucks. Maintain visual clarity and safe margins.\nText exact and fully legible:\nTop first line: “会停车吗”\nSecond line: “你？”\nFooter: “16关主线 · 三种车型”\nNo additional words, numbers, labels or English.\nAvoid: duplicate vehicles, fourth car, neighboring parked cars, logos stamped on cargo, people, faces, tank, iron weight, smartphone UI, fake buttons, QR code, watermark, photorealistic rendering, glossy 3D, grey road background, scratchy tire marks. Keep the selected C logo's clean bold style."
+}

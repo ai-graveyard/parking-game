@@ -1,0 +1,466 @@
+{
+  "van": {
+    "name": "van",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-9f1775f4-7f2d-4395-b139-d2cc4ac34c4e.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing small box delivery truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is nearly half the vehicle: make cab 38-40 percent and ivory rigid box 60-62 percent of total length. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "van",
+    "editTarget": "src/assets/vehicles/mirror-van.png",
+    "path": "src/assets/vehicles/short-cab-van.png",
+    "sourceSize": [
+      1767,
+      890
+    ],
+    "crop": [
+      7,
+      8,
+      1767,
+      858
+    ],
+    "size": [
+      512,
+      247
+    ],
+    "bodyBounds": [
+      8,
+      74,
+      1767,
+      788
+    ],
+    "frame": {
+      "x": 0.290909,
+      "y": 19.2,
+      "width": 511.709091,
+      "height": 207.709091
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80,
+      32.472996
+    ],
+    "previousBody": [
+      80.0,
+      33.57611940298507
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        247
+      ],
+      "mirrorEdges": [
+        9,
+        239
+      ],
+      "passed": true
+    }
+  },
+  "van-blue": {
+    "name": "van-blue",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-f60827aa-2b54-4988-815e-5318d5d8f58e.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing small box delivery truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is nearly half the vehicle: make cab 38-40 percent and ivory rigid box 60-62 percent of total length. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "van",
+    "editTarget": "src/assets/vehicles/mirror-van-blue.png",
+    "path": "src/assets/vehicles/short-cab-van-blue.png",
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "crop": [
+      16,
+      20,
+      1766,
+      833
+    ],
+    "size": [
+      512,
+      238
+    ],
+    "bodyBounds": [
+      16,
+      85,
+      1765,
+      769
+    ],
+    "frame": {
+      "x": 0.0,
+      "y": 19.017143,
+      "width": 511.707429,
+      "height": 200.118857
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80,
+      31.286449
+    ],
+    "previousBody": [
+      80.0,
+      33.588516746411486
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        238
+      ],
+      "mirrorEdges": [
+        9,
+        230
+      ],
+      "passed": true
+    }
+  },
+  "van-sage": {
+    "name": "van-sage",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-f671311b-5975-44f3-a87d-02213cd84939.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing small box delivery truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is nearly half the vehicle: make cab 38-40 percent and ivory rigid box 60-62 percent of total length. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "van",
+    "editTarget": "src/assets/vehicles/mirror-van-sage.png",
+    "path": "src/assets/vehicles/short-cab-van-sage.png",
+    "sourceSize": [
+      1806,
+      871
+    ],
+    "crop": [
+      10,
+      7,
+      1803,
+      828
+    ],
+    "size": [
+      512,
+      234
+    ],
+    "bodyBounds": [
+      10,
+      68,
+      1802,
+      767
+    ],
+    "frame": {
+      "x": 0.0,
+      "y": 17.418851,
+      "width": 511.714445,
+      "height": 199.6029
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80,
+      31.205357
+    ],
+    "previousBody": [
+      80.0,
+      32.70796460176991
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        234
+      ],
+      "mirrorEdges": [
+        12,
+        224
+      ],
+      "passed": true
+    }
+  },
+  "van-lavender": {
+    "name": "van-lavender",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-0133201b-632d-4b7f-8159-2750a42c0aa2.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing small box delivery truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is nearly half the vehicle: make cab 38-40 percent and ivory rigid box 60-62 percent of total length. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "van",
+    "editTarget": "src/assets/vehicles/mirror-van-lavender.png",
+    "path": "src/assets/vehicles/short-cab-van-lavender.png",
+    "sourceSize": [
+      1788,
+      880
+    ],
+    "crop": [
+      14,
+      30,
+      1779,
+      812
+    ],
+    "size": [
+      512,
+      227
+    ],
+    "bodyBounds": [
+      15,
+      84,
+      1778,
+      755
+    ],
+    "frame": {
+      "x": 0.290085,
+      "y": 15.664589,
+      "width": 511.41983,
+      "height": 194.647025
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80,
+      30.4481
+    ],
+    "previousBody": [
+      80.0,
+      32.87410926365796
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        227
+      ],
+      "mirrorEdges": [
+        10,
+        217
+      ],
+      "passed": true
+    }
+  },
+  "truck": {
+    "name": "truck",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-848bca75-c9cc-4e71-ab8c-b1978963545f.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing long tarp cargo truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is about 27 percent: make it 21-22 percent and tarp cargo 78-79 percent of total length. Keep THREE dark tarp straps and broad tonal folds. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/mirror-truck.png",
+    "path": "src/assets/vehicles/short-cab-truck.png",
+    "sourceSize": [
+      2132,
+      737
+    ],
+    "crop": [
+      6,
+      5,
+      2124,
+      709
+    ],
+    "size": [
+      768,
+      255
+    ],
+    "bodyBounds": [
+      6,
+      59,
+      2124,
+      651
+    ],
+    "frame": {
+      "x": 0.0,
+      "y": 19.580737,
+      "width": 768.0,
+      "height": 214.66289
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      128,
+      35.777148
+    ],
+    "previousBody": [
+      128.0,
+      36.9652471855115
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        255
+      ],
+      "mirrorEdges": [
+        10,
+        248
+      ],
+      "passed": true
+    }
+  },
+  "truck-coral": {
+    "name": "truck-coral",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-c5a848f4-f2d8-4540-ab01-32364f2160a8.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing long tarp cargo truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is about 27 percent: make it 21-22 percent and tarp cargo 78-79 percent of total length. Keep THREE dark tarp straps and broad tonal folds. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/mirror-truck-coral.png",
+    "path": "src/assets/vehicles/short-cab-truck-coral.png",
+    "sourceSize": [
+      2132,
+      737
+    ],
+    "crop": [
+      5,
+      1,
+      2129,
+      686
+    ],
+    "size": [
+      768,
+      248
+    ],
+    "bodyBounds": [
+      12,
+      60,
+      2128,
+      626
+    ],
+    "frame": {
+      "x": 2.531073,
+      "y": 21.333333,
+      "width": 765.107345,
+      "height": 204.655367
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      128,
+      34.238185
+    ],
+    "previousBody": [
+      127.99999999999999,
+      36.8055145248646
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        248
+      ],
+      "mirrorEdges": [
+        21,
+        228
+      ],
+      "passed": true
+    }
+  },
+  "truck-sage": {
+    "name": "truck-sage",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-aa5494cf-cecc-4989-b11b-2ee57fd3077f.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing long tarp cargo truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is about 27 percent: make it 21-22 percent and tarp cargo 78-79 percent of total length. Keep THREE dark tarp straps and broad tonal folds. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/mirror-truck-sage.png",
+    "path": "src/assets/vehicles/short-cab-truck-sage.png",
+    "sourceSize": [
+      2126,
+      740
+    ],
+    "crop": [
+      13,
+      6,
+      2122,
+      708
+    ],
+    "size": [
+      768,
+      256
+    ],
+    "bodyBounds": [
+      13,
+      61,
+      2119,
+      654
+    ],
+    "frame": {
+      "x": 0.0,
+      "y": 20.02845,
+      "width": 766.907539,
+      "height": 215.943101
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      128,
+      36.041785
+    ],
+    "previousBody": [
+      127.99999999999999,
+      37.275419545903254
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        256
+      ],
+      "mirrorEdges": [
+        14,
+        245
+      ],
+      "passed": true
+    }
+  },
+  "truck-ochre": {
+    "name": "truck-ochre",
+    "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-63c83904-c831-4eb3-b490-154e7e0c0f72.png",
+    "prompt": "Use case: precise-object-edit. EDIT TARGET: supplied existing long tarp cargo truck sprite for a top-down mobile parking game. Primary request: shorten the RIGHT colored driver's CAB length by 20 percent and extend LEFT cargo compartment into the freed space, keeping EXACT overall bumper-to-bumper LENGTH and body WIDTH and chassis aspect ratio. Move the cab/cargo junction RIGHT; keep leftmost rear and rightmost front positions unchanged. Current cab is about 27 percent: make it 21-22 percent and tarp cargo 78-79 percent of total length. Keep THREE dark tarp straps and broad tonal folds. Naturally redraw shorter cab roof and windshield within the new shorter cab, do not just crop away windshield or lights. Preserve exact paint colors of this reference, thick near-black contour style, square straight LEFT rear with small red rectangular taillights, cream RIGHT headlights, large pale mint front windshield with one reflection and wiper, simple dark tire tabs, and TINY compact mirrors tucked INSIDE outermost tire edges. Do NOT enlarge mirrors. Retain number of axles; front wheels can move right naturally with the shorter cab. Preserve strict symmetric orthographic top-down view, front RIGHT, no perspective or sidewalls. Exact same complete vehicle length:width ratio as reference. Crisp sparse mobile game illustration, no new details/hardware/texture/text/logo/shadow/glow/halo. One single whole vehicle, genuine alpha TRANSPARENT background, centered with margins. Main change is a visibly SHORTER CAB and LONGER CARGO inside unchanged vehicle dimensions.",
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/mirror-truck-ochre.png",
+    "path": "src/assets/vehicles/short-cab-truck-ochre.png",
+    "sourceSize": [
+      2120,
+      742
+    ],
+    "crop": [
+      5,
+      7,
+      2116,
+      713
+    ],
+    "size": [
+      768,
+      257
+    ],
+    "bodyBounds": [
+      10,
+      63,
+      2116,
+      656
+    ],
+    "frame": {
+      "x": 1.819043,
+      "y": 20.373283,
+      "width": 766.180957,
+      "height": 215.738513
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      128,
+      36.041785
+    ],
+    "previousBody": [
+      128.0,
+      37.29633300297325
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "tireEdges": [
+        0,
+        257
+      ],
+      "mirrorEdges": [
+        13,
+        245
+      ],
+      "passed": true
+    }
+  }
+}

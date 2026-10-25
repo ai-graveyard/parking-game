@@ -1,0 +1,52 @@
+{
+  "selection_order": "actual generated image display order in conversation",
+  "game_modified": false,
+  "references": [
+    "docs/assets/screenshot-play.png",
+    "docs/vehicle-art/car-in-game.png"
+  ],
+  "options": [
+    {
+      "display_order": 1,
+      "concept": "boxy-commuter",
+      "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-5fb21b13-02dc-43e7-89f2-7272dfd63d23.png",
+      "asset": "docs/vehicle-art/sedan-options/option-1-boxy-commuter.png",
+      "size": [
+        1736,
+        906
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "display_order": 2,
+      "concept": "retro-compact",
+      "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-a3f47e5c-d4a9-4e2c-a98f-3c57b33b2c16.png",
+      "asset": "docs/vehicle-art/sedan-options/option-2-retro-compact.png",
+      "size": [
+        1753,
+        897
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "display_order": 3,
+      "concept": "angular-hatch",
+      "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-0783f672-37d6-4277-a3c2-1ea586f4caf3.png",
+      "asset": "docs/vehicle-art/sedan-options/option-3-angular-hatch.png",
+      "size": [
+        1774,
+        887
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "van-square": {
+    "editTarget": "src/assets/vehicles/van-mobile.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-27cd3203-7db3-47a6-8e71-29c9a792614b.png",
+    "sourceSize": [
+      1699,
+      926
+    ],
+    "path": "src/assets/vehicles/van-square.png",
+    "size": [
+      512,
+      284
+    ],
+    "crop": [
+      39,
+      1,
+      1699,
+      923
+    ],
+    "bodyBounds": [
+      43,
+      112.0,
+      1695,
+      803.0
+    ],
+    "bodySampleFractions": [
+      0.39,
+      0.41
+    ],
+    "frame": {
+      "x": 1.233735,
+      "y": 34.236145,
+      "width": 509.53253,
+      "height": 213.127711
+    },
+    "renderedBody": [
+      80.0,
+      33.46246973365618
+    ],
+    "collision": [
+      80,
+      34
+    ],
+    "previousBody": [
+      80.0,
+      33.10344827586207
+    ]
+  },
+  "van-square-blue": {
+    "editTarget": "src/assets/vehicles/van-mobile-blue.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-b0e64c8f-efec-477d-852d-642cc4428b68.png",
+    "sourceSize": [
+      1702,
+      924
+    ],
+    "path": "src/assets/vehicles/van-square-blue.png",
+    "size": [
+      512,
+      283
+    ],
+    "crop": [
+      30,
+      0,
+      1702,
+      924
+    ],
+    "bodyBounds": [
+      34,
+      108.0,
+      1702,
+      807.0
+    ],
+    "bodySampleFractions": [
+      0.39,
+      0.41
+    ],
+    "frame": {
+      "x": 1.22488,
+      "y": 33.07177,
+      "width": 510.77512,
+      "height": 214.047847
+    },
+    "renderedBody": [
+      80.0,
+      33.52517985611511
+    ],
+    "collision": [
+      80,
+      34
+    ],
+    "previousBody": [
+      80.0,
+      33.11355311355312
+    ]
+  },
+  "van-square-sage": {
+    "editTarget": "src/assets/vehicles/van-mobile-sage.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-68f06dce-a2f5-4c74-9291-caf7b8b7f9b0.png",
+    "sourceSize": [
+      1702,
+      924
+    ],
+    "path": "src/assets/vehicles/van-square-sage.png",
+    "size": [
+      512,
+      277
+    ],
+    "crop": [
+      11,
+      1,
+      1702,
+      916
+    ],
+    "bodyBounds": [
+      15,
+      109.0,
+      1702,
+      800.0
+    ],
+    "bodySampleFractions": [
+      0.39,
+      0.41
+    ],
+    "frame": {
+      "x": 1.211118,
+      "y": 32.700177,
+      "width": 510.788882,
+      "height": 209.22058
+    },
+    "renderedBody": [
+      80.0,
+      32.768227622999405
+    ],
+    "collision": [
+      80,
+      34
+    ],
+    "previousBody": [
+      80.0,
+      33.0791788856305
+    ]
+  },
+  "van-square-lavender": {
+    "editTarget": "src/assets/vehicles/van-mobile-lavender.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-f5c097dc-1bae-447c-b861-7db71d0bedc8.png",
+    "sourceSize": [
+      1699,
+      926
+    ],
+    "path": "src/assets/vehicles/van-square-lavender.png",
+    "size": [
+      512,
+      282
+    ],
+    "crop": [
+      25,
+      2,
+      1699,
+      924
+    ],
+    "bodyBounds": [
+      29,
+      109.0,
+      1699,
+      805.0
+    ],
+    "bodySampleFractions": [
+      0.39,
+      0.41
+    ],
+    "frame": {
+      "x": 1.223417,
+      "y": 32.726404,
+      "width": 510.776583,
+      "height": 212.874552
+    },
+    "renderedBody": [
+      80.0,
+      33.34131736526947
+    ],
+    "collision": [
+      80,
+      34
+    ],
+    "previousBody": [
+      80.0,
+      33.11355311355312
+    ]
+  },
+  "truck-square": {
+    "editTarget": "src/assets/vehicles/truck-long.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-eff6d828-0eca-4ec3-91a1-b9c8d97296d6.png",
+    "sourceSize": [
+      2048,
+      768
+    ],
+    "path": "src/assets/vehicles/truck-square.png",
+    "size": [
+      768,
+      289
+    ],
+    "crop": [
+      22,
+      2,
+      2048,
+      764
+    ],
+    "bodyBounds": [
+      26,
+      87,
+      2046,
+      673
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.516288,
+      "y": 32.221125,
+      "width": 765.725568,
+      "height": 222.136229
+    },
+    "renderedBody": [
+      128.0,
+      37.13267326732674
+    ],
+    "collision": [
+      128,
+      40
+    ],
+    "previousBody": [
+      127.99999999999999,
+      36.822922636103144
+    ]
+  },
+  "truck-square-coral": {
+    "editTarget": "src/assets/vehicles/truck-long-coral.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-223e6f1b-a89d-49bf-9169-b9e033fa0b55.png",
+    "sourceSize": [
+      2042,
+      770
+    ],
+    "path": "src/assets/vehicles/truck-square-coral.png",
+    "size": [
+      768,
+      291
+    ],
+    "crop": [
+      42,
+      3,
+      2038,
+      758
+    ],
+    "bodyBounds": [
+      46,
+      89,
+      2034,
+      663
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.539078,
+      "y": 33.09018,
+      "width": 764.921844,
+      "height": 220.857715
+    },
+    "renderedBody": [
+      128.0,
+      36.95774647887324
+    ],
+    "collision": [
+      128,
+      40
+    ],
+    "previousBody": [
+      127.99999999999999,
+      36.822922636103144
+    ]
+  },
+  "truck-square-sage": {
+    "editTarget": "src/assets/vehicles/truck-long-sage.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-7d06dd45-13ec-460f-949d-c8e250c6da4f.png",
+    "sourceSize": [
+      2045,
+      769
+    ],
+    "path": "src/assets/vehicles/truck-square-sage.png",
+    "size": [
+      768,
+      293
+    ],
+    "crop": [
+      43,
+      2,
+      2045,
+      766
+    ],
+    "bodyBounds": [
+      47,
+      88,
+      2041,
+      673
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.534466,
+      "y": 32.991009,
+      "width": 764.931069,
+      "height": 224.415584
+    },
+    "renderedBody": [
+      128.0,
+      37.55265797392177
+    ],
+    "collision": [
+      128,
+      40
+    ],
+    "previousBody": [
+      127.99999999999999,
+      36.822922636103144
+    ]
+  },
+  "truck-square-ochre": {
+    "editTarget": "src/assets/vehicles/truck-long-ochre.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-e1dc9896-6e71-420d-9f24-96442201438d.png",
+    "sourceSize": [
+      2045,
+      769
+    ],
+    "path": "src/assets/vehicles/truck-square-ochre.png",
+    "size": [
+      768,
+      293
+    ],
+    "crop": [
+      40,
+      2,
+      2045,
+      767
+    ],
+    "bodyBounds": [
+      44,
+      89,
+      2041,
+      673
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.53217,
+      "y": 33.324688,
+      "width": 764.935661,
+      "height": 223.696758
+    },
+    "renderedBody": [
+      128.0,
+      37.4321482223335
+    ],
+    "collision": [
+      128,
+      40
+    ],
+    "previousBody": [
+      127.99999999999999,
+      36.822922636103144
+    ]
+  }
+}

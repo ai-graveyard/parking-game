@@ -1,0 +1,40 @@
+{
+  "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-6bd67ba4-d61d-4264-8cf7-d8bc579ef0f5.png",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "path": "src/assets/vehicles/truck-tarp-proportioned.png",
+  "size": [
+    1024,
+    456
+  ],
+  "crop": [
+    76,
+    69,
+    1727,
+    804
+  ],
+  "bodyBounds": [
+    80,
+    162,
+    1723,
+    711
+  ],
+  "frame": {
+    "x": 2.4809206541490005,
+    "y": 57.681405208964264,
+    "width": 1019.0381586917019,
+    "height": 340.5063597819503
+  },
+  "bodyAspect": 2.9927140255009106,
+  "renderedBody": [
+    110.0,
+    36.75593426658551
+  ],
+  "renderedWhole": [
+    110.53560559951309,
+    49.22288686853317
+  ],
+  "bodySampling": "Cargo roof edge between axles at x=500; central columns contain tire protrusions and are excluded."
+}

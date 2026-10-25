@@ -1,0 +1,13 @@
+// Checks fallback declarations in a modern browser; this does not emulate Chrome 61.
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const base=process.env.GAME_URL || 'file://'+path.join(root,'src/index.html');
+(async()=>{const launch={headless:true};if(process.env.CHROMIUM_EXECUTABLE)launch.executablePath=process.env.CHROMIUM_EXECUTABLE;const browser=await chromium.launch(launch);try{
+for(const legacy of [false,true])for(const [width,height] of [[320,568],[390,844],[430,932]]){
+ const context=await browser.newContext({viewport:{width,height}});await context.addInitScript(()=>{window.xhs={launchOptions:{miniToolEnv:{buildVersion:9490000}},miniTool:{getStorage:o=>o.success({data:null}),setStorage:o=>o.success({}),getWindowInfo:o=>o.success({windowHeight:innerHeight,windowWidth:innerWidth,safeArea:{top:44,bottom:innerHeight-34},menuButtons:{back:{left:0,right:44,bottom:90},me:null,share:{left:innerWidth-80,right:innerWidth,bottom:94}}})}};});
+ const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ if(legacy)await page.route('**/style.css?*',route=>{let css=fs.readFileSync(root+'/src/style.css','utf8');css=css.replace(/@supports \(padding-top: env\(safe-area-inset-top\)\) \{[\s\S]*?\n\}/,'').replace(/^[ \t]*(?:inset|gap|aspect-ratio|place-items):[^;]+;/gm,'').replace(/^[ \t]*[^\n{};]+:[^\n;]*(?:\b(?:min|max|clamp|env)\(|\d+dvh)[^\n;]*;/gm,'');route.fulfill({contentType:'text/css',body:css});});
+ await page.goto(base);await page.waitForTimeout(100);const g=await page.evaluate(()=>{const box=id=>{const r=document.querySelector(id).getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,bottom:r.bottom,right:r.right};};return {overlay:box('#startOverlay'),wheel:box('#wheelPad'),circle:box('#wheel'),controls:box('#controls'),hud:box('#levelSelectButton'),mission:box('#mission'),game:box('#game'),body:document.documentElement.scrollWidth};});
+ assert.equal(g.overlay.width,width);assert.equal(g.overlay.height,height);assert(g.wheel.width>100&&g.wheel.height>100);assert(Math.abs(g.circle.width-g.circle.height)<1);assert(g.controls.height>=177.5);assert(g.hud.y>=94);assert(g.mission.bottom<g.controls.y);assert(g.body<=width);assert.deepEqual(errors,[]);console.log('PASS CSS '+(legacy?'baseline declarations':'modern')+' '+width+'x'+height,JSON.stringify(g));await context.close();
+}}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1;});

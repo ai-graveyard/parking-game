@@ -1,0 +1,77 @@
+[
+  {
+    "name": "cream",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-7a5e19e2-43c4-4dd8-aef0-430bcaa515be.png",
+    "sourceSize": [
+      1768,
+      889
+    ],
+    "path": "src/assets/vehicles/car-roof-cream.png",
+    "size": [
+      640,
+      319
+    ],
+    "crop": [
+      0,
+      5,
+      1759,
+      881
+    ],
+    "frame": {
+      "x": 0.727686,
+      "y": -7.118669,
+      "width": 638.180785,
+      "height": 332.963888
+    }
+  },
+  {
+    "name": "blue",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-8b30127c-d7eb-45fb-83e5-f9bf06ccf087.png",
+    "sourceSize": [
+      1768,
+      890
+    ],
+    "path": "src/assets/vehicles/car-roof-blue.png",
+    "size": [
+      640,
+      322
+    ],
+    "crop": [
+      0,
+      0,
+      1768,
+      890
+    ],
+    "frame": {
+      "x": 0.723982,
+      "y": -5.673815,
+      "width": 638.552036,
+      "height": 333.157584
+    }
+  },
+  {
+    "name": "sage",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-5f5aaa65-7a60-4b87-b568-b95a8ce89f85.png",
+    "sourceSize": [
+      1768,
+      889
+    ],
+    "path": "src/assets/vehicles/car-roof-sage.png",
+    "size": [
+      640,
+      319
+    ],
+    "crop": [
+      0,
+      3,
+      1768,
+      885
+    ],
+    "frame": {
+      "x": 1.085973,
+      "y": -7.035215,
+      "width": 638.914027,
+      "height": 333.346449
+    }
+  }
+]

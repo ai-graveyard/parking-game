@@ -1,0 +1,1059 @@
+{
+  "car": {
+    "type": "car",
+    "editTarget": "src/assets/vehicles/car-smooth.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-9c2d3976-fc04-471f-8318-6dda21295ae4.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/mirror-car.png",
+    "size": [
+      768,
+      413
+    ],
+    "crop": [
+      15,
+      57,
+      1592,
+      905
+    ],
+    "bodyBounds": [
+      19,
+      106,
+      1588,
+      856
+    ],
+    "frame": {
+      "x": 1.948003,
+      "y": 23.863031,
+      "width": 764.103995,
+      "height": 365.250476
+    },
+    "collision": [
+      46,
+      24
+    ],
+    "renderedBody": [
+      46.0,
+      21.988527724665392
+    ],
+    "previousBody": [
+      46,
+      22.02406584898078
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.8
+      ],
+      "mirrorColumnBand": [
+        0.6,
+        0.74
+      ],
+      "tireEdges": [
+        61,
+        901
+      ],
+      "mirrorEdges": [
+        70,
+        900
+      ],
+      "clearance": [
+        9,
+        1
+      ],
+      "tireWorldWidth": 24.627151051625237,
+      "previousTireWorldWidth": 24.824414192335045,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        2,
+        411
+      ],
+      "mirrorEdges": [
+        6,
+        411
+      ],
+      "passed": true
+    }
+  },
+  "carBlue": {
+    "type": "car",
+    "editTarget": "src/assets/vehicles/car-smooth-blue.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-79b9cbf2-b520-47b7-ae94-19f6c1653abb.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/mirror-car-blue.png",
+    "size": [
+      768,
+      417
+    ],
+    "crop": [
+      10,
+      53,
+      1582,
+      907
+    ],
+    "bodyBounds": [
+      14,
+      92,
+      1578,
+      867
+    ],
+    "frame": {
+      "x": 1.954198,
+      "y": 19.053435,
+      "width": 764.091603,
+      "height": 378.625954
+    },
+    "collision": [
+      46,
+      24
+    ],
+    "renderedBody": [
+      46.0,
+      22.794117647058826
+    ],
+    "previousBody": [
+      46,
+      22.79568527593868
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.8
+      ],
+      "mirrorColumnBand": [
+        0.6,
+        0.74
+      ],
+      "tireEdges": [
+        57,
+        903
+      ],
+      "mirrorEdges": [
+        59,
+        903
+      ],
+      "clearance": [
+        2,
+        0
+      ],
+      "tireWorldWidth": 24.88235294117647,
+      "previousTireWorldWidth": 24.932628761151452,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        2,
+        415
+      ],
+      "mirrorEdges": [
+        3,
+        415
+      ],
+      "passed": true
+    }
+  },
+  "carSage": {
+    "type": "car",
+    "editTarget": "src/assets/vehicles/car-smooth-sage.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-fb5c628a-5d2b-4028-852c-f3c6bdb38ebc.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/mirror-car-sage.png",
+    "size": [
+      768,
+      402
+    ],
+    "crop": [
+      24,
+      69,
+      1564,
+      876
+    ],
+    "bodyBounds": [
+      28,
+      105,
+      1560,
+      841
+    ],
+    "frame": {
+      "x": 1.994805,
+      "y": 17.953247,
+      "width": 764.01039,
+      "height": 367.044156
+    },
+    "collision": [
+      46,
+      24
+    ],
+    "renderedBody": [
+      46.0,
+      22.099216710182766
+    ],
+    "previousBody": [
+      46,
+      22.215067598408005
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.8
+      ],
+      "mirrorColumnBand": [
+        0.6,
+        0.74
+      ],
+      "tireEdges": [
+        73,
+        871
+      ],
+      "mirrorEdges": [
+        73,
+        871
+      ],
+      "clearance": [
+        0,
+        0
+      ],
+      "tireWorldWidth": 23.960835509138377,
+      "previousTireWorldWidth": 23.940900688395303,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        2,
+        400
+      ],
+      "mirrorEdges": [
+        2,
+        400
+      ],
+      "passed": true
+    }
+  },
+  "carCream": {
+    "type": "car",
+    "editTarget": "src/assets/vehicles/car-smooth-cream.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-4943826d-9458-49b2-bab2-e8f620145c97.png",
+    "sourceSize": [
+      1605,
+      980
+    ],
+    "path": "src/assets/vehicles/mirror-car-cream.png",
+    "size": [
+      768,
+      412
+    ],
+    "crop": [
+      24,
+      65,
+      1578,
+      898
+    ],
+    "bodyBounds": [
+      28,
+      104.0,
+      1574,
+      857.0
+    ],
+    "frame": {
+      "x": 1.976834,
+      "y": 19.274131,
+      "width": 764.046332,
+      "height": 372.138996
+    },
+    "collision": [
+      46,
+      24
+    ],
+    "renderedBody": [
+      46.0,
+      22.404915912031047
+    ],
+    "previousBody": [
+      46,
+      22.43540050765486
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.8
+      ],
+      "mirrorColumnBand": [
+        0.6,
+        0.74
+      ],
+      "tireEdges": [
+        69,
+        893
+      ],
+      "mirrorEdges": [
+        85,
+        874
+      ],
+      "clearance": [
+        16,
+        19
+      ],
+      "tireWorldWidth": 24.517464424320824,
+      "previousTireWorldWidth": 24.452667434149063,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        2,
+        410
+      ],
+      "mirrorEdges": [
+        10,
+        400
+      ],
+      "passed": true
+    }
+  },
+  "carLavender": {
+    "type": "car",
+    "editTarget": "src/assets/vehicles/car-smooth-lavender.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-c3d543ec-8da0-4bf3-9fb4-f2984eb75748.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/mirror-car-lavender.png",
+    "size": [
+      768,
+      415
+    ],
+    "crop": [
+      15,
+      55,
+      1584,
+      903
+    ],
+    "bodyBounds": [
+      19,
+      94,
+      1580,
+      864
+    ],
+    "frame": {
+      "x": 1.957935,
+      "y": 19.089866,
+      "width": 764.08413,
+      "height": 376.902486
+    },
+    "collision": [
+      46,
+      24
+    ],
+    "renderedBody": [
+      46.0,
+      22.690582959641258
+    ],
+    "previousBody": [
+      46,
+      22.882503190967586
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.8
+      ],
+      "mirrorColumnBand": [
+        0.6,
+        0.74
+      ],
+      "tireEdges": [
+        59,
+        899
+      ],
+      "mirrorEdges": [
+        64,
+        895
+      ],
+      "clearance": [
+        5,
+        4
+      ],
+      "tireWorldWidth": 24.753363228699552,
+      "previousTireWorldWidth": 24.84644397493779,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        2,
+        413
+      ],
+      "mirrorEdges": [
+        4,
+        411
+      ],
+      "passed": true
+    }
+  },
+  "van": {
+    "type": "van",
+    "editTarget": "src/assets/vehicles/van-square.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-404f4c36-c8ed-4c7f-8a97-d33a852841ff.png",
+    "sourceSize": [
+      1684,
+      934
+    ],
+    "path": "src/assets/vehicles/mirror-van.png",
+    "size": [
+      512,
+      258
+    ],
+    "crop": [
+      4,
+      40,
+      1684,
+      888
+    ],
+    "bodyBounds": [
+      8,
+      110.0,
+      1683,
+      813.0
+    ],
+    "frame": {
+      "x": 1.219048,
+      "y": 21.333333,
+      "width": 510.47619,
+      "height": 214.247619
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80.0,
+      33.57611940298507
+    ],
+    "previousBody": [
+      80,
+      33.46246976615998
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.66
+      ],
+      "mirrorColumnBand": [
+        0.84,
+        0.98
+      ],
+      "tireEdges": [
+        44,
+        884
+      ],
+      "mirrorEdges": [
+        81,
+        852
+      ],
+      "clearance": [
+        37,
+        32
+      ],
+      "tireWorldWidth": 40.11940298507462,
+      "previousTireWorldWidth": 40.193704609988295,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        1,
+        257
+      ],
+      "mirrorEdges": [
+        12,
+        247
+      ],
+      "passed": true
+    }
+  },
+  "vanBlue": {
+    "type": "van",
+    "editTarget": "src/assets/vehicles/van-square-blue.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-2d205af7-f745-4e8e-bf2a-1e10f90a21ec.png",
+    "sourceSize": [
+      1687,
+      932
+    ],
+    "path": "src/assets/vehicles/mirror-van-blue.png",
+    "size": [
+      512,
+      256
+    ],
+    "crop": [
+      6,
+      41,
+      1686,
+      881
+    ],
+    "bodyBounds": [
+      10,
+      110.0,
+      1682,
+      812.0
+    ],
+    "frame": {
+      "x": 1.219048,
+      "y": 21.028571,
+      "width": 509.561905,
+      "height": 213.942857
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80.0,
+      33.588516746411486
+    ],
+    "previousBody": [
+      80,
+      33.52517984822753
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.66
+      ],
+      "mirrorColumnBand": [
+        0.84,
+        0.98
+      ],
+      "tireEdges": [
+        45,
+        877
+      ],
+      "mirrorEdges": [
+        80,
+        849
+      ],
+      "clearance": [
+        35,
+        28
+      ],
+      "tireWorldWidth": 39.80861244019139,
+      "previousTireWorldWidth": 40.09592323134298,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        1,
+        255
+      ],
+      "mirrorEdges": [
+        12,
+        247
+      ],
+      "passed": true
+    }
+  },
+  "vanSage": {
+    "type": "van",
+    "editTarget": "src/assets/vehicles/van-square-sage.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-1239b08f-609c-4e53-9c3a-60589955fb7c.png",
+    "sourceSize": [
+      1705,
+      922
+    ],
+    "path": "src/assets/vehicles/mirror-van-sage.png",
+    "size": [
+      512,
+      247
+    ],
+    "crop": [
+      4,
+      48,
+      1705,
+      869
+    ],
+    "bodyBounds": [
+      8,
+      110,
+      1703,
+      803
+    ],
+    "frame": {
+      "x": 1.203998,
+      "y": 18.661964,
+      "width": 510.194004,
+      "height": 208.592593
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80.0,
+      32.70796460176991
+    ],
+    "previousBody": [
+      80,
+      32.768227715653374
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.66
+      ],
+      "mirrorColumnBand": [
+        0.84,
+        0.98
+      ],
+      "tireEdges": [
+        53,
+        864
+      ],
+      "mirrorEdges": [
+        94,
+        825
+      ],
+      "clearance": [
+        41,
+        39
+      ],
+      "tireWorldWidth": 38.27728613569321,
+      "previousTireWorldWidth": 39.15512005995463,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        1,
+        246
+      ],
+      "mirrorEdges": [
+        14,
+        234
+      ],
+      "passed": true
+    }
+  },
+  "vanLavender": {
+    "type": "van",
+    "editTarget": "src/assets/vehicles/van-square-lavender.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-b5f64595-9367-46e3-b737-4b655ecd8ac9.png",
+    "sourceSize": [
+      1689,
+      931
+    ],
+    "path": "src/assets/vehicles/mirror-van-lavender.png",
+    "size": [
+      512,
+      252
+    ],
+    "crop": [
+      1,
+      43,
+      1689,
+      873
+    ],
+    "bodyBounds": [
+      5,
+      110.0,
+      1689,
+      802.0
+    ],
+    "frame": {
+      "x": 1.21327,
+      "y": 20.322275,
+      "width": 510.78673,
+      "height": 209.895735
+    },
+    "collision": [
+      80,
+      34
+    ],
+    "renderedBody": [
+      80.0,
+      32.87410926365796
+    ],
+    "previousBody": [
+      80,
+      33.341317372022125
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.25,
+        0.66
+      ],
+      "mirrorColumnBand": [
+        0.84,
+        0.98
+      ],
+      "tireEdges": [
+        47,
+        869
+      ],
+      "mirrorEdges": [
+        93,
+        829
+      ],
+      "clearance": [
+        46,
+        40
+      ],
+      "tireWorldWidth": 39.0498812351544,
+      "previousTireWorldWidth": 39.625935631430465,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        1,
+        251
+      ],
+      "mirrorEdges": [
+        15,
+        239
+      ],
+      "passed": true
+    }
+  },
+  "truck": {
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/truck-square.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-7c764609-a8e8-4b26-a1a9-067d85c98195.png",
+    "sourceSize": [
+      2045,
+      769
+    ],
+    "path": "src/assets/vehicles/mirror-truck.png",
+    "size": [
+      768,
+      266
+    ],
+    "crop": [
+      0,
+      27,
+      2045,
+      734
+    ],
+    "bodyBounds": [
+      1,
+      83,
+      2044,
+      673
+    ],
+    "frame": {
+      "x": 0.37555,
+      "y": 21.030807,
+      "width": 767.2489,
+      "height": 221.574572
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      128.0,
+      36.9652471855115
+    ],
+    "previousBody": [
+      128,
+      37.132673245148844
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.13,
+        0.39,
+        0.67
+      ],
+      "mirrorColumnBand": [
+        0.86,
+        0.98
+      ],
+      "tireEdges": [
+        31,
+        730
+      ],
+      "mirrorEdges": [
+        58,
+        707
+      ],
+      "clearance": [
+        27,
+        23
+      ],
+      "tireWorldWidth": 43.79441997063143,
+      "previousTireWorldWidth": 44.29785476354892,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        1,
+        265
+      ],
+      "mirrorEdges": [
+        11,
+        256
+      ],
+      "passed": true
+    }
+  },
+  "truckCoral": {
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/truck-square-coral.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-0c9f9029-5ed1-4caf-875e-5dbadec03e8f.png",
+    "sourceSize": [
+      2038,
+      772
+    ],
+    "path": "src/assets/vehicles/mirror-truck-coral.png",
+    "size": [
+      768,
+      266
+    ],
+    "crop": [
+      0,
+      26,
+      2038,
+      732
+    ],
+    "bodyBounds": [
+      4,
+      85,
+      2035,
+      669
+    ],
+    "frame": {
+      "x": 1.50736,
+      "y": 22.233562,
+      "width": 765.36212,
+      "height": 220.074583
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      127.99999999999999,
+      36.8055145248646
+    ],
+    "previousBody": [
+      128,
+      36.95774639166927
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.13,
+        0.39,
+        0.67
+      ],
+      "mirrorColumnBand": [
+        0.86,
+        0.98
+      ],
+      "tireEdges": [
+        30,
+        727
+      ],
+      "mirrorEdges": [
+        83,
+        678
+      ],
+      "clearance": [
+        53,
+        49
+      ],
+      "tireWorldWidth": 43.92712949286065,
+      "previousTireWorldWidth": 44.34439971360002,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        1,
+        264
+      ],
+      "mirrorEdges": [
+        21,
+        246
+      ],
+      "passed": true
+    }
+  },
+  "truckSage": {
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/truck-square-sage.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-7d24ca72-4257-4df1-b8cb-957da7b9d0ff.png",
+    "sourceSize": [
+      2032,
+      774
+    ],
+    "path": "src/assets/vehicles/mirror-truck-sage.png",
+    "size": [
+      768,
+      267
+    ],
+    "crop": [
+      0,
+      30,
+      2032,
+      737
+    ],
+    "bodyBounds": [
+      3,
+      87.0,
+      2029,
+      677.0
+    ],
+    "frame": {
+      "x": 1.133858,
+      "y": 21.543307,
+      "width": 765.732283,
+      "height": 222.992126
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      127.99999999999999,
+      37.275419545903254
+    ],
+    "previousBody": [
+      128,
+      37.55265790099578
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.13,
+        0.39,
+        0.67
+      ],
+      "mirrorColumnBand": [
+        0.86,
+        0.98
+      ],
+      "tireEdges": [
+        35,
+        733
+      ],
+      "mirrorEdges": [
+        73,
+        702
+      ],
+      "clearance": [
+        38,
+        31
+      ],
+      "tireWorldWidth": 44.09871668311944,
+      "previousTireWorldWidth": 44.34386492412168,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        2,
+        265
+      ],
+      "mirrorEdges": [
+        16,
+        254
+      ],
+      "passed": true
+    }
+  },
+  "truckOchre": {
+    "type": "truck",
+    "editTarget": "src/assets/vehicles/truck-square-ochre.png",
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-ea54e6a0-b6ec-4aa7-8b78-c888041bffd3.png",
+    "sourceSize": [
+      2032,
+      774
+    ],
+    "path": "src/assets/vehicles/mirror-truck-ochre.png",
+    "size": [
+      768,
+      269
+    ],
+    "crop": [
+      0,
+      29,
+      2026,
+      739
+    ],
+    "bodyBounds": [
+      4,
+      87.0,
+      2022,
+      675.0
+    ],
+    "frame": {
+      "x": 1.516288,
+      "y": 21.98618,
+      "width": 764.967423,
+      "height": 222.894373
+    },
+    "collision": [
+      128,
+      40
+    ],
+    "renderedBody": [
+      128.0,
+      37.29633300297325
+    ],
+    "previousBody": [
+      128,
+      37.432148197363226
+    ],
+    "mirrorCheck": {
+      "alphaThreshold": 64,
+      "wheelColumnFractions": [
+        0.13,
+        0.39,
+        0.67
+      ],
+      "mirrorColumnBand": [
+        0.86,
+        0.98
+      ],
+      "tireEdges": [
+        33,
+        734
+      ],
+      "mirrorEdges": [
+        69,
+        702
+      ],
+      "clearance": [
+        36,
+        32
+      ],
+      "tireWorldWidth": 44.46382556987117,
+      "previousTireWorldWidth": 44.84560172701897,
+      "passed": true
+    },
+    "runtimeMirrorCheck": {
+      "tireEdges": [
+        1,
+        267
+      ],
+      "mirrorEdges": [
+        15,
+        255
+      ],
+      "passed": true
+    }
+  }
+}

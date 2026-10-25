@@ -5,11 +5,10 @@ import { spawnSync } from "node:child_process";
 
 const projectDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const releaseVersion = readFileSync(resolve(projectDir, "VERSION"), "utf8").trim();
-const versionDir = releaseVersion.replaceAll(".", "_");
-const gameDir = resolve(projectDir, versionDir);
+const gameDir = resolve(projectDir, "src");
 const failures = [];
 
-const requiredFiles = ["index.html", "app.js", "style.css", "favicon.svg"];
+const requiredFiles = ["index.html", "app.js", "challenges.js", "style.css", "favicon.svg"];
 const supportedExtensions = new Set([
   ".html",
   ".css",
@@ -37,13 +36,13 @@ function walk(directory) {
 }
 
 if (!existsSync(gameDir)) {
-  console.error(`校验失败：VERSION 指向的目录不存在：${versionDir}/`);
+  console.error(`校验失败：源码目录不存在：src/`);
   process.exit(1);
 }
 
 for (const file of requiredFiles) {
   if (!existsSync(resolve(gameDir, file))) {
-    fail(`缺少运行文件：${versionDir}/${file}`);
+    fail(`缺少运行文件：src/${file}`);
   }
 }
 
@@ -56,11 +55,12 @@ for (const file of runtimeFiles) {
 
 const htmlFiles = runtimeFiles.filter((file) => extname(file) === ".html");
 if (htmlFiles.length !== 1 || htmlFiles[0] !== resolve(gameDir, "index.html")) {
-  fail(`${versionDir}/ 中必须有且只有一个 index.html`);
+  fail(`src/ 中必须有且只有一个 index.html`);
 }
 
 const indexHtml = readFileSync(resolve(gameDir, "index.html"), "utf8");
-const appJs = readFileSync(resolve(gameDir, "app.js"), "utf8");
+const jsFiles = runtimeFiles.filter((file) => extname(file) === ".js");
+const appJs = jsFiles.map((file) => readFileSync(file, "utf8")).join("\n");
 const styleCss = readFileSync(resolve(gameDir, "style.css"), "utf8");
 const packageJson = JSON.parse(readFileSync(resolve(projectDir, "package.json"), "utf8"));
 
@@ -68,11 +68,9 @@ if (packageJson.version !== releaseVersion) {
   fail(`package.json 版本 ${packageJson.version} 与 VERSION ${releaseVersion} 不一致`);
 }
 
-const syntaxCheck = spawnSync(process.execPath, ["--check", resolve(gameDir, "app.js")], {
-  encoding: "utf8",
-});
-if (syntaxCheck.status !== 0) {
-  fail(`app.js 语法检查失败：${syntaxCheck.stderr.trim()}`);
+for (const file of jsFiles) {
+  const syntaxCheck = spawnSync(process.execPath, ["--check", file], { encoding: "utf8" });
+  if (syntaxCheck.status !== 0) fail(`${file.slice(gameDir.length + 1)} 语法检查失败：${syntaxCheck.stderr.trim()}`);
 }
 
 const htmlRequirements = [
@@ -131,21 +129,35 @@ for (const [pattern, label] of prohibitedPatterns) {
   }
 }
 
+if (/CRUSH_PREVIEW_SECONDS|ParkingLocalPreview|__local_preview/.test(appJs + indexHtml)) {
+  fail("运行文件含临时预览开关或本地模拟入口");
+}
+
 const bridgeCalls = [
   ...appJs.matchAll(/window\.xhs\.miniTool\.([A-Za-z0-9_]+)/g),
   ...appJs.matchAll(/(?:callMiniTool|xhsCan)\(\s*["']([A-Za-z0-9_]+)["']/g),
 ].map((match) => match[1]);
 const allowedBridgeCalls = new Set([
+  // Public platform APIs verified against the 2026-10-22 container contract.
+  "getLaunchOptions",
+  "getWindowInfo",
+  "getStorage",
+  "setStorage",
+  "vibrateShort",
   "postNote",
   "saveImageToPhotosAlbum",
   "writeTempFile",
-  "openRedPage",
+  "followAuthor",
+  "getFollowStatus",
 ]);
 for (const call of bridgeCalls) {
   if (!allowedBridgeCalls.has(call)) fail(`使用了未记录的 Native Bridge：${call}`);
 }
 
 const resourceReferences = [];
+for (const match of appJs.matchAll(/["'](\.\/assets\/[^"']+)["']/g)) {
+  resourceReferences.push(match[1]);
+}
 for (const match of indexHtml.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)) {
   resourceReferences.push(match[1]);
 }
@@ -166,7 +178,7 @@ for (const reference of resourceReferences) {
   const cleanReference = reference.split(/[?#]/, 1)[0];
   const resourcePath = resolve(gameDir, cleanReference);
   if (resourcePath !== gameDir && !resourcePath.startsWith(`${gameDir}${sep}`)) {
-    fail(`资源路径越出 ${versionDir}/：${reference}`);
+    fail(`资源路径越出 src/：${reference}`);
   } else if (!existsSync(resourcePath)) {
     fail(`资源不存在：${reference}`);
   }
@@ -179,5 +191,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `校验通过：${versionDir}/ 共 ${runtimeFiles.length} 个运行文件，${resourceReferences.length} 个资源引用。`,
+  `校验通过：src/ 共 ${runtimeFiles.length} 个运行文件，${resourceReferences.length} 个资源引用。`,
 );

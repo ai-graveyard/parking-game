@@ -1,0 +1,434 @@
+{
+  "retainedRuntime": [
+    "mirror-car-blue.png",
+    "mirror-car-cream.png",
+    "mirror-car-lavender.png",
+    "mirror-car-sage.png",
+    "mirror-car.png",
+    "mirror-truck-coral.png",
+    "mirror-truck-ochre.png",
+    "mirror-truck-sage.png",
+    "mirror-truck.png",
+    "seam-van-blue.png",
+    "seam-van-lavender.png",
+    "seam-van-sage.png",
+    "seam-van.png"
+  ],
+  "deletedImages": [
+    {
+      "path": "src/assets/vehicles/mirror-van-blue.png",
+      "bytes": 130368,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/mirror-van-lavender.png",
+      "bytes": 125244,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/mirror-van-sage.png",
+      "bytes": 126179,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/mirror-van.png",
+      "bytes": 126970,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-truck-coral.png",
+      "bytes": 160146,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-truck-ochre.png",
+      "bytes": 171457,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-truck-sage.png",
+      "bytes": 173668,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-truck.png",
+      "bytes": 169076,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-van-blue.png",
+      "bytes": 107335,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-van-lavender.png",
+      "bytes": 104824,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-van-sage.png",
+      "bytes": 103398,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "src/assets/vehicles/short-cab-van.png",
+      "bytes": 107790,
+      "reason": "未被当前游戏使用的旧运行素材"
+    },
+    {
+      "path": "docs/vehicle-art/car-angular-refined-in-game.png",
+      "bytes": 43329,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-colors-parallel.png",
+      "bytes": 46123,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-colors-preview.png",
+      "bytes": 448818,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-colors-reverse.png",
+      "bytes": 47320,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-glass-in-game.png",
+      "bytes": 43858,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-glass-source-vs-game.png",
+      "bytes": 208538,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-in-game.png",
+      "bytes": 46185,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-proportion-after.png",
+      "bytes": 44452,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-proportion-before.png",
+      "bytes": 50069,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-proportion-comparison.png",
+      "bytes": 364508,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-proportion-detail.png",
+      "bytes": 221284,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-side-shadow-in-game.png",
+      "bytes": 43725,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-side-shadow-source-vs-game.png",
+      "bytes": 220560,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-smooth-comparison.png",
+      "bytes": 293413,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-smooth-parallel.png",
+      "bytes": 46123,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-smooth-preview.png",
+      "bytes": 424397,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/car-smooth-reverse.png",
+      "bytes": 44398,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/compact-mirrors-comparison.png",
+      "bytes": 155962,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/compact-mirrors-in-game.png",
+      "bytes": 171441,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/mirrors-truck-in-game.png",
+      "bytes": 39533,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/mirrors-van-in-game.png",
+      "bytes": 36969,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/refined-car-source-vs-game.png",
+      "bytes": 208724,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/roof-colors-in-game.png",
+      "bytes": 43823,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/roof-tonal-in-game.png",
+      "bytes": 43686,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/roof-tonal-source-vs-game.png",
+      "bytes": 211356,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/sedan-options/angular-refinement-comparison.png",
+      "bytes": 275074,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/sedan-options/comparison.png",
+      "bytes": 212088,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/sedan-options/option-1-boxy-commuter.png",
+      "bytes": 501640,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/sedan-options/option-2-retro-compact.png",
+      "bytes": 1006783,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/sedan-options/option-3-angular-hatch-refined.png",
+      "bytes": 798967,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/sedan-options/option-3-angular-hatch.png",
+      "bytes": 651339,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/sedan-options/original-car-enlarged.png",
+      "bytes": 4288,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/selected-vs-game.png",
+      "bytes": 319551,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/short-cabs-comparison.png",
+      "bytes": 664463,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/short-cabs-preview.png",
+      "bytes": 167923,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/short-cabs-truck-320.png",
+      "bytes": 131979,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/short-cabs-truck-390.png",
+      "bytes": 212270,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/short-cabs-van-320.png",
+      "bytes": 126157,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/short-cabs-van-390.png",
+      "bytes": 204151,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/square-rear-comparison.png",
+      "bytes": 131686,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/square-rear-preview.png",
+      "bytes": 289180,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/square-rear-truck.png",
+      "bytes": 39750,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/square-rear-van.png",
+      "bytes": 37092,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/training-ground-car.png",
+      "bytes": 42494,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/training-ground-preview.png",
+      "bytes": 513162,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/training-ground-truck.png",
+      "bytes": 48113,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-in-game.png",
+      "bytes": 52331,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-long-after.png",
+      "bytes": 38326,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-long-before.png",
+      "bytes": 37804,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-long-comparison.png",
+      "bytes": 278520,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-long-parallel.png",
+      "bytes": 37694,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-mobile-after.png",
+      "bytes": 37846,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-mobile-before.png",
+      "bytes": 39391,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-mobile-small.png",
+      "bytes": 28723,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-proportion-after.png",
+      "bytes": 48990,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-proportion-before.png",
+      "bytes": 48853,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/truck-proportions-comparison.png",
+      "bytes": 337493,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/trucks-mobile-palette.png",
+      "bytes": 221001,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/trucks-mobile-preview.png",
+      "bytes": 273709,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/unified-vehicles-detail.png",
+      "bytes": 349130,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/unified-vehicles-preview.png",
+      "bytes": 272740,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/van-in-game.png",
+      "bytes": 49306,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/van-mobile-after.png",
+      "bytes": 35574,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/van-mobile-before.png",
+      "bytes": 37873,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/van-proportion-after.png",
+      "bytes": 47194,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/van-proportion-before.png",
+      "bytes": 46900,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    },
+    {
+      "path": "docs/vehicle-art/vehicles-preview.png",
+      "bytes": 174279,
+      "reason": "已被当前车辆方案取代的旧方案或对比截图"
+    }
+  ],
+  "count": 79,
+  "bytes": 14026876,
+  "updatedMarkdown": [
+    "design-qa.md",
+    "docs/vehicle-art/gesture-pointer.md",
+    "docs/vehicle-art/roof-tonal.md",
+    "docs/vehicle-art/van-seam-review.md",
+    "docs/vehicle-art/square-rear.md",
+    "docs/vehicle-art/sedan-generation.md",
+    "docs/vehicle-art/car-glass.md",
+    "docs/vehicle-art/roof-colors.md",
+    "docs/vehicle-art/compact-mirrors.md",
+    "docs/vehicle-art/car-colors.md",
+    "docs/vehicle-art/short-cabs.md",
+    "docs/vehicle-art/car-side-shadow.md",
+    "docs/vehicle-art/car-smooth.md",
+    "docs/vehicle-art/car-compact.md",
+    "docs/vehicle-art/sedan-options/README.md",
+    "docs/vehicle-art/sedan-options/angular-refinement.md"
+  ]
+}

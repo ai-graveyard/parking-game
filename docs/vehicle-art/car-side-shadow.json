@@ -1,0 +1,24 @@
+{
+  "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-8a96a736-6a47-4c67-a8f5-a2147fe2198f.png",
+  "sourceSize": [
+    1806,
+    871
+  ],
+  "path": "src/assets/vehicles/car-side-shadow.png",
+  "size": [
+    640,
+    306
+  ],
+  "crop": [
+    0,
+    0,
+    1806,
+    863
+  ],
+  "frame": {
+    "x": 0.0,
+    "y": -14.221195,
+    "width": 640.0,
+    "height": 333.913043
+  }
+}

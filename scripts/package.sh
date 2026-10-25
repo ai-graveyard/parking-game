@@ -4,7 +4,7 @@ set -eu
 
 PROJECT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 RELEASE_VERSION=$(tr -d '[:space:]' < "$PROJECT_DIR/VERSION")
-VERSION_DIR=$(printf '%s' "$RELEASE_VERSION" | tr '.' '_')
+GAME_DIR="$PROJECT_DIR/src"
 OUTPUT_DIR="$PROJECT_DIR/dist"
 ARCHIVE_PATH="$OUTPUT_DIR/parking-game-v$RELEASE_VERSION.zip"
 
@@ -13,8 +13,8 @@ mkdir -p "$OUTPUT_DIR"
 rm -f "$ARCHIVE_PATH"
 
 (
-  cd "$PROJECT_DIR/$VERSION_DIR"
-  zip -q -X "$ARCHIVE_PATH" index.html app.js style.css favicon.svg
+  cd "$GAME_DIR"
+  zip -q -X -r "$ARCHIVE_PATH" index.html app.js challenges.js style.css favicon.svg assets
 )
 
 unzip -tq "$ARCHIVE_PATH"

@@ -1,0 +1,92 @@
+{
+  "orange": {
+    "source": "/Users/ailln/.codex/generated_images/01a16fbb-16dc-7152-99a0-8958fbc2c2c4/exec-3e471901-0b39-42fe-97a6-83fb72dc3480.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/car-smooth.png",
+    "body": {
+      "x": 6.224438902743142,
+      "y": 49.795511221945134,
+      "width": 756.0299251870324,
+      "height": 361.97506234413964
+    },
+    "renderedBody": [
+      46,
+      22.024065864471186
+    ]
+  },
+  "blue": {
+    "source": "/Users/ailln/.codex/generated_images/01a16fbb-16dc-7152-99a0-8958fbc2c2c4/exec-b8e5d129-0411-4a69-bf9d-6e66ef5e624f.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/car-smooth-blue.png",
+    "body": {
+      "x": 7.660847880299252,
+      "y": 44.0498753117207,
+      "width": 754.5935162094763,
+      "height": 373.94513715710724
+    },
+    "renderedBody": [
+      46,
+      22.795685279187815
+    ]
+  },
+  "sage": {
+    "source": "/Users/ailln/.codex/generated_images/01a16fbb-16dc-7152-99a0-8958fbc2c2c4/exec-aa8efa77-f192-4fa1-a730-db55c7864ea4.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/car-smooth-sage.png",
+    "body": {
+      "x": 12.927680798004987,
+      "y": 49.31670822942643,
+      "width": 743.5810473815461,
+      "height": 359.1022443890274
+    },
+    "renderedBody": [
+      46,
+      22.21506761107534
+    ]
+  },
+  "cream": {
+    "source": "/Users/ailln/.codex/generated_images/01a16fbb-16dc-7152-99a0-8958fbc2c2c4/exec-1bbc2abe-3673-4ad8-8c98-b422168afaf9.png",
+    "sourceSize": [
+      1604,
+      980
+    ],
+    "path": "src/assets/vehicles/car-smooth-cream.png",
+    "body": {
+      "x": 13.40648379052369,
+      "y": 49.795511221945134,
+      "width": 741.1870324189526,
+      "height": 361.49625935162095
+    },
+    "renderedBody": [
+      46,
+      22.435400516795866
+    ]
+  },
+  "lavender": {
+    "source": "/Users/ailln/.codex/generated_images/01a16fbb-16dc-7152-99a0-8958fbc2c2c4/exec-1524713f-e5f0-4ebc-9393-84ca6e6ef52c.png",
+    "sourceSize": [
+      1604,
+      981
+    ],
+    "path": "src/assets/vehicles/car-smooth-lavender.png",
+    "body": {
+      "x": 11.012468827930174,
+      "y": 43.571072319201996,
+      "width": 749.8054862842893,
+      "height": 372.9875311720698
+    },
+    "renderedBody": [
+      46,
+      22.88250319284802
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-7d690866-7889-49a9-afa1-d4a7ec7dcf4f.png",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "path": "src/assets/vehicles/van-box-proportioned.png",
+  "size": [
+    768,
+    393
+  ],
+  "crop": [
+    125,
+    40,
+    1696,
+    843
+  ],
+  "bodyBounds": [
+    129,
+    114,
+    1692,
+    758
+  ],
+  "frame": {
+    "x": 1.9554423933800127,
+    "y": 36.17568427753024,
+    "width": 764.08911521324,
+    "height": 314.826225334182
+  },
+  "bodyAspect": 2.427018633540373,
+  "renderedBody": [
+    80.0,
+    32.96225207933461
+  ],
+  "renderedWhole": [
+    80.40946896992962,
+    41.147032949456175
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "truck-long": {
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-e7b65c3d-1af3-4cf7-893e-17de1fba9cbc.png",
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "path": "src/assets/vehicles/truck-long.png",
+    "size": [
+      768,
+      288
+    ],
+    "crop": [
+      11,
+      102,
+      1764,
+      759
+    ],
+    "bodyBounds": [
+      15,
+      177.0,
+      1760,
+      679.0
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.752424,
+      "y": 32.857958,
+      "width": 764.495151,
+      "height": 219.929264
+    },
+    "renderedBody": [
+      127.99999999999999,
+      36.822922636103144
+    ],
+    "collision": [
+      128,
+      40
+    ]
+  },
+  "truck-long-coral": {
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-533b46a4-e072-4352-aed7-2c9636901883.png",
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "path": "src/assets/vehicles/truck-long-coral.png",
+    "size": [
+      768,
+      290
+    ],
+    "crop": [
+      11,
+      100,
+      1764,
+      761
+    ],
+    "bodyBounds": [
+      15,
+      177.0,
+      1760,
+      679.0
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.752424,
+      "y": 33.73417,
+      "width": 764.495151,
+      "height": 219.929264
+    },
+    "renderedBody": [
+      127.99999999999999,
+      36.822922636103144
+    ],
+    "collision": [
+      128,
+      40
+    ]
+  },
+  "truck-long-sage": {
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-804f12fa-2537-483e-985d-f8dddd319ec6.png",
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "path": "src/assets/vehicles/truck-long-sage.png",
+    "size": [
+      768,
+      289
+    ],
+    "crop": [
+      11,
+      101,
+      1764,
+      760
+    ],
+    "bodyBounds": [
+      15,
+      177.0,
+      1760,
+      679.0
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.752424,
+      "y": 33.296064,
+      "width": 764.495151,
+      "height": 219.929264
+    },
+    "renderedBody": [
+      127.99999999999999,
+      36.822922636103144
+    ],
+    "collision": [
+      128,
+      40
+    ]
+  },
+  "truck-long-ochre": {
+    "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-ba8ba731-d816-43ee-904d-f74cc24c66a8.png",
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "path": "src/assets/vehicles/truck-long-ochre.png",
+    "size": [
+      768,
+      289
+    ],
+    "crop": [
+      11,
+      101,
+      1764,
+      760
+    ],
+    "bodyBounds": [
+      15,
+      177.0,
+      1760,
+      679.0
+    ],
+    "bodySampleFractions": [
+      0.54,
+      0.56
+    ],
+    "frame": {
+      "x": 1.752424,
+      "y": 33.296064,
+      "width": 764.495151,
+      "height": 219.929264
+    },
+    "renderedBody": [
+      127.99999999999999,
+      36.822922636103144
+    ],
+    "collision": [
+      128,
+      40
+    ]
+  }
+}

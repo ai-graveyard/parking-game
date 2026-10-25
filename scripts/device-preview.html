@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>会停车吗你 · 多屏预览</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/__device_preview.css">
+  <script src="/challenges.js" defer></script>
+  <script src="/__device_preview.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <div><p class="eyebrow"><span></span> 停车训练场 / 本地工作台</p><h1>一眼看齐，每一块屏幕。</h1><p class="intro">同一份游戏，按真实 CSS 视口尺寸运行。每块屏幕都可以独立试玩。</p></div>
+    <a class="single-link" href="/?simulate=1" target="_blank" rel="noopener">打开单屏试玩 ↗</a>
+  </header>
+  <main>
+    <section class="toolbar" aria-label="统一预览设置">
+      <div class="setting"><label for="scene">统一画面</label><select id="scene"><option value="play">驾驶画面</option><option value="select">关卡选择</option><option value="pause">暂停弹框</option><option value="share-success">通关分享图 · 3:4</option><option value="share-failed">失败分享图 · 3:4</option></select></div>
+      <div class="setting level-setting"><label for="level">关卡</label><select id="level"></select></div>
+      <div class="setting"><label for="safeArea">模拟安全区</label><select id="safeArea"><option value="0,0">无安全区</option><option value="44,34">顶部 44 / 底部 34</option><option value="59,34">顶部 59 / 底部 34</option></select></div>
+      <div class="setting zoom-setting"><label for="zoom">显示比例 <output id="zoomLabel">自动适应</output></label><div class="zoom-row"><input id="zoom" type="range" min="35" max="100" value="65" aria-label="预览显示比例"><button id="autoFit" class="active" type="button" aria-pressed="true">适应</button></div></div>
+      <button id="apply" class="secondary" type="button">对齐画面</button>
+      <button id="refresh" class="primary" type="button">全部刷新 ↻</button>
+    </section>
+    <section class="device-picker" aria-label="选择预览尺寸"><span class="picker-label">显示屏幕</span><div id="deviceOptions"></div><span id="status" role="status" aria-live="polite">正在加载…</span></section>
+    <section id="screens" class="screens" aria-label="多手机屏幕预览"></section>
+    <p id="shareNotice" class="footnote" hidden>分享图直接调用当前游戏的生成器，固定 720 × 960 PNG。完整场地按导出分辨率重新绘制，保留车辆现场和失败后的「考核不通过」印章，省略通关镜头放大。采用同一关卡和模拟成绩，便于比较；不会发布或写入通关记录。</p>
+    <p class="footnote">缩放只改变展示大小，不改变游戏视口。各屏使用独立的预览存档，默认静音。这里用于比较布局；小红书容器及 Android / iOS 实际效果仍需在平台与真机验证。</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,262 @@
+[
+  {
+    "name": "car",
+    "source": "./assets/vehicles/car-smooth.png",
+    "image": [
+      768,
+      470
+    ],
+    "drawScale": [
+      0.06084415243219374,
+      0.06084415243219374
+    ],
+    "body": [
+      46,
+      22.02406584898078
+    ],
+    "collision": [
+      46,
+      24
+    ]
+  },
+  {
+    "name": "van",
+    "source": "./assets/vehicles/van-mobile.png",
+    "image": [
+      512,
+      279
+    ],
+    "drawScale": [
+      0.1571670945540816,
+      0.1571670945540816
+    ],
+    "body": [
+      80,
+      33.103448324638066
+    ],
+    "collision": [
+      80,
+      34
+    ]
+  },
+  {
+    "name": "truck",
+    "source": "./assets/vehicles/truck-mobile.png",
+    "image": [
+      640,
+      327
+    ],
+    "drawScale": [
+      0.16060267825282226,
+      0.16060267825282226
+    ],
+    "body": [
+      102.21428557691307,
+      40
+    ],
+    "collision": [
+      110,
+      40
+    ]
+  },
+  {
+    "name": "carBlue",
+    "source": "./assets/vehicles/car-smooth-blue.png",
+    "image": [
+      768,
+      470
+    ],
+    "drawScale": [
+      0.0609599725211527,
+      0.0609599725211527
+    ],
+    "body": [
+      46,
+      22.79568527593868
+    ],
+    "collision": [
+      46,
+      24
+    ]
+  },
+  {
+    "name": "carSage",
+    "source": "./assets/vehicles/car-smooth-sage.png",
+    "image": [
+      768,
+      470
+    ],
+    "drawScale": [
+      0.06186279247647366,
+      0.06186279247647365
+    ],
+    "body": [
+      46.00000000000001,
+      22.215067598408005
+    ],
+    "collision": [
+      46,
+      24
+    ]
+  },
+  {
+    "name": "carCream",
+    "source": "./assets/vehicles/car-smooth-cream.png",
+    "image": [
+      768,
+      469
+    ],
+    "drawScale": [
+      0.062062607700885945,
+      0.062062607700885945
+    ],
+    "body": [
+      46,
+      22.43540050765486
+    ],
+    "collision": [
+      46,
+      24
+    ]
+  },
+  {
+    "name": "carLavender",
+    "source": "./assets/vehicles/car-smooth-lavender.png",
+    "image": [
+      768,
+      470
+    ],
+    "drawScale": [
+      0.061349244382562444,
+      0.06134924438256244
+    ],
+    "body": [
+      46,
+      22.882503190967583
+    ],
+    "collision": [
+      46,
+      24
+    ]
+  },
+  {
+    "name": "vanBlue",
+    "source": "./assets/vehicles/van-mobile-blue.png",
+    "image": [
+      512,
+      278
+    ],
+    "drawScale": [
+      0.1571657508042093,
+      0.1571657508042093
+    ],
+    "body": [
+      80,
+      33.1135531665174
+    ],
+    "collision": [
+      80,
+      34
+    ]
+  },
+  {
+    "name": "vanSage",
+    "source": "./assets/vehicles/van-mobile-sage.png",
+    "image": [
+      512,
+      278
+    ],
+    "drawScale": [
+      0.15716642236750716,
+      0.15716642236750716
+    ],
+    "body": [
+      80,
+      33.07917886995995
+    ],
+    "collision": [
+      80,
+      34
+    ]
+  },
+  {
+    "name": "vanLavender",
+    "source": "./assets/vehicles/van-mobile-lavender.png",
+    "image": [
+      512,
+      279
+    ],
+    "drawScale": [
+      0.1571657508042093,
+      0.1571657508042093
+    ],
+    "body": [
+      80,
+      33.1135531665174
+    ],
+    "collision": [
+      80,
+      34
+    ]
+  },
+  {
+    "name": "truckCoral",
+    "source": "./assets/vehicles/truck-mobile-coral.png",
+    "image": [
+      640,
+      327
+    ],
+    "drawScale": [
+      0.160142348611973,
+      0.160142348611973
+    ],
+    "body": [
+      101.92170802320132,
+      40
+    ],
+    "collision": [
+      110,
+      40
+    ]
+  },
+  {
+    "name": "truckSage",
+    "source": "./assets/vehicles/truck-mobile-sage.png",
+    "image": [
+      640,
+      326
+    ],
+    "drawScale": [
+      0.16053921590760614,
+      0.16053921590760614
+    ],
+    "body": [
+      102.17468821929721,
+      40
+    ],
+    "collision": [
+      110,
+      40
+    ]
+  },
+  {
+    "name": "truckOchre",
+    "source": "./assets/vehicles/truck-mobile-ochre.png",
+    "image": [
+      640,
+      328
+    ],
+    "drawScale": [
+      0.16031639916285662,
+      0.16031639916285662
+    ],
+    "body": [
+      102.03208554778041,
+      40
+    ],
+    "collision": [
+      110,
+      40
+    ]
+  }
+]

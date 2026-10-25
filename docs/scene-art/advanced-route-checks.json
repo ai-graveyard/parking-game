@@ -1,0 +1,65 @@
+{
+  "note": "Each solver step is 7 world units. Search routes demonstrate feasibility, not optimality, human time or device acceptance. Final solver also requires full-body containment and correct heading.",
+  "missions": {
+    "5": {
+      "before_steps": [
+        32
+      ],
+      "after_steps": [
+        45
+      ],
+      "after_cost": [
+        351.67499999999995
+      ],
+      "states": [
+        7000
+      ]
+    },
+    "6": {
+      "before_steps": [
+        39
+      ],
+      "after_steps": [
+        55
+      ],
+      "after_cost": [
+        422.1
+      ],
+      "states": [
+        24423
+      ]
+    },
+    "7": {
+      "before_steps": [
+        26
+      ],
+      "after_steps": [
+        37
+      ],
+      "after_cost": [
+        284.89500000000004
+      ],
+      "states": [
+        591
+      ]
+    },
+    "8": {
+      "before_steps": [
+        36,
+        45
+      ],
+      "after_steps": [
+        47,
+        52
+      ],
+      "after_cost": [
+        383.385,
+        372.325
+      ],
+      "states": [
+        58168,
+        260
+      ]
+    }
+  }
+}

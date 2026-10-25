@@ -1,0 +1,39 @@
+{
+  "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-b6bae7a3-1c4c-4ba3-83ef-aef4c0944edb.png",
+  "sourceSize": [
+    1448,
+    1086
+  ],
+  "path": "src/assets/vehicles/car-compact.png",
+  "size": [
+    768,
+    470
+  ],
+  "crop": [
+    84,
+    129,
+    1384,
+    925
+  ],
+  "bodyBounds": [
+    88,
+    210.0,
+    1380,
+    849.0
+  ],
+  "frame": {
+    "x": 2.363077,
+    "y": 47.852308,
+    "width": 763.273846,
+    "height": 377.501538
+  },
+  "bodyAspect": 2.021909235241315,
+  "renderedBody": [
+    46.0,
+    22.75077397057831
+  ],
+  "renderedWhole": [
+    46.284829730691435,
+    28.3253515278971
+  ]
+}

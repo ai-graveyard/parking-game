@@ -1,0 +1,1133 @@
+{
+  "date": "2026-10-26",
+  "scope": "Only historical docs media and isolated crush preview; all src runtime files retained",
+  "backup": {
+    "path": "/private/tmp/parking-game-materials-backup-20261026.zip",
+    "sha256": "48da1b9159a18b59e1e50b48e70104768aa6e7491c1e34822600fac019bb3603",
+    "entries": 237,
+    "verified": "ZIP CRC and every original file SHA256 checked before changes"
+  },
+  "summary": {
+    "removedFiles": 182,
+    "removedMedia": 180,
+    "removedBytes": 40590590,
+    "movedFiles": 1,
+    "movedBytes": 1738805,
+    "remainingDocsMedia": 11
+  },
+  "entries": [
+    {
+      "path": "docs/assessment-full-preview.gif",
+      "action": "remove",
+      "bytes": 6250692,
+      "sha256": "208344c8e8d90eb9ed963a55084aa8d7d3f23f86959858c951e1a16b29e11e86"
+    },
+    {
+      "path": "docs/assessment-full-preview.mp4",
+      "action": "remove",
+      "bytes": 329620,
+      "sha256": "df7dec85b64ab311587aefee8fe8233dc54f54ff5a3815e2382a0e6439905061"
+    },
+    {
+      "path": "docs/assessment-impact-320.png",
+      "action": "remove",
+      "bytes": 124785,
+      "sha256": "e6a0ccf89fcb57cac54c68ffef939efa3f9370f263b3b4f6fa3bd707c1a4488f"
+    },
+    {
+      "path": "docs/assessment-impact-390.png",
+      "action": "remove",
+      "bytes": 206870,
+      "sha256": "a8b823cba8a748a3bb2a1fce22981f8e906004d4da04bc602d66a29beec92245"
+    },
+    {
+      "path": "docs/assessment-impact-430.png",
+      "action": "remove",
+      "bytes": 245856,
+      "sha256": "d9442f54999a0fbc07c7caad14e1bf12363e14d6d741e44638ff7cb14db621f1"
+    },
+    {
+      "path": "docs/assessment-impact-reduced.png",
+      "action": "remove",
+      "bytes": 230988,
+      "sha256": "322cad7b0936f19461261cff787e01c146c8aa532f2c33bc1fc97ca6c3005f5f"
+    },
+    {
+      "path": "docs/assessment-result-390.png",
+      "action": "remove",
+      "bytes": 108463,
+      "sha256": "64db60de4d192ebf86a29c6862e06a7eef1c41de66d1079384dac01c560403f6"
+    },
+    {
+      "path": "docs/assessment-share-320.png",
+      "action": "remove",
+      "bytes": 177070,
+      "sha256": "3bb6928b19d99016fe33c0effc9911e00cc4cad893eab25bf938134425618cfc"
+    },
+    {
+      "path": "docs/assessment-share-390.png",
+      "action": "remove",
+      "bytes": 155900,
+      "sha256": "7e8b426f8637ae936850582cc07119c481dde7f2d5e8ce887a3e152a2c23ae97"
+    },
+    {
+      "path": "docs/assessment-share-430.png",
+      "action": "remove",
+      "bytes": 148574,
+      "sha256": "7ed194cdc22b79c5a4f0625201e436ee6ac369768ec564079b1645543b68c20e"
+    },
+    {
+      "path": "docs/assessment-share-reduced.png",
+      "action": "remove",
+      "bytes": 155842,
+      "sha256": "85913425f20e6a46fa941beae10c6f8d985c99c207309c7290471efec1085a90"
+    },
+    {
+      "path": "docs/assessment-stamp-320.png",
+      "action": "remove",
+      "bytes": 153798,
+      "sha256": "b34d8314af32299dc22150a90fea151a7d13c91c6a68f741b62b90cd5f7351da"
+    },
+    {
+      "path": "docs/assessment-stamp-390.png",
+      "action": "remove",
+      "bytes": 257254,
+      "sha256": "da5ef70527de4674ca31828fb1939bc4a1127631fdc3c075c1a1bca6ae6b6c89"
+    },
+    {
+      "path": "docs/assessment-stamp-430.png",
+      "action": "remove",
+      "bytes": 310891,
+      "sha256": "ca30f0d4aa9c0fd5fb1ac6d40fc7e3b782e022e02c898dc1909dcf90dab2f835"
+    },
+    {
+      "path": "docs/assessment-stamp-reduced.png",
+      "action": "remove",
+      "bytes": 267693,
+      "sha256": "1bf9af9a16888ea1d272d263a363a6a145aca913dd7f2e71d913079a7ca7b442"
+    },
+    {
+      "path": "docs/coach-stamp-car-diagonal-impact.png",
+      "action": "remove",
+      "bytes": 253703,
+      "sha256": "952de3a6a44542b01a4fddcf0de970cc55f5ecab28e54c439430170086b5f0e1"
+    },
+    {
+      "path": "docs/coach-stamp-car-diagonal-pancake.png",
+      "action": "remove",
+      "bytes": 261137,
+      "sha256": "97c4a037b99dd3f9f0e4dbf300e3d07ab57b4b714c93d3b2dc3bba31a47f1ea9"
+    },
+    {
+      "path": "docs/coach-stamp-car-horizontal-impact.png",
+      "action": "remove",
+      "bytes": 204268,
+      "sha256": "d994812cfe6ef1ad1cbde0c498fa41662ffeb86c2623bbb319fad0b2e017227e"
+    },
+    {
+      "path": "docs/coach-stamp-car-horizontal-pancake.png",
+      "action": "remove",
+      "bytes": 241633,
+      "sha256": "257184060d37809f079420f125eb00e3627260c84095c8feef1d9fd99cd6975a"
+    },
+    {
+      "path": "docs/coach-stamp-car-vertical-impact.png",
+      "action": "remove",
+      "bytes": 247804,
+      "sha256": "5b530675233a96d008716b27be5e0f59b8b607b891cdffef2c67715ce18b724f"
+    },
+    {
+      "path": "docs/coach-stamp-car-vertical-pancake.png",
+      "action": "remove",
+      "bytes": 258828,
+      "sha256": "af73954e1b78e62c3119e0c9d4a98c64c3e15b70c4de33468e143ea4f43c680c"
+    },
+    {
+      "path": "docs/coach-stamp-edge-bottom-right.png",
+      "action": "remove",
+      "bytes": 260917,
+      "sha256": "cce14acd86f8bb3a0da4aeb7b82c2ef1f69310dbc22c7ef9b86389e909f7fd13"
+    },
+    {
+      "path": "docs/coach-stamp-edge-top-left.png",
+      "action": "remove",
+      "bytes": 255099,
+      "sha256": "88f8291d9e7ed773548ee5e1d17a6e9f339ad2dff4840e3f5041893425adc4aa"
+    },
+    {
+      "path": "docs/coach-stamp-full-preview.gif",
+      "action": "remove",
+      "bytes": 2439934,
+      "sha256": "be472f81d4773db92d05b2c6ab0157c579eb665254c4b7430809cf36f03cfc27"
+    },
+    {
+      "path": "docs/coach-stamp-full-preview.mp4",
+      "action": "remove",
+      "bytes": 313956,
+      "sha256": "c0ad4cc54c8ecf7a218c28aa987f4b70a144d83151d1b01c66a0bbe2d3009683"
+    },
+    {
+      "path": "docs/coach-stamp-impact-v2.gif",
+      "action": "remove",
+      "bytes": 3233630,
+      "sha256": "47dc74cc77b9772602240773af3873f46120243f2bcf3f979d466e1166aa923f"
+    },
+    {
+      "path": "docs/coach-stamp-impact-v2.mp4",
+      "action": "remove",
+      "bytes": 392265,
+      "sha256": "8614f8c84150be5b151f7a6117c678433e47c824d6c4a62d790449fe984ca862"
+    },
+    {
+      "path": "docs/coach-stamp-truck-diagonal-impact.png",
+      "action": "remove",
+      "bytes": 264489,
+      "sha256": "fc81004a0280cb58e4e41bb9f24d6e790ebfa7e045ff1104201fd2645101e66b"
+    },
+    {
+      "path": "docs/coach-stamp-truck-diagonal-pancake.png",
+      "action": "remove",
+      "bytes": 279669,
+      "sha256": "8fdc99ee954cc49f3f0cc5b113b75f3590551b5c5ef007970d41a28439d7cede"
+    },
+    {
+      "path": "docs/coach-stamp-truck-horizontal-impact.png",
+      "action": "remove",
+      "bytes": 259938,
+      "sha256": "d691a4b6e4c25292cfa0dcccd7f7963f141982df2b023f4274ec78a276ae882d"
+    },
+    {
+      "path": "docs/coach-stamp-truck-horizontal-pancake.png",
+      "action": "remove",
+      "bytes": 270575,
+      "sha256": "f5f5d9747022c6174c0560fd51b3ff99c1045ba1f86828b24fda49739856ed9e"
+    },
+    {
+      "path": "docs/coach-stamp-truck-vertical-impact.png",
+      "action": "remove",
+      "bytes": 261614,
+      "sha256": "edfd98af8ad32bd78960de6379408c996f4261931d8e7b964792d67703a016ee"
+    },
+    {
+      "path": "docs/coach-stamp-truck-vertical-pancake.png",
+      "action": "remove",
+      "bytes": 275367,
+      "sha256": "9f941304242665acf9a09d829d2030eab252de1613624bffbd0d299d0253a418"
+    },
+    {
+      "path": "docs/coach-stamp-van-diagonal-impact.png",
+      "action": "remove",
+      "bytes": 256526,
+      "sha256": "76ac26d6d78cb3b6583a1afc30bf0b02d9381ea5ac5aa103663d978b40009dc0"
+    },
+    {
+      "path": "docs/coach-stamp-van-diagonal-pancake.png",
+      "action": "remove",
+      "bytes": 265523,
+      "sha256": "3fd714ba694fd444be83a8612f28be9a1cdc89971bab3e717bb273021f8ed802"
+    },
+    {
+      "path": "docs/coach-stamp-van-horizontal-impact.png",
+      "action": "remove",
+      "bytes": 254080,
+      "sha256": "44fe9c98fc9410b3a507d35e9ef771e28e9d3fc5cd0fe7bf73a2be5bacd17d5e"
+    },
+    {
+      "path": "docs/coach-stamp-van-horizontal-pancake.png",
+      "action": "remove",
+      "bytes": 263602,
+      "sha256": "17f4267f0a117780556ad1a9b3e03040923b8ab7d1ddf240e11b51da2c9daca4"
+    },
+    {
+      "path": "docs/coach-stamp-van-vertical-impact.png",
+      "action": "remove",
+      "bytes": 255813,
+      "sha256": "87bd70f754ff5b6974719c1f2d6dae633e1f5b97f4628d2b627af0c92931f891"
+    },
+    {
+      "path": "docs/coach-stamp-van-vertical-pancake.png",
+      "action": "remove",
+      "bytes": 264079,
+      "sha256": "2fb2ee2684bca3163fae7a5bd253d32ba8030c75de495fabf3d51e7d51a47036"
+    },
+    {
+      "path": "docs/collision-feedback-preview.png",
+      "action": "remove",
+      "bytes": 227384,
+      "sha256": "b0927bf89d37454cdb4637bf157b694ec6eaed2116438efeb439a465bca80379"
+    },
+    {
+      "path": "docs/collision-feedback-stronger.png",
+      "action": "remove",
+      "bytes": 228893,
+      "sha256": "0125fc51583d714f3515fb0f6cf19fedf512fc11727f12836094d50206eb8c98"
+    },
+    {
+      "path": "docs/crush-preview/animation.js",
+      "action": "remove",
+      "bytes": 6831,
+      "sha256": "ef1f269f33161da9a8c4d1e01f8a161cc3baf15dbf46c8358830fa1beec593ea"
+    },
+    {
+      "path": "docs/crush-preview/assets/flattened-car.png",
+      "action": "remove",
+      "bytes": 985193,
+      "sha256": "ee0a31243a9a2dabdc2f6fa18e69afde479a8dd8afc80b8a84c1c29d8e08f0d4"
+    },
+    {
+      "path": "docs/crush-preview/assets/intact-car.png",
+      "action": "remove",
+      "bytes": 366732,
+      "sha256": "4d8dd9fe1e00f0b21d6e6821a752fae6a57e59fd142960f645e528ce075d9e7d"
+    },
+    {
+      "path": "docs/crush-preview/assets/iron-weight.png",
+      "action": "remove",
+      "bytes": 591547,
+      "sha256": "6eeb223b25b9374321e3b655458cfb11b6eae80ad730ffe71aefa65080ea3cde"
+    },
+    {
+      "path": "docs/crush-preview/assets/selected-reference.png",
+      "action": "move",
+      "bytes": 1738805,
+      "sha256": "c69d0342c8ddee8ad518d215084dd87a33422453fe4e8141ded00e8a49036fdb",
+      "destination": "docs/assets/assessment-selected-reference.png"
+    },
+    {
+      "path": "docs/crush-preview/index.html",
+      "action": "remove",
+      "bytes": 3251,
+      "sha256": "e5a8aa34223a308dfc62de2e21b0e2debd31658ca6f43f71123e634cb60f87b1"
+    },
+    {
+      "path": "docs/crush-preview/preview-actual-size.png",
+      "action": "remove",
+      "bytes": 36723,
+      "sha256": "a0602ef63990732d9469d178e86fff560bfc443fa2f82b3efba0f740697e93e2"
+    },
+    {
+      "path": "docs/crush-preview/preview-settled.png",
+      "action": "remove",
+      "bytes": 45714,
+      "sha256": "bd5b3af1aa590a0ed0da6e12a2ba3d3f231da01a6b986265f2f6407739c68542"
+    },
+    {
+      "path": "docs/crush-preview/preview-weight-actual.png",
+      "action": "remove",
+      "bytes": 37856,
+      "sha256": "4df5c1659a1b128007a8c9ba90425a15f12c4a50ca6bf51603665c64b6ecf3d7"
+    },
+    {
+      "path": "docs/crush-preview/preview-weight-impact.png",
+      "action": "remove",
+      "bytes": 49271,
+      "sha256": "8680669555efbeff8c11d60846e19a02f376c02719c150a5d919f99e564c71a8"
+    },
+    {
+      "path": "docs/crush-preview/preview-weight-settled.png",
+      "action": "remove",
+      "bytes": 52640,
+      "sha256": "26f61a7c175bf915a09539ca3330a3ba02405e8f1870920c8cf2048328f07f28"
+    },
+    {
+      "path": "docs/crush-preview/visual-comparison.png",
+      "action": "remove",
+      "bytes": 896471,
+      "sha256": "0fb24cdeea39cc8b49116d27ef4b3c7791a9d013aadc0f66274a20b0990d9d2f"
+    },
+    {
+      "path": "docs/dialog-close-result-320.png",
+      "action": "remove",
+      "bytes": 33242,
+      "sha256": "faae7d0a32f6cc5105114d931f227fcdcbb216b54e5ec942a6ec17ba56ee56c4"
+    },
+    {
+      "path": "docs/dialog-close-scene-320.png",
+      "action": "remove",
+      "bytes": 31575,
+      "sha256": "a5b2dc29bec233071ccb1ebaa0cfa1947942c0335d14a3faa96ae0a51a9b9f02"
+    },
+    {
+      "path": "docs/growth-lock-320.png",
+      "action": "remove",
+      "bytes": 54683,
+      "sha256": "af7fe1ec132b020b85452a434d1cd3bc91688e7d26010c4adcba1def3d25ffe2"
+    },
+    {
+      "path": "docs/growth-lock-390.png",
+      "action": "remove",
+      "bytes": 91420,
+      "sha256": "2eceefd7cd6a45c864c3578f03812db599bb09075714b318617aea6bf4db814f"
+    },
+    {
+      "path": "docs/growth-lock-430.png",
+      "action": "remove",
+      "bytes": 112966,
+      "sha256": "073363b19309ae4ec1b90c5da4b8cce34268eb0a2dab694e8e3bfb0ab03ca3ab"
+    },
+    {
+      "path": "docs/growth-rescue-320.png",
+      "action": "remove",
+      "bytes": 64988,
+      "sha256": "a90f16cf7567c01ab6abad3aeba4259c7397c6c5589410a08c9417b9d17c14e4"
+    },
+    {
+      "path": "docs/growth-rescue-390.png",
+      "action": "remove",
+      "bytes": 103198,
+      "sha256": "377731eeac96c6553d30abcdf82276642817706dfc7fbdeeb7e478191508af4c"
+    },
+    {
+      "path": "docs/growth-rescue-430.png",
+      "action": "remove",
+      "bytes": 113261,
+      "sha256": "e5360cf21d04815eba38c12fe65975824a3af448bd1d01fcf62312633778ed9c"
+    },
+    {
+      "path": "docs/growth-result-390.png",
+      "action": "remove",
+      "bytes": 102311,
+      "sha256": "a9ef5a3b209470efe6b78b18ea8f5bdb44860309a274f2c8fb92aa388c6f5de6"
+    },
+    {
+      "path": "docs/growth-share-320.png",
+      "action": "remove",
+      "bytes": 120286,
+      "sha256": "d6bee14dafa76fbcb97215f9612070b561e98581c49ee36726e398bf4ac00558"
+    },
+    {
+      "path": "docs/growth-share-390.png",
+      "action": "remove",
+      "bytes": 109603,
+      "sha256": "ba41decc43192e947ed5b0077921390ac85d32bc78b7224c40d30886c474e835"
+    },
+    {
+      "path": "docs/growth-share-430.png",
+      "action": "remove",
+      "bytes": 110313,
+      "sha256": "c4bb1146b9cba51c144d3cc178f857a6ecd7ff308dfb66859b9707ed5d46ffa5"
+    },
+    {
+      "path": "docs/iron-weight-game-car-impact.png",
+      "action": "remove",
+      "bytes": 212789,
+      "sha256": "fc72e62d1877d605b005b9cc82280c10484cc72c744218e019bb3c3865e252d1"
+    },
+    {
+      "path": "docs/iron-weight-game-car-settled.png",
+      "action": "remove",
+      "bytes": 217225,
+      "sha256": "8797a30cbdb6f14722b759064b027de422125f9c0a1b95ffc7dbf82ffb6d2bbc"
+    },
+    {
+      "path": "docs/iron-weight-game-preview.png",
+      "action": "remove",
+      "bytes": 332816,
+      "sha256": "93e2d752a94eeb6b66e73a02ae16b0fe008d4cb805093c881b049ade2209d119"
+    },
+    {
+      "path": "docs/iron-weight-game-scenes.png",
+      "action": "remove",
+      "bytes": 819952,
+      "sha256": "b8bb8e13240104ae3bbd77f760d91a2874271c251859a959461e209c7c70786b"
+    },
+    {
+      "path": "docs/iron-weight-game-share.png",
+      "action": "remove",
+      "bytes": 112241,
+      "sha256": "e2559080f0f4c125d06db80efc5762d81dcac143ab71a5321f50a082e4d9dca3"
+    },
+    {
+      "path": "docs/iron-weight-game-truck-impact.png",
+      "action": "remove",
+      "bytes": 217229,
+      "sha256": "c1902d5e1bbf6762cd905bc5366eef98564aadda4beae1a3704098064a5ec4f8"
+    },
+    {
+      "path": "docs/iron-weight-game-truck-settled.png",
+      "action": "remove",
+      "bytes": 223018,
+      "sha256": "ee0b6997653d10fddc1a9e7fd150bffc19714fc28b939c2bfc3962550ad1f9cf"
+    },
+    {
+      "path": "docs/iron-weight-game-van-settled.png",
+      "action": "remove",
+      "bytes": 217974,
+      "sha256": "0ee4bd73d5b6eac7286a9dfd6ea68967969c520cf87c7a4f25527c026ca160aa"
+    },
+    {
+      "path": "docs/iron-weight-game-visual-qa.png",
+      "action": "remove",
+      "bytes": 651759,
+      "sha256": "9e58e41d96b4bf21fcd0e08713733a9cafb01f840b81b5a4f6afe57b67152409"
+    },
+    {
+      "path": "docs/local-preview-panel.png",
+      "action": "remove",
+      "bytes": 106166,
+      "sha256": "b55dc12820e23ca0ea28b5f5e9486b9f9b19020ce982bc5982e0dcfd4a24dbb7"
+    },
+    {
+      "path": "docs/local-preview-share.png",
+      "action": "remove",
+      "bytes": 85651,
+      "sha256": "6c042baaf3621f1098f64c76423cb53fd62157523ce9cbac947e5e0487bcf868"
+    },
+    {
+      "path": "docs/parking-help-320.png",
+      "action": "remove",
+      "bytes": 120683,
+      "sha256": "271224093c1a6521107240a800734fd45aa55c296dd79c154998ce68ddd47f29"
+    },
+    {
+      "path": "docs/parking-help-390.png",
+      "action": "remove",
+      "bytes": 200887,
+      "sha256": "4a919585dff0d21c349cd70b8197fdd04b0c6eaa0a544d84d463d068ba734083"
+    },
+    {
+      "path": "docs/parking-help-430.png",
+      "action": "remove",
+      "bytes": 237439,
+      "sha256": "bd385dcba81aa5f990e7de06afbfe4ed9ebedb12269224290f97f3176611e150"
+    },
+    {
+      "path": "docs/parking-help-auto-320-reduced.png",
+      "action": "remove",
+      "bytes": 162223,
+      "sha256": "add7156903fcaba4200dae18c4f1e7d15a4e1cd6679ce376b44599c695cb2680"
+    },
+    {
+      "path": "docs/parking-help-auto-320.png",
+      "action": "remove",
+      "bytes": 166675,
+      "sha256": "bbb7706e788eacc214a08dd401dc15455dc606d0cfd03ff8ca73670380c89030"
+    },
+    {
+      "path": "docs/parking-help-auto-390.png",
+      "action": "remove",
+      "bytes": 251235,
+      "sha256": "eabb888ac3697562a246aeb808213dcc94651a909fb047fc6cc9f39dafb39d99"
+    },
+    {
+      "path": "docs/parking-help-auto-430.png",
+      "action": "remove",
+      "bytes": 302660,
+      "sha256": "39c2de55ea57f0c738c42f613dce1ddbd66563b3b03313971f3f8c53bc8007b7"
+    },
+    {
+      "path": "docs/parking-help-lightbulb-320-reduced.png",
+      "action": "remove",
+      "bytes": 124971,
+      "sha256": "93697860f6eeeed89ac7c83cb0e81a69498e4405922882d0ab00a4ce8e6d9447"
+    },
+    {
+      "path": "docs/parking-help-lightbulb-320.png",
+      "action": "remove",
+      "bytes": 125303,
+      "sha256": "373e11ade0122c026225ceef1792bd54e486a84b20954174277d69b73e3091b0"
+    },
+    {
+      "path": "docs/parking-help-lightbulb-390.png",
+      "action": "remove",
+      "bytes": 201413,
+      "sha256": "1bf1d0f137db5412a37be1144ef625411451c98a49a21287c27bfaba94c45333"
+    },
+    {
+      "path": "docs/parking-help-lightbulb-430.png",
+      "action": "remove",
+      "bytes": 235887,
+      "sha256": "6cb739c24188eead27172d8c3d955cf234855ab872806e2d0030bb8d0d53ad7e"
+    },
+    {
+      "path": "docs/pause-close-preview.png",
+      "action": "remove",
+      "bytes": 167269,
+      "sha256": "911fc84b0948242c2aef4bf7087375fb98db499dc9c3ee4931bf38de7d3dd949"
+    },
+    {
+      "path": "docs/scene-art/advanced-05.jpg",
+      "action": "remove",
+      "bytes": 49278,
+      "sha256": "cfcff2f7d8054246eff2eb88642bab439ef4c731b86855e57fb592d26676995b"
+    },
+    {
+      "path": "docs/scene-art/advanced-06.jpg",
+      "action": "remove",
+      "bytes": 50392,
+      "sha256": "ee480f64a8ebf54c6475a9f6972343c3f11cbaa186a6dcbe1de9c78583b9d90f"
+    },
+    {
+      "path": "docs/scene-art/advanced-07.jpg",
+      "action": "remove",
+      "bytes": 49803,
+      "sha256": "03f86f32af5723b63449ce33d3c868bf64f9ed4df0378e0803de93263a3dd804"
+    },
+    {
+      "path": "docs/scene-art/advanced-08-320.jpg",
+      "action": "remove",
+      "bytes": 37920,
+      "sha256": "0deb80ca7a8c8347cfc8551b3d5aeac7f00ebd664652fdc2a882e62cb0afca17"
+    },
+    {
+      "path": "docs/scene-art/advanced-08.jpg",
+      "action": "remove",
+      "bytes": 52517,
+      "sha256": "0214db660a53c0b3da7d7b7f550da5d7d6c11e364cd1e10a8e8a5a6f7a84e1be"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-alley-320.jpg",
+      "action": "remove",
+      "bytes": 35315,
+      "sha256": "63045a1b088bd691c2813413b50e08ef42b0d0d376f8d81a205ae1a3144d9697"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-alley-390.jpg",
+      "action": "remove",
+      "bytes": 48674,
+      "sha256": "4185a41e29c394924bf2c62611ce19cea62adb1b544ce390d054733b6878f10d"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-bonded-level07-preview.jpg",
+      "action": "remove",
+      "bytes": 58250,
+      "sha256": "0d0f68c7bf0e79afc1083ef7484344decd74564a4c4210e48f2c4d8894cb2838"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-bonded-level12-preview.jpg",
+      "action": "remove",
+      "bytes": 72382,
+      "sha256": "f33d089a4e19767f772668a78aa55581a43611e2663136790ad17c6e6e1d92a1"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-bonded-level16-320.jpg",
+      "action": "remove",
+      "bytes": 31528,
+      "sha256": "94adfefc18dc2edba9d9ff83b1d023332b9e1f3dfd719bbaa808c987c6a554dc"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-continuous-level07-390.jpg",
+      "action": "remove",
+      "bytes": 35119,
+      "sha256": "72cd90e75f19907f0df3719db9dfcc2f682a444c871d2c95ed7b11f3cb2bd55d"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-continuous-level12-390.jpg",
+      "action": "remove",
+      "bytes": 40980,
+      "sha256": "5ca2e7baf6bb98c59a543c1e4529b5b5abdd4cc6899c583889fc1ae3544b8b49"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-continuous-level16-320.jpg",
+      "action": "remove",
+      "bytes": 31352,
+      "sha256": "fb98b9286f1ca6e2b1575facbd32464929b8fa092dd9641d7fbf3b12906e125f"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-continuous-level16-390.jpg",
+      "action": "remove",
+      "bytes": 43185,
+      "sha256": "5649e6204f7a0b94299d5a961e8d101019278514d1dbf357c38fa01782586663"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-horizontal-390.jpg",
+      "action": "remove",
+      "bytes": 49331,
+      "sha256": "2bfe4144a87956f71fafa41947a832282b234b7b7e19995433458e9c3a4e13b8"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-raised-alley-320.jpg",
+      "action": "remove",
+      "bytes": 35679,
+      "sha256": "916812898cb816783855b018f52fb75be151f73e2cbdbc86a95ffc6d18c7f5e7"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-raised-alley-390.jpg",
+      "action": "remove",
+      "bytes": 49641,
+      "sha256": "379226684637306e8b8284b2a21109039f19b423d390ff26e3b498806759e839"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-raised-horizontal-390.jpg",
+      "action": "remove",
+      "bytes": 49729,
+      "sha256": "63fd126b973a287da2eb498972241c343ddd1e2aa839488f919e4a7466944e33"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-restored-topdown-390.jpg",
+      "action": "remove",
+      "bytes": 49311,
+      "sha256": "84bb174d8d9b0e1628403117e7993aa0a9feacb04f7e5d44f46169819bf3c140"
+    },
+    {
+      "path": "docs/scene-art/brick-wall-small-corner-bricks-preview.jpg",
+      "action": "remove",
+      "bytes": 257605,
+      "sha256": "d1c8d36361a9e49aba275a53abdca22eb3e0c9b7e237e40189d695b803300241"
+    },
+    {
+      "path": "docs/scene-art/brick-walls-level03-390.jpg",
+      "action": "remove",
+      "bytes": 39706,
+      "sha256": "e696ff9b4dd50a121d780c96abc84d50f21478773515154777dfe42a1431219a"
+    },
+    {
+      "path": "docs/scene-art/brick-walls-level10-390.jpg",
+      "action": "remove",
+      "bytes": 40405,
+      "sha256": "31317d0da07dd4a1b5e23f342ce895f059917ac1c87994dab1752d6e8d9c8c40"
+    },
+    {
+      "path": "docs/scene-art/brick-walls-level12-390.jpg",
+      "action": "remove",
+      "bytes": 40918,
+      "sha256": "270a5a30ca9ea2e260c99ca8550d843da90937a855e46f878b0755764a7ce4f2"
+    },
+    {
+      "path": "docs/scene-art/brick-walls-level15-390.jpg",
+      "action": "remove",
+      "bytes": 41379,
+      "sha256": "f7905b8c0e500453ec9d85d98373413c7a57106243dca6202045ce8cfb685001"
+    },
+    {
+      "path": "docs/scene-art/brick-walls-level16-320.jpg",
+      "action": "remove",
+      "bytes": 31395,
+      "sha256": "f3487799062dada34f06f56efa21fbd60ffcdfd810637e4d3148f7c9f6dfdf90"
+    },
+    {
+      "path": "docs/scene-art/brick-walls-level16-390.jpg",
+      "action": "remove",
+      "bytes": 43205,
+      "sha256": "a816d301d1c9e9835ee13fc630493ee923fa1bcc5ac08e96a5a18fc90c75d858"
+    },
+    {
+      "path": "docs/scene-art/cones-level1-390.png",
+      "action": "remove",
+      "bytes": 211037,
+      "sha256": "b8330c6359df142152b5d13f06cbc5533e7875a0cf5a9c53865ce278ca31b8fc"
+    },
+    {
+      "path": "docs/scene-art/cones-level16-320.png",
+      "action": "remove",
+      "bytes": 134358,
+      "sha256": "0345a3ede61a7677f1471a9273481cc7eccf3a54173824e53348ee03d3dd206c"
+    },
+    {
+      "path": "docs/scene-art/cones-level6-390.png",
+      "action": "remove",
+      "bytes": 224456,
+      "sha256": "3a10f3aa64d9c8b2c65460f13293cb14b683d280e36521c19e83e78ce82b4e25"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-320.jpg",
+      "action": "remove",
+      "bytes": 37193,
+      "sha256": "a2bf30da9599dadf7d011ea0ae9a4193cfa00ec4dbca82a7a5ed35d2370c4538"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-390.jpg",
+      "action": "remove",
+      "bytes": 51859,
+      "sha256": "a76590adb07345f6c6a16ca15c2a31d49d2b611b2a8ec2b59afda00a7e228c53"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-daisy-320.jpg",
+      "action": "remove",
+      "bytes": 41317,
+      "sha256": "7b31257a41756bbd86389c0e0c18767a8a932c69fcc547032b42c6e6fa9c41f4"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-daisy-390.jpg",
+      "action": "remove",
+      "bytes": 54984,
+      "sha256": "82906d3bb9f4b11fea5c82a47bce5f0c4eddca7b719fec2ec0ca20bd8c31b6d3"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-leaves-320.jpg",
+      "action": "remove",
+      "bytes": 38366,
+      "sha256": "bd713869e8ab69ec14b2ce731b66353b34c5dfcd6d2ddfa51ce33ec748a28d91"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-leaves-390.jpg",
+      "action": "remove",
+      "bytes": 53822,
+      "sha256": "c3353d7ea4b6ca805635b2bcbf470145b5352714eae6d23e1af743d0a1dc21d1"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-lush-320.jpg",
+      "action": "remove",
+      "bytes": 38465,
+      "sha256": "ab3b57257aec5258b1aceda2316e4125ee3c3158711eb1847b4085b9f1c5b25a"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-lush-390.jpg",
+      "action": "remove",
+      "bytes": 53888,
+      "sha256": "36b6d7a2b45b6207e7068428ac27bddc9177bf8ad600f6ea66d46106759b3877"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-lush-small.jpg",
+      "action": "remove",
+      "bytes": 268063,
+      "sha256": "5766c8dd339a53647e7169cc40124ef5b4cdfd1d41e24d6b68d8a0b40ca1c92d"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-rounded-320.jpg",
+      "action": "remove",
+      "bytes": 36787,
+      "sha256": "4d973eca1ef0337fb692997a0fa865fe444b6542219b1918ad8b04f9f0eac6db"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-rounded-390.jpg",
+      "action": "remove",
+      "bytes": 51090,
+      "sha256": "6b2458805c9ee34d9885c48fad928766a6e0cefd864fb875c151c44e68eae2ad"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-simple-390.jpg",
+      "action": "remove",
+      "bytes": 51085,
+      "sha256": "bca42b89efccf9d28ccc671dcc02ffd52d4c0a74178e050562f13ba9b48e71d9"
+    },
+    {
+      "path": "docs/scene-art/flowerbed-small.jpg",
+      "action": "remove",
+      "bytes": 268108,
+      "sha256": "960b6c6b4841d91bac7665554f02567f375c97e4ee39fde775dbc0e9f1c228f1"
+    },
+    {
+      "path": "docs/scene-art/hud-title-320.jpg",
+      "action": "remove",
+      "bytes": 34290,
+      "sha256": "50b566dc2426f8025f336e6638e15b2fbe013ab4efc4f6f0006636cccfc70956"
+    },
+    {
+      "path": "docs/scene-art/hud-title-390.jpg",
+      "action": "remove",
+      "bytes": 41408,
+      "sha256": "d51d4130db9a1fb1e55776add315de73fce0e12eebf9f627946124ef5e86ad95"
+    },
+    {
+      "path": "docs/scene-art/hud-title-accent.jpg",
+      "action": "remove",
+      "bytes": 229439,
+      "sha256": "75467d07d8c6e5a08810bb45072e36e9487853c44070462224e6a8fc86976056"
+    },
+    {
+      "path": "docs/scene-art/hud-title-larger-320.jpg",
+      "action": "remove",
+      "bytes": 34715,
+      "sha256": "943b682faa995449de0a5dd3a27247efa5f4ffada1c02738bd505b90f7a78f89"
+    },
+    {
+      "path": "docs/scene-art/hud-title-larger-390.jpg",
+      "action": "remove",
+      "bytes": 42366,
+      "sha256": "0b950162dd4c78938612dff97a9a0b1b6e4189c6b7625f5e5d2c3f4a6c698da2"
+    },
+    {
+      "path": "docs/scene-art/hud-title-plain.jpg",
+      "action": "remove",
+      "bytes": 229709,
+      "sha256": "969dd21b006f126141436384d10a860aa7ff38c4dedaa18c08b518b19da83210"
+    },
+    {
+      "path": "docs/scene-art/hud-title-poster-320.jpg",
+      "action": "remove",
+      "bytes": 34405,
+      "sha256": "6dadb08115b24dd92f1721b079482eb22a4fb92bc03d46aff19b972b5e2cac00"
+    },
+    {
+      "path": "docs/scene-art/hud-title-poster-390.jpg",
+      "action": "remove",
+      "bytes": 47256,
+      "sha256": "f05972203eee26f7bcfc21b6b45fdd9bf3effe99d713c8ef80fde24631015ea8"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-1280.jpg",
+      "action": "remove",
+      "bytes": 170992,
+      "sha256": "1e8d99b630349521d3d3f1c2b81ef1160478a65c0b9037d68086e1d9e39ec4f5"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-1440.jpg",
+      "action": "remove",
+      "bytes": 212343,
+      "sha256": "13dd831ce6dfe5fccf3be03bd3204abae9086a55b8d3f80d83e47d876039a616"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-320.jpg",
+      "action": "remove",
+      "bytes": 33630,
+      "sha256": "1fac86dbd9bd5e6db39a04f3c331eac7b9da579089dc67d7faf42035782fdabb"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-768.jpg",
+      "action": "remove",
+      "bytes": 101950,
+      "sha256": "060134466397cdbff499890bf13dfdc23694ccc55068ab880ff1fa36d755fdee"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-car.jpg",
+      "action": "remove",
+      "bytes": 41384,
+      "sha256": "c50cd28c69f07c6e1a7001289c7984ad12b7ea90413c65a2615e65d2091f2fac"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-gray-floor.jpg",
+      "action": "remove",
+      "bytes": 228181,
+      "sha256": "0a9a11f698b81339a37bf4ae75a07c7ba685aea6f16616e1fff0e3bbdbe01d1d"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-no-top-strip.jpg",
+      "action": "remove",
+      "bytes": 227572,
+      "sha256": "93d485ebf21d7678399ebe65d23cc7d50f45793e023ff1c69f0b2ce1d840bc7d"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-top-edge.jpg",
+      "action": "remove",
+      "bytes": 41155,
+      "sha256": "b58550c8451fd41929b089981f3880e2f5884f3c54e1d58dc97002697874f518"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-truck.jpg",
+      "action": "remove",
+      "bytes": 46747,
+      "sha256": "2b73f0f6f6a02753406db0917087809b277f18bd0a1d6224e9c7578097f6537e"
+    },
+    {
+      "path": "docs/scene-art/neo-brutalism-van.jpg",
+      "action": "remove",
+      "bytes": 44202,
+      "sha256": "747df17c14a7f32d8ffff677a35348126f83c5a1d3c1b8faeeaadcb33fe2b4db"
+    },
+    {
+      "path": "docs/scene-art/player-arrow-coral-bob.jpg",
+      "action": "remove",
+      "bytes": 135475,
+      "sha256": "be9387d736ab765e1fd4dd51cbbf963eb209a659971ed1124fcca486c12dc78b"
+    },
+    {
+      "path": "docs/scene-art/player-arrow-orange.jpg",
+      "action": "remove",
+      "bytes": 135443,
+      "sha256": "bc8887083f65151be26bb3d45193d93525e2ba8be5f9526faf8f03c580513ed5"
+    },
+    {
+      "path": "docs/scene-art/wrong-heading-exit.jpg",
+      "action": "remove",
+      "bytes": 267041,
+      "sha256": "49fc0b29975b135a6282bcf0462ebac45ed7c72f6705fa8e0a2f5eb1e6a03220"
+    },
+    {
+      "path": "docs/scene-art/wrong-heading-park.jpg",
+      "action": "remove",
+      "bytes": 267610,
+      "sha256": "092cc00a0ab23a4e95cd0a838c7a47080acb677109422589d81776e33c0bd007"
+    },
+    {
+      "path": "docs/share-aspect-after.png",
+      "action": "remove",
+      "bytes": 127531,
+      "sha256": "c12cfd70789332e54d57004e0a9b16c92c56c6d10a8048e952e20bab1aea946a"
+    },
+    {
+      "path": "docs/share-aspect-before.png",
+      "action": "remove",
+      "bytes": 113128,
+      "sha256": "f0b14d80f720e37b5ab92712d75707e22dd58f219f464d06daa4396f56f6bb09"
+    },
+    {
+      "path": "docs/share-card-aspect-after.png",
+      "action": "remove",
+      "bytes": 220003,
+      "sha256": "8296bfcef4a0cfe189f11559b402b8d167944eda6006791530f1a3ee9c4a9835"
+    },
+    {
+      "path": "docs/share-card-aspect-before.png",
+      "action": "remove",
+      "bytes": 90763,
+      "sha256": "9fa1f5750a8de0cd07275f85bc8fabbb934426460d61ea9d2728c8a23f002def"
+    },
+    {
+      "path": "docs/share-card-aspect-comparison.png",
+      "action": "remove",
+      "bytes": 395631,
+      "sha256": "bb0a6c8097ee684e4a7bf47cd8eb81f5b0c538529b39a60da69cb7f406f6d6a6"
+    },
+    {
+      "path": "docs/tank-crushing.png",
+      "action": "remove",
+      "bytes": 224265,
+      "sha256": "540c65bb99be901436fbb0f76e6f40edc29a4c1767f7a620f8b18b1b9f842829"
+    },
+    {
+      "path": "docs/tank-result.png",
+      "action": "remove",
+      "bytes": 212473,
+      "sha256": "b05f074a3f2bdccf61019e74e08e397e483c6f95da7362c7bd3a98bb34af2ba0"
+    },
+    {
+      "path": "docs/tank-splat-preview.gif",
+      "action": "remove",
+      "bytes": 236003,
+      "sha256": "8ae3ca006c53951fb8e3e833eca1444394a9c96b9e0f9fadcba8fb131ba0fd8a"
+    },
+    {
+      "path": "docs/tank-wreck-chunky-splat-check.png",
+      "action": "remove",
+      "bytes": 137355,
+      "sha256": "50e61b5e59a55ad2ef36cb9699d6fceeed3f32ea35de06620ed7105e453a9776"
+    },
+    {
+      "path": "docs/tank-wreck-compact-heap-check.png",
+      "action": "remove",
+      "bytes": 181590,
+      "sha256": "22d0b83cc806ec89b7371a534e107c2f601f6ac4da6ef3baa6b946c4bd892a9c"
+    },
+    {
+      "path": "docs/tank-wreck-fragmented-check.png",
+      "action": "remove",
+      "bytes": 160472,
+      "sha256": "5b866649c2a010aeafea4b72a7d4d4c12fcfd298becbd34dd56c4a923b2a81b1"
+    },
+    {
+      "path": "docs/tank-wreck-render-check.png",
+      "action": "remove",
+      "bytes": 163274,
+      "sha256": "b0951bc83d5a28bd207793aae7fa01c59e3a1918c4ae4b6a0fc4c12af9d09ffe"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-audit-before.png",
+      "action": "remove",
+      "bytes": 49855,
+      "sha256": "71f52ac8964558975b459f87dd4f2478d740bd6fa447d2686f250f1025e43e82"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-pointer-comparison.png",
+      "action": "remove",
+      "bytes": 181178,
+      "sha256": "66a7c762cd8f728f46ddf63d7750f3004b9a8c1688c0f2f87bc11e78b6f7cb92"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-pointer-dismissed.png",
+      "action": "remove",
+      "bytes": 48112,
+      "sha256": "bd762d7f7dfcb71d2b9a721014ac861780767cac1c922fb2d6c067032363bbf6"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-pointer-flow.png",
+      "action": "remove",
+      "bytes": 164901,
+      "sha256": "97b17f501975179700385f418770e9d2bb573cddc697563976d9b1507dd42d74"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-pointer-left-used.png",
+      "action": "remove",
+      "bytes": 49859,
+      "sha256": "5c3789d7a36855f091b257aae95bb958625bffd43698a6a051ff8b35e5e9b54b"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-pointer-opening.png",
+      "action": "remove",
+      "bytes": 50511,
+      "sha256": "04158e9e1f7d36ecb5c3cf4bc8761827e17aae09081ce432256acfc0567a7632"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-reference-clash-royale.png",
+      "action": "remove",
+      "bytes": 92337,
+      "sha256": "a7f6b06e0ec7b09c846b48af3003a63581d5fec04c7eea757f8c83c47d5f8928"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-reference-comparison.png",
+      "action": "remove",
+      "bytes": 296300,
+      "sha256": "8b5169c93dda2b914e011d56df9a41f7f176e64bc9129a8650f82fe7c7cbde27"
+    },
+    {
+      "path": "docs/vehicle-art/gesture-reference-dual-controls.png",
+      "action": "remove",
+      "bytes": 50052,
+      "sha256": "423b08cd5a77b4b4b6f7cc9ac0dae5b0995a4bf79494067c1e98b1a2dd7f083b"
+    },
+    {
+      "path": "docs/vehicle-art/hints-after.png",
+      "action": "remove",
+      "bytes": 43215,
+      "sha256": "eccbf8a3a90889574a7c493cdf02aa60a4b37915c8a8b4472937e4743af8e010"
+    },
+    {
+      "path": "docs/vehicle-art/hints-before.png",
+      "action": "remove",
+      "bytes": 48419,
+      "sha256": "ea46058724ae4f82f2989a765c2ad8bb9850df6cfd898d64754eeebdadb570c3"
+    },
+    {
+      "path": "docs/vehicle-art/hints-comparison.png",
+      "action": "remove",
+      "bytes": 408817,
+      "sha256": "7f8a8c345a668036184783469ec57c8c11cfa3cdb6b904709e50896ce3e63c5a"
+    },
+    {
+      "path": "docs/vehicle-art/player-pointer-car.png",
+      "action": "remove",
+      "bytes": 43681,
+      "sha256": "692a817762c669fc100fc24746863cffe3a873354adb4dbb24b7ba9395ed3c31"
+    },
+    {
+      "path": "docs/vehicle-art/pointer-driving.png",
+      "action": "remove",
+      "bytes": 43398,
+      "sha256": "408c30ed2cd4159c8cc60334f4bbebaca9e7e2e6596fac3ad3782d53e64536c8"
+    },
+    {
+      "path": "docs/vehicle-art/pointer-idle.png",
+      "action": "remove",
+      "bytes": 43238,
+      "sha256": "0929b61282c05645f252992d9a05a6efd550bfbc2f3f6a05aba7c90df71647bf"
+    },
+    {
+      "path": "docs/vehicle-art/pointer-opening.png",
+      "action": "remove",
+      "bytes": 46497,
+      "sha256": "dfc141087d161ef7ed7431f6ec588d7d1f6b42704b1f306f7627095ffb162cd3"
+    },
+    {
+      "path": "docs/vehicle-art/pointer-timing-preview.png",
+      "action": "remove",
+      "bytes": 217051,
+      "sha256": "355959985c112bfb7753e67177fe640912acc154dafe5327d946576a28d08ac1"
+    },
+    {
+      "path": "docs/vehicle-art/target-no-triangle.png",
+      "action": "remove",
+      "bytes": 45084,
+      "sha256": "d1f0a6c04135b7ca75c98dd40cd4b170d31aee4aa0619b43008115052bb653b8"
+    },
+    {
+      "path": "docs/vehicle-art/thumb-hints-opening.png",
+      "action": "remove",
+      "bytes": 49845,
+      "sha256": "324cb980394c32946b980c01964fed04729c41ee9b2dfdaed656437249bfd8ec"
+    }
+  ],
+  "rewrittenHistory": "design-qa.md (full original preserved in backup)",
+  "preservedMedia": [
+    "docs/assets/app-icon.png",
+    "docs/assets/assessment-selected-reference.png",
+    "docs/assets/screenshot-play.png",
+    "docs/assets/screenshot-share.png",
+    "docs/assets/screenshot-start.png",
+    "docs/vehicle-art/mirrors-car-in-game.png",
+    "docs/vehicle-art/van-seam-review.png",
+    "docs/vehicle-art/van-seams-truck-320.png",
+    "docs/vehicle-art/van-seams-truck-390.png",
+    "docs/vehicle-art/van-seams-van-320.png",
+    "docs/vehicle-art/van-seams-van-390.png"
+  ]
+}

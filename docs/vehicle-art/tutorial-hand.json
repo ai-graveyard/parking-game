@@ -1,0 +1,18 @@
+{
+  "source": "/Users/ailln/.codex/generated_images/01a16fbb-16dc-7152-99a0-8958fbc2c2c4/exec-709f9a9e-58e7-4185-864f-246455f72b1c.png",
+  "sourceSize": [
+    1122,
+    1402
+  ],
+  "crop": {
+    "left": 266,
+    "top": 218,
+    "width": 622,
+    "height": 1015
+  },
+  "anchor": {
+    "x": 0.5233118971061094,
+    "y": 0.003940886699507389
+  },
+  "runtime": "src/assets/ui/tutorial-hand.png"
+}

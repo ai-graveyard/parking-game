@@ -1,0 +1,24 @@
+{
+  "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-3dbc5e10-b579-4732-bf41-0457593b3335.png",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "path": "src/assets/vehicles/car-glass-refined.png",
+  "size": [
+    640,
+    309
+  ],
+  "crop": [
+    8,
+    19,
+    1765,
+    868
+  ],
+  "frame": {
+    "x": 1.092772,
+    "y": -11.759174,
+    "width": 637.814456,
+    "height": 332.77276
+  }
+}

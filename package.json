@@ -1,12 +1,15 @@
 {
   "name": "parking-game",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
-  "description": "一个零依赖、两科目三难度的手机竖屏停车小游戏",
+  "description": "16 关停车主线、三种车辆与随机自由挑战的离线竖屏小游戏",
   "scripts": {
     "dev": "sh scripts/dev.sh",
     "check": "node scripts/validate.mjs",
-    "package": "sh scripts/package.sh"
+    "test:dialogs": "node scripts/test-dialogs.cjs",
+    "test:browser": "node scripts/test-input-browser.cjs && node scripts/test-growth-browser.cjs && node scripts/test-assessment-browser.cjs && node scripts/test-local-preview.cjs && node scripts/test-parking-help-browser.cjs && node scripts/test-compat-browser.cjs && node scripts/test-device-preview.cjs",
+    "package": "sh scripts/package.sh",
+    "test": "node scripts/test-game.cjs && node scripts/test-layout.cjs && node scripts/test-walls.cjs && node scripts/test-collisions.cjs && node scripts/test-tank.cjs && node scripts/test-assessment.cjs && node scripts/test-sharing.cjs && node scripts/test-growth.cjs && node scripts/test-storage.cjs && node scripts/test-dialogs.cjs && node scripts/test-input.cjs && node scripts/solve-missions.cjs"
   },
   "license": "MIT"
 }

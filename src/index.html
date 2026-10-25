@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#f3df42" />
+    <meta name="description" content="《会停车吗你》——16 关停车主线，小轿车、小货车、大卡车，随机自由挑战。" />
+    <title>会停车吗你</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./assets/ui/tutorial-hand.png" as="image" />
+    <link rel="preload" href="./assets/effects/iron-weight.png" as="image" />
+    <link rel="preload" href="./assets/effects/flat-car.png" as="image" />
+    <link rel="preload" href="./assets/effects/flat-van.png" as="image" />
+    <link rel="preload" href="./assets/effects/flat-truck.png" as="image" />
+
+    <link rel="stylesheet" href="./style.css?v=compact-reminder-20261026" />
+    <link rel="preload" href="./assets/vehicles/mirror-car.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-car-blue.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-car-sage.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-car-cream.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-car-lavender.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/seam-van.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-truck.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/seam-van-blue.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/seam-van-sage.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/seam-van-lavender.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-truck-coral.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-truck-sage.png" as="image" />
+    <link rel="preload" href="./assets/vehicles/mirror-truck-ochre.png" as="image" />
+  </head>
+  <body>
+    <main id="game" aria-label="会停车吗你，倒车入库小游戏">
+      <canvas id="gameCanvas" aria-hidden="true"></canvas>
+
+      <header class="hud">
+        <div class="brand" aria-label="游戏与当前关卡">
+          <strong class="brand-title">会停车吗你</strong>
+          <span class="brand-kicker" id="difficultyBadge">倒车入库 · 简单 · 100 秒</span>
+        </div>
+        <div class="hud-actions">
+          <button class="hud-icon-button level-select-toggle" id="levelSelectButton" type="button" aria-label="暂停并选择关卡" title="选择关卡">
+            <svg class="hud-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path class="hud-icon-body" d="M4 5h16v3H4zM4 10.5h16v3H4zM4 16h16v3H4z" />
+            </svg>
+          </button>
+          <button class="hud-icon-button sound-toggle" id="soundToggle" type="button" aria-pressed="true" aria-label="关闭声音" title="声音开">
+            <svg class="hud-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path class="hud-icon-body" d="M4 9.4h3.4L12 5.3v13.4L7.4 14.6H4z" />
+              <g class="hud-icon-wave">
+                <path d="M15.4 9.4c1.5 1.5 1.5 3.7 0 5.2" />
+                <path d="M18.2 6.9c2.8 2.8 2.8 7.4 0 10.2" />
+              </g>
+              <g class="hud-icon-cross">
+                <path d="M15.8 9.6l5 4.8" />
+                <path d="M20.8 9.6l-5 4.8" />
+              </g>
+            </svg>
+          </button>
+          <button class="hud-icon-button pause-toggle" id="pauseButton" type="button" aria-label="暂停游戏" title="暂停" hidden>
+            <svg class="hud-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path class="hud-icon-body" d="M7.6 5h3.1v14H7.6zM13.3 5h3.1v14h-3.1z" />
+            </svg>
+          </button>
+        </div>
+        <div class="timer" id="timerBox" aria-live="polite">
+          <span id="timerLabel">考核剩余</span>
+          <b id="timer">100.0</b>
+        </div>
+      </header>
+
+      <div class="mission" id="mission" aria-live="polite">
+        <span class="mission-dot" aria-hidden="true"></span>
+        <svg class="mission-bulb" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 15c0-2-3-3-3-7a7 7 0 0 1 14 0c0 4-3 5-3 7M8 15h8M9 18h6M10 21h4" /></svg>
+        <span id="missionText">倒进黄色车位，再把车停稳</span>
+      </div>
+
+      <section class="controls" id="controls" aria-label="驾驶控制区">
+        <div class="steer-zone">
+          <span class="control-label">左手 · 方向</span>
+          <div class="wheel-pad" id="wheelPad" role="slider" aria-label="方向盘" aria-valuemin="-360" aria-valuemax="360" aria-valuenow="0" tabindex="0">
+            <div class="wheel" id="wheel">
+              <i class="wheel-spoke wheel-spoke-a"></i>
+              <i class="wheel-spoke wheel-spoke-b"></i>
+              <i class="wheel-spoke wheel-spoke-c"></i>
+              <span class="wheel-hub">●</span>
+            </div>
+            <output class="steer-readout" id="steerReadout" aria-live="polite">0°</output>
+            <div class="thumb-hint thumb-hint-left" id="leftThumbHint" hidden aria-hidden="true">
+              <div class="gesture-orbit"><div class="gesture-touch">
+                <i class="gesture-ring"></i>
+                <img class="gesture-hand" src="./assets/ui/tutorial-hand.png" alt="" draggable="false" />
+              </div></div>
+              <span class="thumb-hint-label">左拇指 · 沿圆周转动</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pedal-zone">
+          <span class="control-label">右手 · 速度</span>
+          <div class="speedometer" id="speedMeter" role="meter" aria-label="当前时速" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0">
+            <strong id="speedValue">0</strong>
+            <small>km/h</small>
+          </div>
+          <button class="pedal pedal-gas" id="gas" type="button" aria-label="前进，按住向前行驶">
+            <span class="pedal-icon">↑</span>
+            <strong>前进</strong>
+          </button>
+          <button class="pedal pedal-brake" id="brake" type="button" aria-label="后退，按住向后行驶">
+            <span class="pedal-icon">↓</span>
+            <strong>后退</strong>
+          </button>
+          <div class="thumb-hint thumb-hint-right" id="rightThumbHint" hidden aria-hidden="true">
+            <div class="gesture-touch">
+              <i class="gesture-ring"></i>
+              <img class="gesture-hand" src="./assets/ui/tutorial-hand.png" alt="" draggable="false" />
+            </div>
+            <span class="thumb-hint-label">右拇指 · 按住前进/后退</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="toast" id="toast" aria-live="assertive"></div>
+
+      <div class="scene-return" id="sceneReturn" hidden>
+        <p id="sceneReturnCopy">查看场地中 · 尚未开始计时</p>
+        <button class="primary-button" id="sceneReturnButton" type="button">返回关卡选择</button>
+      </div>
+
+      <div class="guide-tip" id="guideTip" hidden aria-live="polite">
+        <span class="guide-step" id="guideStepBadge">教学 1/3</span>
+        <strong id="guideText">沿圆周转动方向盘</strong>
+        <button class="guide-skip" id="guideSkip" type="button">跳过</button>
+      </div>
+
+      <section class="overlay is-visible" id="startOverlay">
+        <div class="poster-card">
+          <button class="dialog-close" id="startCloseButton" type="button" aria-label="收起关卡选择，查看场地" title="查看场地">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <div class="poster-stamp" id="startStamp">停车训练场 · 16 关主线</div>
+          <p class="poster-eyebrow">从倒库到装卸 · 16 项停车训练</p>
+          <h1>会停车吗<br /><em>你？</em></h1>
+          <p class="poster-copy">进入训练场，练倒库、侧方停车和大车装卸。左手打方向，右手控制前进后退。记得在倒计时结束前停好。</p>
+
+          <div class="journey-picker" role="tablist" aria-label="选择玩法">
+            <button class="journey-option is-selected" type="button" role="tab" aria-selected="true" data-journey="campaign">训练课程 <small>16 关</small></button>
+            <button class="journey-option" type="button" role="tab" aria-selected="false" data-journey="free">自由练习 <small>随机场地</small></button>
+          </div>
+          <section id="campaignPanel" aria-label="主线关卡">
+            <div class="campaign-progress" id="campaignProgress">0 / 16 关 · 0 / 48 星</div>
+            <div class="chapter-picker" id="chapterPicker" aria-label="选择章节"></div>
+            <div class="level-list" id="levelList" aria-label="选择关卡"></div>
+            <p class="level-detail" id="levelDetail"></p>
+            <p class="vehicle-note" id="vehicleNote"></p>
+          </section>
+          <section id="freePanel" aria-label="随机自由挑战" hidden>
+          <div class="picker-label">选辆车</div>
+          <div class="vehicle-picker" role="radiogroup" aria-label="选择车辆">
+            <button class="vehicle-option is-selected" type="button" role="radio" aria-checked="true" data-vehicle="car"><b>小轿车</b><small>灵活好上手</small></button>
+            <button class="vehicle-option" type="button" role="radio" aria-checked="false" data-vehicle="van"><b>小货车</b><small>长车身慢慢挪</small></button>
+            <button class="vehicle-option" type="button" role="radio" aria-checked="false" data-vehicle="truck"><b>大卡车</b><small>大转弯有惯性</small></button>
+          </div>
+          <p class="vehicle-note" id="freeVehicleNote"></p>
+          <div class="picker-label">考试科目</div>
+          <div class="mode-picker" role="radiogroup" aria-label="选择停车科目">
+            <button class="mode-option is-selected" type="button" role="radio" aria-checked="true" data-mode="reverse">
+              <strong>倒车入库</strong><small>路肩上方车位</small>
+            </button>
+            <button class="mode-option" type="button" role="radio" aria-checked="false" data-mode="parallel">
+              <strong>侧方停车</strong><small>夹在两车之间</small>
+            </button>
+          </div>
+
+          <div class="picker-label">难度</div>
+          <div class="difficulty-picker" role="radiogroup" aria-label="选择游戏难度">
+            <button class="difficulty-option is-selected" type="button" role="radio" aria-checked="true" data-difficulty="easy">
+              <strong>简单</strong><b>100 秒</b><small>宽松车位</small>
+            </button>
+            <button class="difficulty-option" type="button" role="radio" aria-checked="false" data-difficulty="hard">
+              <strong>困难</strong><b>60 秒</b><small>绕障入库</small>
+            </button>
+            <button class="difficulty-option" type="button" role="radio" aria-checked="false" data-difficulty="hell">
+              <strong>地狱</strong><b>30 秒</b><small>紧凑车位</small>
+            </button>
+          </div>
+
+          <div class="record-board">
+            <div class="record-grid" id="recordGrid" role="grid" aria-label="全科成绩"></div>
+            <p class="record-line" id="startRecord">这一科还没有记录</p>
+          </div>
+
+          </section>
+          <div class="how-to" id="howTo">
+            <span><b>左拇指</b> 沿圆周转方向盘</span>
+            <span><b>右拇指</b> 按住前进 / 后退</span>
+          </div>
+          <button class="primary-button" id="startButton" type="button">
+            <span id="startButtonLabel">开始简单模式</span><b>→</b>
+          </button>
+          <small class="sound-note">建议打开声音 · 支持双指同时操作</small>
+        </div>
+      </section>
+
+      <section class="overlay pause-overlay" id="pauseOverlay" aria-modal="true" role="dialog" aria-labelledby="pauseTitle">
+        <div class="pause-card pause-card-with-close">
+          <button class="dialog-close" id="pauseCloseButton" type="button" aria-label="关闭暂停弹框，继续游戏" title="继续游戏">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <p class="pause-kicker">游戏已暂停</p>
+          <h2 id="pauseTitle">先停一下</h2>
+          <p class="pause-summary" id="pauseSummary">简单模式 · 剩余 100.0 秒</p>
+          <button class="primary-button pause-continue" id="continueButton" type="button">
+            <span>继续停车</span><b>→</b>
+          </button>
+          <button class="pause-secondary-button" id="pauseRestartButton" type="button">
+            <span id="pauseRestartLabel">换一张场地重开</span><b>↻</b>
+          </button>
+          <button class="pause-exit-button" id="pauseExitButton" type="button">选择其他关卡</button>
+        </div>
+      </section>
+
+      <section class="overlay switch-level-overlay" id="switchLevelOverlay" aria-modal="true" role="dialog" aria-labelledby="switchLevelTitle" aria-describedby="switchLevelCopy">
+        <div class="pause-card pause-card-with-close">
+          <button class="dialog-close" id="switchLevelClose" type="button" aria-label="返回关卡选择" title="返回选关">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <p class="pause-kicker">当前关卡已暂停</p>
+          <h2 id="switchLevelTitle">终止当前局？</h2>
+          <p class="pause-summary" id="switchLevelCopy"></p>
+          <button class="primary-button" id="switchLevelConfirm" type="button">终止并进入新关卡</button>
+          <button class="pause-secondary-button" id="switchLevelCancel" type="button">继续当前关卡</button>
+        </div>
+      </section>
+
+      <section class="overlay rescue-overlay" id="rescueOverlay" aria-modal="true" role="dialog" aria-labelledby="rescueTitle">
+        <div class="pause-card rescue-card">
+          <button class="dialog-close" id="rescueCloseButton" type="button" aria-label="收起救场弹框，保留暂停现场" title="查看现场，保留救场机会">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <p class="pause-kicker">今日救场机会</p>
+          <h2 id="rescueTitle">教练，再给几秒！</h2>
+          <p class="pause-summary" id="rescueCopy"></p>
+          <button class="primary-button" id="rescueAction" type="button">分享笔记，续时 10 秒</button>
+          <p class="rescue-status" id="rescueStatus" aria-live="polite"></p>
+          <button class="pause-exit-button" id="rescueDecline" type="button">不用了，接受挑战失败</button>
+        </div>
+      </section>
+
+      <section class="overlay result-overlay" id="resultOverlay" aria-live="assertive" aria-modal="true" role="dialog" aria-labelledby="resultTitle">
+        <div class="result-card" id="resultCard">
+          <button class="dialog-close" id="resultCloseButton" type="button" aria-label="收起结算，查看停车现场" title="查看停车现场">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <p class="result-kicker" id="resultKicker">挑战结束</p>
+          <h2 id="resultTitle">停进去了！</h2>
+          <p id="resultCopy">这把有点东西。</p>
+          <p class="result-beat" id="resultBeat" hidden></p>
+          <div class="result-stars" id="resultStars" aria-label="本局评价"></div>
+          <p class="result-star-rule" id="resultStarRule">三星：零碰撞且 42 秒内</p>
+          <div class="result-stat">
+            <span>净用时</span>
+            <b id="resultTime">00.0 秒</b>
+          </div>
+          <div class="result-meta">
+            <span>罚时 <b id="resultPenalty">0.0</b> 秒</span>
+            <span>撞击 <b id="resultHits">0</b> 次</span>
+            <span>剐蹭 <b id="resultScrapes">0</b> 次</span>
+          </div>
+          <p class="result-record" id="resultRecord"></p>
+          <div class="next-level" id="nextLevel" hidden>
+            <span>通关推荐 · 下一关</span>
+            <strong id="nextLevelTitle">困难模式</strong>
+            <small id="nextLevelCopy">60 秒 · 路障变多</small>
+            <button class="primary-button next-level-button" id="nextDifficultyButton" type="button">
+              <span>直接挑战</span><b>→</b>
+            </button>
+          </div>
+          <div class="next-level is-graduation" id="graduation" hidden>
+            <span>全科毕业</span>
+            <strong id="graduationTitle">考核通过了</strong>
+            <small id="graduationCopy">6 / 6 通关</small>
+          </div>
+          <button class="primary-button" id="restartButton" type="button">
+            <span id="restartButtonLabel">再停一次</span><b>↻</b>
+          </button>
+          <button class="share-action" id="shareXhsButton" type="button">
+            <b id="shareXhsLabel">分享战绩</b>
+          </button>
+          <button class="pause-secondary-button result-rescue" id="resultRescueButton" type="button" hidden>分享笔记，返回现场</button>
+          <div class="result-foot">
+            <button class="result-foot-link" id="changeDifficultyButton" type="button">返回关卡选择</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="overlay rotate-overlay" id="rotateOverlay" aria-hidden="true">
+        <div class="rotate-card">
+          <button class="dialog-close" id="rotateCloseButton" type="button" aria-label="收起竖屏提示，游戏保持暂停" title="收起提示">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <strong>请竖屏游玩</strong>
+          <p>这门考试要竖着握手机，转回竖屏后再继续。</p>
+        </div>
+      </section>
+    </main>
+    <script src="./challenges.js?v=advanced-training-20261025"></script>
+    <script src="./app.js?v=share-failed-stamp-20261026"></script>
+  </body>
+</html>

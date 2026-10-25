@@ -1,0 +1,34 @@
+[
+  {
+    "width": 390,
+    "height": 844,
+    "type": "van",
+    "carLength": 77.53846153846153,
+    "loaded": 4,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "type": "truck",
+    "carLength": 124.06153846153846,
+    "loaded": 4,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "type": "van",
+    "carLength": 55.77142857142857,
+    "loaded": 4,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 568,
+    "type": "truck",
+    "carLength": 89.23428571428572,
+    "loaded": 4,
+    "errors": []
+  }
+]

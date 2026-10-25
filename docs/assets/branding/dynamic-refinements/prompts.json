@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-26",
+  "tool": "built-in image_gen",
+  "reference": "reference.png",
+  "scope": "Four subtle variations of the user-selected orange drifting car logo. Existing production logo unchanged.",
+  "assets": [
+    {
+      "id": "A",
+      "name": "短胖小车",
+      "slug": "chubby",
+      "change": "Slightly shorten the car body by about 12 percent and make it 8 percent wider, with a gently larger cabin, giving a compact mischievous toy-car silhouette. Keep the exact same orange model features, window colors, headlights and rear lights. Wheels remain chunky but within an anatomically coherent four-wheel layout. Keep the same pose, skid marks and parking bay.",
+      "prompt": "Use case: logo-brand refinement / precise-object-edit.\nAsset: ONE final 1:1 square app icon, target 1024x1024.\nInput image 1 is the EDIT TARGET selected by the user. Make a SMALL, controlled variation of this exact logo, NOT a new concept. Preserve at least 85–90 percent of its recognizable identity.\nINVARIANTS: yellow full-bleed background, a single bright orange compact car with dark teal windows and red rear lights, front pointing toward upper right and tail toward lower left, thick black cartoon contours and hard black shadow, energetic countersteered parking drift, cream smoke near the rear-left, two curved tire streaks sweeping around the bottom-left, cream angular parking bay behind/beneath the car, no text. Retain the neo-brutalist attitude, vivid color blocks, sharp contrast and strong square-icon silhouette. No face, person, extra car, border, mockup or watermark. No new objects. Keep full car visible.\nOnly make the following targeted variation; keep other details and overall composition very close to the reference:\nSlightly shorten the car body by about 12 percent and make it 8 percent wider, with a gently larger cabin, giving a compact mischievous toy-car silhouette. Keep the exact same orange model features, window colors, headlights and rear lights. Wheels remain chunky but within an anatomically coherent four-wheel layout. Keep the same pose, skid marks and parking bay.",
+      "file": "A-chubby.png",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-2bc2bf26-894f-4775-9b71-ba86d89e9ef8.png",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": "B",
+      "name": "急转甩尾",
+      "slug": "sharper-turn",
+      "change": "Increase the dynamic turning gesture slightly: rotate the car about 10 degrees clockwise within essentially the same composition, show the front tires countersteering a little more clearly, and let the tail swing a little farther left. Adjust the existing curved skid marks to follow that coherent sharper turn. Keep the car shape, size, palette, cream smoke and parking bay close to the reference; do not invent extra speed effects.",
+      "prompt": "Use case: logo-brand refinement / precise-object-edit.\nAsset: ONE final 1:1 square app icon, target 1024x1024.\nInput image 1 is the EDIT TARGET selected by the user. Make a SMALL, controlled variation of this exact logo, NOT a new concept. Preserve at least 85–90 percent of its recognizable identity.\nINVARIANTS: yellow full-bleed background, a single bright orange compact car with dark teal windows and red rear lights, front pointing toward upper right and tail toward lower left, thick black cartoon contours and hard black shadow, energetic countersteered parking drift, cream smoke near the rear-left, two curved tire streaks sweeping around the bottom-left, cream angular parking bay behind/beneath the car, no text. Retain the neo-brutalist attitude, vivid color blocks, sharp contrast and strong square-icon silhouette. No face, person, extra car, border, mockup or watermark. No new objects. Keep full car visible.\nOnly make the following targeted variation; keep other details and overall composition very close to the reference:\nIncrease the dynamic turning gesture slightly: rotate the car about 10 degrees clockwise within essentially the same composition, show the front tires countersteering a little more clearly, and let the tail swing a little farther left. Adjust the existing curved skid marks to follow that coherent sharper turn. Keep the car shape, size, palette, cream smoke and parking bay close to the reference; do not invent extra speed effects.",
+      "file": "B-sharper-turn.png",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-8dd76ac8-9a85-48b3-8a27-15252ab5c2d3.png",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": "C",
+      "name": "利落动线",
+      "slug": "clean-motion",
+      "change": "Keep the car, pose, silhouette and parking bay almost EXACTLY unchanged. Clean up only the surrounding movement graphics for stronger tiny-icon legibility: replace scratchy tire-streak edges with two confident solid tapered black arcs, reduce smoke to three compact connected cream puffs, remove scattered tiny specks, and keep just two broad orange speed slashes. Maintain the lively sweeping gesture, not a static car. Flat crisp ink shapes, less visual noise.",
+      "prompt": "Use case: logo-brand refinement / precise-object-edit.\nAsset: ONE final 1:1 square app icon, target 1024x1024.\nInput image 1 is the EDIT TARGET selected by the user. Make a SMALL, controlled variation of this exact logo, NOT a new concept. Preserve at least 85–90 percent of its recognizable identity.\nINVARIANTS: yellow full-bleed background, a single bright orange compact car with dark teal windows and red rear lights, front pointing toward upper right and tail toward lower left, thick black cartoon contours and hard black shadow, energetic countersteered parking drift, cream smoke near the rear-left, two curved tire streaks sweeping around the bottom-left, cream angular parking bay behind/beneath the car, no text. Retain the neo-brutalist attitude, vivid color blocks, sharp contrast and strong square-icon silhouette. No face, person, extra car, border, mockup or watermark. No new objects. Keep full car visible.\nOnly make the following targeted variation; keep other details and overall composition very close to the reference:\nKeep the car, pose, silhouette and parking bay almost EXACTLY unchanged. Clean up only the surrounding movement graphics for stronger tiny-icon legibility: replace scratchy tire-streak edges with two confident solid tapered black arcs, reduce smoke to three compact connected cream puffs, remove scattered tiny specks, and keep just two broad orange speed slashes. Maintain the lively sweeping gesture, not a static car. Flat crisp ink shapes, less visual noise.",
+      "file": "C-clean-motion.png",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-c8466112-6648-4276-9729-ece7ceb7d7cc.png",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": "D",
+      "name": "粗线车位",
+      "slug": "bold-bay",
+      "change": "Keep the car shape, scale, angle, windows and colors nearly EXACTLY unchanged. Make the parking-bay geometry about 20 percent bolder and more deliberately neo-brutalist: thicker cream angular bay strokes, squarer corners, a crisp clearly separated black hard offset shadow. Tilt the bay a few degrees counterclockwise so its geometric tension with the drifting car is stronger. Slightly simplify only the smallest car highlights; preserve the original motion arcs and cream smoke.",
+      "prompt": "Use case: logo-brand refinement / precise-object-edit.\nAsset: ONE final 1:1 square app icon, target 1024x1024.\nInput image 1 is the EDIT TARGET selected by the user. Make a SMALL, controlled variation of this exact logo, NOT a new concept. Preserve at least 85–90 percent of its recognizable identity.\nINVARIANTS: yellow full-bleed background, a single bright orange compact car with dark teal windows and red rear lights, front pointing toward upper right and tail toward lower left, thick black cartoon contours and hard black shadow, energetic countersteered parking drift, cream smoke near the rear-left, two curved tire streaks sweeping around the bottom-left, cream angular parking bay behind/beneath the car, no text. Retain the neo-brutalist attitude, vivid color blocks, sharp contrast and strong square-icon silhouette. No face, person, extra car, border, mockup or watermark. No new objects. Keep full car visible.\nOnly make the following targeted variation; keep other details and overall composition very close to the reference:\nKeep the car shape, scale, angle, windows and colors nearly EXACTLY unchanged. Make the parking-bay geometry about 20 percent bolder and more deliberately neo-brutalist: thicker cream angular bay strokes, squarer corners, a crisp clearly separated black hard offset shadow. Tilt the bay a few degrees counterclockwise so its geometric tension with the drifting car is stronger. Slightly simplify only the smallest car highlights; preserve the original motion arcs and cream smoke.",
+      "file": "D-bold-bay.png",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-b7fce5b0-fe5a-44d1-8306-8a3edcc11f08.png",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ]
+}

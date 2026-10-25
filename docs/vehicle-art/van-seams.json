@@ -1,0 +1,202 @@
+{
+  "assets": {
+    "van": {
+      "name": "van",
+      "source": "/Users/ailln/Workspace/my/github/parking-game/docs/vehicle-art/van-seam-review.png",
+      "prompt": "Use case: precise-object-edit. Generate exactly ONE review candidate of the orange/ivory SMALL DELIVERY TRUCK, no other color variants or vehicles. Image 1 is the EDIT TARGET: our existing shorter-cab/longer-cargo sprite. Image 2 is a supporting reference ONLY for the subtle recessed connector seam between cargo and cab; do NOT copy its longer cab or shorter cargo. Primary request: at the junction between the LEFT ivory cargo box and RIGHT orange cab, preserve a small visible transition instead of joining both blocks completely flush. Add a narrow recessed charcoal/dark-gray chassis connector gap, about 1.5-2 percent of total truck length, bounded by the existing bold black outlines; slightly inset at top and bottom so cargo and cab read as two separate connected parts. A single restrained gray highlight on this connector is enough, no machinery or new panel details. This should be a subtle short transition, NOT a long exposed chassis or trailer joint. Keep Image 1's shorter cab and longer cargo, exact overall bumper-to-bumper length and width and silhouette aspect. Accommodate this tiny connector inside the existing total length. Preserve existing square cargo rear, warm ivory box, orange cab, pale mint windshield with one cream reflection and wiper, cream front lights RIGHT, red tail lights LEFT, simple dark wheel tabs, and tiny orange mirrors INSIDE outermost tire edges. Same crisp simple top-down mobile game illustration, thick consistent black contour, sparse broad colors, front RIGHT, bilateral symmetry, no perspective or sidewalls. Genuine alpha TRANSPARENT background, one whole truck only, landscape framing with margins. No text, logo, badge, ground shadow, glow, halo, comparison layout, extra objects, or other variants. Change only the small cargo-to-cab transition; preserve the selected short cab proportions.",
+      "path": "src/assets/vehicles/seam-van.png",
+      "crop": [
+        10,
+        15,
+        1802,
+        836
+      ],
+      "sourceSize": [
+        1805,
+        871
+      ],
+      "size": [
+        512,
+        235
+      ],
+      "bodyBounds": [
+        11,
+        77,
+        1800,
+        772
+      ],
+      "frame": {
+        "x": 0.285714,
+        "y": 17.714286,
+        "width": 511.142857,
+        "height": 198.571429
+      },
+      "renderedBody": [
+        80,
+        31.078815
+      ],
+      "mirrorCheck": {
+        "tires": [
+          0,
+          235
+        ],
+        "mirrors": [
+          7,
+          230
+        ],
+        "passed": true
+      }
+    },
+    "van-blue": {
+      "name": "van-blue",
+      "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-6fba852f-b1d3-411a-bb12-a968e1b7e1ac.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is the APPROVED production small delivery truck edit target. Image 2 is a color reference ONLY for the blue cab paint. Make ONE paint variant of Image 1: change ONLY the orange CAB and tiny orange mirror paint to muted denim blue #658fc0, with subtle tonal shading matching Image 2. Keep the warm ivory cargo box unchanged. CRITICAL: preserve EXACT Image 1 geometry, short cab/long cargo proportions, body length and width, flat square cargo rear, narrow recessed dark gray connector between cargo and cab with its restrained gray highlight, all wheel positions, pale mint windshield/single cream reflection/wiper, cream right headlights, red left taillights, thick black contours, tiny mirrors INSIDE tire outer edges, and transparent alpha. Do not close or widen the connector gap. Do not copy Image 2 geometry. No cargo/cab resizing, no longer cab, no new hardware, no perspective or sidewalls, no texture/detail, no text/logo/shadow/glow/halo. Strict symmetric orthographic top-down, front RIGHT. A single whole vehicle, exact same framing and silhouette as Image 1; only orange paint changes to muted denim blue #658fc0.",
+      "path": "src/assets/vehicles/seam-van-blue.png",
+      "crop": [
+        9,
+        14,
+        1803,
+        838
+      ],
+      "sourceSize": [
+        1806,
+        871
+      ],
+      "size": [
+        512,
+        235
+      ],
+      "bodyBounds": [
+        10,
+        77,
+        1803,
+        773
+      ],
+      "frame": {
+        "x": 0.285396,
+        "y": 17.979933,
+        "width": 511.714604,
+        "height": 198.635452
+      },
+      "renderedBody": [
+        80,
+        31.054099
+      ],
+      "mirrorCheck": {
+        "tires": [
+          0,
+          235
+        ],
+        "mirrors": [
+          7,
+          230
+        ],
+        "passed": true
+      }
+    },
+    "van-sage": {
+      "name": "van-sage",
+      "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-578ccc0f-049a-4af7-975b-394b944ed259.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is the APPROVED production small delivery truck edit target. Image 2 is a color reference ONLY for the sage cab paint. Make ONE paint variant of Image 1: change ONLY the orange CAB and tiny orange mirror paint to soft sage green #91a77c, with subtle tonal shading matching Image 2. Keep the warm ivory cargo box unchanged. CRITICAL: preserve EXACT Image 1 geometry, short cab/long cargo proportions, body length and width, flat square cargo rear, narrow recessed dark gray connector between cargo and cab with its restrained gray highlight, all wheel positions, pale mint windshield/single cream reflection/wiper, cream right headlights, red left taillights, thick black contours, tiny mirrors INSIDE tire outer edges, and transparent alpha. Do not close or widen the connector gap. Do not copy Image 2 geometry. No cargo/cab resizing, no longer cab, no new hardware, no perspective or sidewalls, no texture/detail, no text/logo/shadow/glow/halo. Strict symmetric orthographic top-down, front RIGHT. A single whole vehicle, exact same framing and silhouette as Image 1; only orange paint changes to soft sage green #91a77c.",
+      "path": "src/assets/vehicles/seam-van-sage.png",
+      "crop": [
+        11,
+        13,
+        1806,
+        837
+      ],
+      "sourceSize": [
+        1806,
+        871
+      ],
+      "size": [
+        512,
+        235
+      ],
+      "bodyBounds": [
+        12,
+        77,
+        1806,
+        772
+      ],
+      "frame": {
+        "x": 0.285237,
+        "y": 18.255153,
+        "width": 511.714763,
+        "height": 198.239554
+      },
+      "renderedBody": [
+        80,
+        30.992196
+      ],
+      "mirrorCheck": {
+        "tires": [
+          0,
+          235
+        ],
+        "mirrors": [
+          8,
+          231
+        ],
+        "passed": true
+      }
+    },
+    "van-lavender": {
+      "name": "van-lavender",
+      "source": "/Users/ailln/.codex/generated_images/01a172eb-ba88-72b0-bca2-c070296b8402/exec-9a4065e2-9b03-43a5-820d-f2d5ff57df72.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is the APPROVED production small delivery truck edit target. Image 2 is a color reference ONLY for the lavender cab paint. Make ONE paint variant of Image 1: change ONLY the orange CAB and tiny orange mirror paint to muted lavender purple #a58cbb, with subtle tonal shading matching Image 2. Keep the warm ivory cargo box unchanged. CRITICAL: preserve EXACT Image 1 geometry, short cab/long cargo proportions, body length and width, flat square cargo rear, narrow recessed dark gray connector between cargo and cab with its restrained gray highlight, all wheel positions, pale mint windshield/single cream reflection/wiper, cream right headlights, red left taillights, thick black contours, tiny mirrors INSIDE tire outer edges, and transparent alpha. Do not close or widen the connector gap. Do not copy Image 2 geometry. No cargo/cab resizing, no longer cab, no new hardware, no perspective or sidewalls, no texture/detail, no text/logo/shadow/glow/halo. Strict symmetric orthographic top-down, front RIGHT. A single whole vehicle, exact same framing and silhouette as Image 1; only orange paint changes to muted lavender purple #a58cbb.",
+      "path": "src/assets/vehicles/seam-van-lavender.png",
+      "crop": [
+        9,
+        15,
+        1803,
+        836
+      ],
+      "sourceSize": [
+        1805,
+        871
+      ],
+      "size": [
+        512,
+        234
+      ],
+      "bodyBounds": [
+        11,
+        78,
+        1801,
+        771
+      ],
+      "frame": {
+        "x": 0.570792,
+        "y": 17.979933,
+        "width": 510.858417,
+        "height": 197.779264
+      },
+      "renderedBody": [
+        80,
+        30.972067
+      ],
+      "mirrorCheck": {
+        "tires": [
+          0,
+          234
+        ],
+        "mirrors": [
+          7,
+          229
+        ],
+        "passed": true
+      }
+    }
+  },
+  "truckHashesUnchanged": {
+    "short-cab-truck.png": "e5454e9e2630a39a6700d7f7c82bccf549eb6e843ca95731326177cc067ff76b",
+    "mirror-truck-sage.png": "09c4c0918f97faa2e872fa53845dd110c3e157f03ce9ff470609cedff2e54117",
+    "short-cab-truck-sage.png": "08027d30ff2c94afe0c696894d583ce2e6c81f13294ba17a1b2c20a1892769bc",
+    "mirror-truck.png": "a180cd18bba52b26613c595cfb3074f81ea23f2fc52bac9a84feaaca23581271",
+    "mirror-truck-coral.png": "85b3d5740d83ad6e6f027d9a2a77b6611564223c977570c1c10b1a7021fc911d",
+    "short-cab-truck-ochre.png": "3e868c08916d1f58079b450b1a4bef4f3f5ef3bef1186846b3bd53ae4e424d36",
+    "mirror-truck-ochre.png": "1144ecc4f6e2af9e4f5a901b1e89151ac010517917a814d576c7482c95765c62",
+    "short-cab-truck-coral.png": "6d19b0920a60199c4eb8e35242427f336429dbc723e7ffaab46b4d2641c83fd4"
+  }
+}

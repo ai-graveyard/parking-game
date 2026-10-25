@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-26",
+  "tool": "built-in image_gen",
+  "purpose": "Ten independent neo-brutalist logo explorations for user selection; not applied to production.",
+  "assets": [
+    {
+      "id": "01",
+      "name": "甩尾入库",
+      "slug": "skid",
+      "brief": "Electric yellow background, orange and cream. A huge flat top-down orange compact car doing a tight reversing skid into a cream angular parking bay. An exaggerated S-shaped black tire streak and two compact cream smoke puffs sweep around the lower side, strong diagonal car pose, conspicuously countersteered front wheels. Car is the hero. As graphic and flat as a bold skate sticker. NO text, no question mark.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Electric yellow background, orange and cream. A huge flat top-down orange compact car doing a tight reversing skid into a cream angular parking bay. An exaggerated S-shaped black tire streak and two compact cream smoke puffs sweep around the lower side, strong diagonal car pose, conspicuously countersteered front wheels. Car is the hero. As graphic and flat as a bold skate sticker. NO text, no question mark.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-d8ef27e3-84f8-467c-ab6c-411759a50bf6.png",
+      "file": "01-skid.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "02",
+      "name": "猛打方向",
+      "slug": "steering",
+      "brief": "Acid-lime background, black, warm cream and orange. The subject is an OVERSIZED three-spoke steering wheel spinning violently at an angle, a black thick circular ring with orange center hub and offset hard shadow. One short broad cream/black rotational swoosh and orange vibration ticks show the spin. A tiny simplified orange car silhouette is integrated into the central hub, clearly parking-game related. Do not depict a large external car. NO words or numbers. Striking emblematic circular form.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Acid-lime background, black, warm cream and orange. The subject is an OVERSIZED three-spoke steering wheel spinning violently at an angle, a black thick circular ring with orange center hub and offset hard shadow. One short broad cream/black rotational swoosh and orange vibration ticks show the spin. A tiny simplified orange car silhouette is integrated into the central hub, clearly parking-game related. Do not depict a large external car. NO words or numbers. Striking emblematic circular form.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-edcd2383-4315-4d2e-acf7-6da7c09687c1.png",
+      "file": "02-steering.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "03",
+      "name": "车位迷宫",
+      "slug": "maze",
+      "brief": "Cobalt-blue background, cream maze walls, orange tiny hero car, ink black. A bold square labyrinth of only four or five very chunky turns, viewed strictly top down. A tiny orange car has almost reached one empty orange parking bay at the center. A thick dynamic angular path is implied by the negative space, not by thin dotted detail. Icon is the MAZE geometry itself, not a close-up vehicle. Asymmetrical blocky urban graphic, one hard black extruded shadow. No text, no letters, no question mark.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Cobalt-blue background, cream maze walls, orange tiny hero car, ink black. A bold square labyrinth of only four or five very chunky turns, viewed strictly top down. A tiny orange car has almost reached one empty orange parking bay at the center. A thick dynamic angular path is implied by the negative space, not by thin dotted detail. Icon is the MAZE geometry itself, not a close-up vehicle. Asymmetrical blocky urban graphic, one hard black extruded shadow. No text, no letters, no question mark.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-c7596538-3c6c-495d-a1fa-5ff2c2d1222e.png",
+      "file": "03-maze.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "04",
+      "name": "撞墙漫画",
+      "slug": "bonk",
+      "brief": "Hot coral-pink background, cream, yellow and black. A short chunky orange/yellow compact car shown from a low overhead three-quarter angle has just gently BONKED a short black/yellow striped curb, its bumper squashed comically by one inch, body pitched with a big angular black/cream comic impact burst and one detached little headlight-like spark shape. Car stays charming and intact. One bold impact moment rather than speed racing. This is slapstick parking, not a crash disaster. No smoke hiding the vehicle. NO letters or words.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Hot coral-pink background, cream, yellow and black. A short chunky orange/yellow compact car shown from a low overhead three-quarter angle has just gently BONKED a short black/yellow striped curb, its bumper squashed comically by one inch, body pitched with a big angular black/cream comic impact burst and one detached little headlight-like spark shape. Car stays charming and intact. One bold impact moment rather than speed racing. This is slapstick parking, not a crash disaster. No smoke hiding the vehicle. NO letters or words.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-eeadf1d5-dc24-42a7-9fa1-5c08ceabcd73.png",
+      "file": "04-bonk.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "05",
+      "name": "停车钢印",
+      "slug": "stamp",
+      "brief": "Warm cream background with a strong signal-orange square tilted stamp block occupying most of the frame. The central logo is the ONE enormous Chinese character exactly '停', hand-cut brutalist black display lettering with cream negative space, no other characters. One short bold black tire-track slash crosses just behind the stamp corner, and a tiny simplified cream top-view car is integrated into the bottom edge. Raw punchy official driving-school rubber-stamp energy, stamped off-register hard offset shadow, crisp NOT grunge.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Warm cream background with a strong signal-orange square tilted stamp block occupying most of the frame. The central logo is the ONE enormous Chinese character exactly '停', hand-cut brutalist black display lettering with cream negative space, no other characters. One short bold black tire-track slash crosses just behind the stamp corner, and a tiny simplified cream top-view car is integrated into the bottom edge. Raw punchy official driving-school rubber-stamp energy, stamped off-register hard offset shadow, crisp NOT grunge.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-1325c6ba-b377-4387-81ec-072b415c10ed.png",
+      "file": "05-stamp.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "06",
+      "name": "挑衅字标",
+      "slug": "wordmark",
+      "brief": "Orange-red background, warm cream, near-black and one yellow accent. TYPOGRAPHY-LED logo, almost no illustration. Exact Chinese game name in two tightly stacked lines: first line '会停车', second line '吗你？'. All characters must be correct, complete and legible, hugely bold custom condensed Chinese block letters, cream faces with thick black contour and dramatic hard black extrusion to lower right. Slightly wonky playful angles, second line has an oversized yellow question mark. A single tiny cream parking underline/bay bracket integrates beneath. No additional copy, no other symbols.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Orange-red background, warm cream, near-black and one yellow accent. TYPOGRAPHY-LED logo, almost no illustration. Exact Chinese game name in two tightly stacked lines: first line '会停车', second line '吗你？'. All characters must be correct, complete and legible, hugely bold custom condensed Chinese block letters, cream faces with thick black contour and dramatic hard black extrusion to lower right. Slightly wonky playful angles, second line has an oversized yellow question mark. A single tiny cream parking underline/bay bracket integrates beneath. No additional copy, no other symbols.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-784716b2-0981-470c-b490-dee4f10eaf22.png",
+      "file": "06-wordmark.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "07",
+      "name": "负形停车",
+      "slug": "negative_p",
+      "brief": "Mint-green background, near-black, cream and orange. A highly reduced clever graphic monogram: one massive black letter 'P' built from rectangular road/parking-bay geometry, with a small ORANGE CAR silhouette cut into its cream upper counter. The black P is tilted slightly forward and casts a chunky hard cream/black offset shadow. One short orange motion slash at its foot. Nearly pictographic, iconic negative space, not an illustration scene. Only the letter P, no other text or question mark, no maze detail.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Mint-green background, near-black, cream and orange. A highly reduced clever graphic monogram: one massive black letter 'P' built from rectangular road/parking-bay geometry, with a small ORANGE CAR silhouette cut into its cream upper counter. The black P is tilted slightly forward and casts a chunky hard cream/black offset shadow. One short orange motion slash at its foot. Nearly pictographic, iconic negative space, not an illustration scene. Only the letter P, no other text or question mark, no maze detail.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-b94c474f-8f64-4d79-8a03-6d3fc7e84a72.png",
+      "file": "07-negative_p.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "08",
+      "name": "方块小车",
+      "slug": "block_car",
+      "brief": "Lavender-purple background, orange, warm cream and near-black. A charming block-built compact car, exaggerated SHORT cube body and gigantic square cabin, seen in isometric perspective, the whole car tilting into a matching cream L-shaped parking slab. Deliberately toy-like angular geometry, four chunky black wheels, flat orange faces separated by heavy black edges. Entire slab and car have one aggressive hard offset black shadow, not realistic lighting. One simple stepped zigzag behind the car suggests a sudden reverse. No text, no round glossy racing-car rendering.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Lavender-purple background, orange, warm cream and near-black. A charming block-built compact car, exaggerated SHORT cube body and gigantic square cabin, seen in isometric perspective, the whole car tilting into a matching cream L-shaped parking slab. Deliberately toy-like angular geometry, four chunky black wheels, flat orange faces separated by heavy black edges. Entire slab and car have one aggressive hard offset black shadow, not realistic lighting. One simple stepped zigzag behind the car suggests a sudden reverse. No text, no round glossy racing-car rendering.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-f50df8a6-dcc6-43f2-afa5-7b51b1f1e2b3.png",
+      "file": "08-block_car.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "09",
+      "name": "急刹一脚",
+      "slug": "brake",
+      "brief": "Signal-yellow background, black, cream and coral orange. Gameplay-control icon concept: two huge graphic pedals side by side; one tall black throttle pedal with a cream UP ARROW and one coral-orange brake pedal with a bold black DOWN ARROW. A chunky cream sneaker is stomping the orange brake, captured in an energetic diagonal, small black impact ticks and displaced pedal shape convey action. A tiny simple black P parking placard is integrated in an upper corner for context. No big car, no steering wheel, no human body, no words. Bold geometric crop but all key controls readable.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Signal-yellow background, black, cream and coral orange. Gameplay-control icon concept: two huge graphic pedals side by side; one tall black throttle pedal with a cream UP ARROW and one coral-orange brake pedal with a bold black DOWN ARROW. A chunky cream sneaker is stomping the orange brake, captured in an energetic diagonal, small black impact ticks and displaced pedal shape convey action. A tiny simple black P parking placard is integrated in an upper corner for context. No big car, no steering wheel, no human body, no words. Bold geometric crop but all key controls readable.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-de51595d-e9b6-4cfe-8744-cb4bfb6852eb.png",
+      "file": "09-brake.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "10",
+      "name": "夹缝求生",
+      "slug": "tight_bay",
+      "brief": "Warm cream background, near-black, bright orange and cobalt blue. THREE flat top-down compact cars create the entire logo: two massive blue parked cars form almost wall-like vertical blocks at left and right, while a short bright-orange car twists at a sharp diagonal in the extremely tight central parking bay. Thick black outlines, angular white parking corner marks and ONE bold orange/black zigzag squeeze stroke create visual comic tension. The composition is a compact memorable interlocking three-block symbol, not a detailed scene. No text or question marks, no gradients.",
+      "prompt": "Use case: logo-brand. Asset: ONE finished square 1:1 app logo/icon for the Chinese parking game 《会停车吗你》, target 1024x1024.\nMANDATORY STYLE: unmistakable contemporary NEO-BRUTALISM: extremely bold near-black contours, flat solid high-contrast color blocks, oversized geometric silhouette, chunky deliberately imperfect print-cut shapes, one hard offset black shadow, visually punchy and a little irreverent. Screen-printed graphic design, not a generic polished mobile-game illustration. Clear at 64 pixels. Strong energetic diagonal or visual tension. Keep important parts inside an 8% outer safe margin; full-bleed opaque background, square edges, no mockup or outer rounded app frame.\nUse only 3–4 flat colors plus near-black. NO gradients, airbrush, realistic materials, glossy 3D, soft shadows, lens effects, excessive texture, tiny ornamental details, watermarks, brand names, or a design sheet. ONE cohesive icon per image. Warm cream background, near-black, bright orange and cobalt blue. THREE flat top-down compact cars create the entire logo: two massive blue parked cars form almost wall-like vertical blocks at left and right, while a short bright-orange car twists at a sharp diagonal in the extremely tight central parking bay. Thick black outlines, angular white parking corner marks and ONE bold orange/black zigzag squeeze stroke create visual comic tension. The composition is a compact memorable interlocking three-block symbol, not a detailed scene. No text or question marks, no gradients.",
+      "source": "/Users/ailln/.codex/generated_images/01a173cc-8b8a-7362-a74b-8d9a180df7b2/exec-26936d4b-771b-4095-9ada-1f978ed466b3.png",
+      "file": "10-tight_bay.png",
+      "width": 1024,
+      "height": 1024
+    }
+  ]
+}

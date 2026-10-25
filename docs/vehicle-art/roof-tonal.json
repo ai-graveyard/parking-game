@@ -1,0 +1,24 @@
+{
+  "source": "/Users/ailln/.codex/generated_images/01a16723-91d5-7520-8094-b0ef486d308f/exec-e2012bec-5123-4e7a-99c6-5a9fda59c3d7.png",
+  "sourceSize": [
+    1768,
+    889
+  ],
+  "path": "src/assets/vehicles/car-roof-tonal.png",
+  "size": [
+    640,
+    320
+  ],
+  "crop": [
+    1,
+    1,
+    1763,
+    883
+  ],
+  "frame": {
+    "x": 1.089671,
+    "y": -6.206386,
+    "width": 637.820658,
+    "height": 332.775996
+  }
+}
